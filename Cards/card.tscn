@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsmcwu7vwemfd"]
+
+[ext_resource type="Script" path="res://card.gd" id="1_dnyh6"]
+[ext_resource type="Resource" uid="uid://qoywkxvppsxg" path="res://Cards/Punch.tres" id="2_2hwwa"]
+
+[node name="Card" type="Node2D"]
+script = ExtResource("1_dnyh6")
+card_to_load = ExtResource("2_2hwwa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="ValueText" type="RichTextLabel" parent="."]
+offset_left = -10.0
+offset_top = 8.0
+offset_right = 30.0
+offset_bottom = 48.0
+
+[node name="APText" type="RichTextLabel" parent="."]
+offset_left = -10.0
+offset_top = 26.0
+offset_right = 30.0
+offset_bottom = 66.0
+
+[node name="NameText" type="RichTextLabel" parent="."]
+offset_left = -18.0
+offset_top = -1.0
+offset_right = 22.0
+offset_bottom = 39.0
+theme_override_font_sizes/normal_font_size = 12
