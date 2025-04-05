@@ -1,16 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://00j8uiau2xfb"]
+[gd_scene load_steps=4 format=3 uid="uid://00j8uiau2xfb"]
 
 [ext_resource type="PackedScene" uid="uid://dsmcwu7vwemfd" path="res://Cards/card.tscn" id="1_ew7hs"]
 [ext_resource type="Resource" uid="uid://cpw10blpmwqap" path="res://Cards/Dodgeball.tres" id="2_mhasl"]
+[ext_resource type="Resource" uid="uid://cp2p2u4du2ao7" path="res://Cards/BallaBomb.tres" id="3_80vn7"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Card" parent="." instance=ExtResource("1_ew7hs")]
-position = Vector2(200, 287)
+position = Vector2(59, 285)
 
 [node name="Card2" parent="." instance=ExtResource("1_ew7hs")]
-position = Vector2(443, 288)
+position = Vector2(302, 286)
 card_to_load = ExtResource("2_mhasl")
 
 [node name="Card3" parent="." instance=ExtResource("1_ew7hs")]
-position = Vector2(643, 286)
+position = Vector2(502, 284)
+card_to_load = ExtResource("3_80vn7")
