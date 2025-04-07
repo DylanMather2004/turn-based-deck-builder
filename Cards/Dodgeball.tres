@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://cpw10blpmwqap"]
 
-[ext_resource type="Script" path="res://GenericCard.gd" id="1_37ud7"]
+[ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="1_37ud7"]
 [ext_resource type="Texture2D" uid="uid://dxjc5aogt05d1" path="res://Sprites/Card Sprites/Dodge_Ball.png" id="1_p80qv"]
 
 [resource]

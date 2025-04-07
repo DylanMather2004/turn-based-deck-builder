@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cngjaluqxxw8t"]
+
+[ext_resource type="PackedScene" uid="uid://sw0v4ybdaltf" path="res://Prefabs/Player.tscn" id="1_snjpm"]
+
+[node name="Player Loader Test" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_snjpm")]
+position = Vector2(122, 162)
