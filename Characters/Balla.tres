@@ -12,5 +12,5 @@ script = ExtResource("1_j8we1")
 character_name = "Balla"
 sprite_sheet = ExtResource("6_rn4eq")
 health = 100
-ap = 20
+ap = 10
 deck = Array[ExtResource("1_luhts")]([ExtResource("2_nxlpf"), ExtResource("2_nxlpf"), ExtResource("2_nxlpf"), ExtResource("3_wfuys"), ExtResource("3_wfuys"), ExtResource("3_wfuys"), ExtResource("4_l7eei")])

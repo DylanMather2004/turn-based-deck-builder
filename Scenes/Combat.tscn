@@ -1,14 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpmb3mos3pqsu"]
+[gd_scene load_steps=14 format=3 uid="uid://cpmb3mos3pqsu"]
 
 [ext_resource type="PackedScene" uid="uid://sw0v4ybdaltf" path="res://Prefabs/Player.tscn" id="1_4hjge"]
 [ext_resource type="Texture2D" uid="uid://why4j78o0ygw" path="res://Sprites/white-square-32x32.png" id="2_i526l"]
 [ext_resource type="Script" path="res://Scenes/PlayerHand.gd" id="2_n1ljg"]
+[ext_resource type="Script" path="res://Scripts/Character Scripts/Character.gd" id="4_2fetv"]
+[ext_resource type="Resource" uid="uid://bu7u8pkobijiy" path="res://Characters/Balla.tres" id="5_q7evi"]
+[ext_resource type="PackedScene" uid="uid://dsmcwu7vwemfd" path="res://Prefabs/PlayerCard.tscn" id="6_syvhv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rbnj"]
+size = Vector2(464, 218)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_natyv"]
+bg_color = Color(0.099986, 0.099986, 0.099986, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dyo5r"]
+bg_color = Color(1, 0, 0.054902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k66ht"]
+bg_color = Color(0.19, 0.19, 0.19, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ip5hk"]
+bg_color = Color(0, 0.676582, 0.75256, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hk40m"]
+bg_color = Color(0.099986, 0.099986, 0.099986, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7mo4"]
+bg_color = Color(1, 0, 0, 1)
 
 [node name="Combat" type="Node2D"]
 
-[node name="Player" parent="." node_paths=PackedStringArray("hand_slot") instance=ExtResource("1_4hjge")]
+[node name="Player" parent="." node_paths=PackedStringArray("hand_slot", "healthbar", "ap_bar") instance=ExtResource("1_4hjge")]
 position = Vector2(79, 143)
 hand_slot = NodePath("../Hand")
+healthbar = NodePath("../Control/P1 UI/P1 Healthbar")
+ap_bar = NodePath("../Control/P1 UI/P1 APbar")
 
 [node name="Hand" type="Node2D" parent="." node_paths=PackedStringArray("slots")]
 position = Vector2(279, 282)
@@ -37,3 +63,82 @@ position = Vector2(105, 6)
 
 [node name="Slot 6" type="Node2D" parent="Hand"]
 position = Vector2(169, 6)
+
+[node name="Play Area" type="Area2D" parent="." groups=["play area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Play Area"]
+position = Vector2(288, 99)
+shape = SubResource("RectangleShape2D_3rbnj")
+
+[node name="TestEnemy" type="Node2D" parent="." node_paths=PackedStringArray("sprite_animator", "healthbar", "ap_bar") groups=["character"]]
+script = ExtResource("4_2fetv")
+character_resource = ExtResource("5_q7evi")
+card_template = ExtResource("6_syvhv")
+sprite_animator = NodePath("AnimatedSprite2D")
+healthbar = NodePath("../Control/P2 UI/ProgressBar2")
+ap_bar = NodePath("../Control/P2 UI/P1 APbar2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TestEnemy"]
+position = Vector2(472, 144)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 576.0
+offset_bottom = 320.0
+
+[node name="P1 UI" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 248.0
+offset_bottom = 71.0
+
+[node name="P1 Healthbar" type="ProgressBar" parent="Control/P1 UI"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 28.0
+offset_right = 202.0
+offset_bottom = 49.0
+theme_override_styles/background = SubResource("StyleBoxFlat_natyv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dyo5r")
+value = 100.0
+show_percentage = false
+
+[node name="P1 APbar" type="ProgressBar" parent="Control/P1 UI"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 53.0
+offset_right = 168.0
+offset_bottom = 67.0
+theme_override_styles/background = SubResource("StyleBoxFlat_k66ht")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ip5hk")
+value = 100.0
+show_percentage = false
+
+[node name="P2 UI" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar2" type="ProgressBar" parent="Control/P2 UI"]
+layout_mode = 0
+offset_left = 371.0
+offset_top = 28.0
+offset_right = 559.0
+offset_bottom = 49.0
+theme_override_styles/background = SubResource("StyleBoxFlat_hk40m")
+theme_override_styles/fill = SubResource("StyleBoxFlat_q7mo4")
+value = 100.0
+fill_mode = 1
+show_percentage = false
+
+[node name="P1 APbar2" type="ProgressBar" parent="Control/P2 UI"]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 53.0
+offset_right = 554.0
+offset_bottom = 67.0
+theme_override_styles/background = SubResource("StyleBoxFlat_k66ht")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ip5hk")
+value = 100.0
+fill_mode = 1
+show_percentage = false

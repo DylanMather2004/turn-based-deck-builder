@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpmb3mos3pqsu"]
+
+[ext_resource type="PackedScene" uid="uid://sw0v4ybdaltf" path="res://Prefabs/Player.tscn" id="1_4hjge"]
+[ext_resource type="Texture2D" uid="uid://why4j78o0ygw" path="res://Sprites/white-square-32x32.png" id="2_i526l"]
+[ext_resource type="Script" path="res://Scenes/PlayerHand.gd" id="2_n1ljg"]
+[ext_resource type="Script" path="res://Scripts/Character Scripts/Character.gd" id="4_2fetv"]
+[ext_resource type="Resource" uid="uid://bu7u8pkobijiy" path="res://Characters/Balla.tres" id="5_q7evi"]
+[ext_resource type="PackedScene" uid="uid://dsmcwu7vwemfd" path="res://Prefabs/PlayerCard.tscn" id="6_syvhv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rbnj"]
+size = Vector2(464, 218)
+
+[node name="Combat" type="Node2D"]
+
+[node name="Player" parent="." node_paths=PackedStringArray("hand_slot") instance=ExtResource("1_4hjge")]
+position = Vector2(79, 143)
+hand_slot = NodePath("../Hand")
+
+[node name="Hand" type="Node2D" parent="." node_paths=PackedStringArray("slots")]
+position = Vector2(279, 282)
+script = ExtResource("2_n1ljg")
+slots = [NodePath("Slot 1"), NodePath("Slot 2"), NodePath("Slot 3"), NodePath("Slot 4"), NodePath("Slot 5"), NodePath("Slot 6")]
+
+[node name="White-square-32x32" type="Sprite2D" parent="Hand"]
+position = Vector2(9, 20)
+scale = Vector2(12.76, 3.76)
+texture = ExtResource("2_i526l")
+
+[node name="Slot 1" type="Node2D" parent="Hand"]
+position = Vector2(-151, 6)
+
+[node name="Slot 2" type="Node2D" parent="Hand"]
+position = Vector2(-87, 6)
+
+[node name="Slot 3" type="Node2D" parent="Hand"]
+position = Vector2(-23, 6)
+
+[node name="Slot 4" type="Node2D" parent="Hand"]
+position = Vector2(41, 6)
+
+[node name="Slot 5" type="Node2D" parent="Hand"]
+position = Vector2(105, 6)
+
+[node name="Slot 6" type="Node2D" parent="Hand"]
+position = Vector2(169, 6)
+
+[node name="Play Area" type="Area2D" parent="." groups=["play area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Play Area"]
+position = Vector2(288, 99)
+shape = SubResource("RectangleShape2D_3rbnj")
+
+[node name="TestEnemy" type="Node2D" parent="." node_paths=PackedStringArray("sprite_animator") groups=["character"]]
+script = ExtResource("4_2fetv")
+character_resource = ExtResource("5_q7evi")
+card_template = ExtResource("6_syvhv")
+sprite_animator = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TestEnemy"]
+position = Vector2(472, 144)

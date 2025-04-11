@@ -6,6 +6,9 @@ var value_text:RichTextLabel
 var ap_text:RichTextLabel
 var sprite:Sprite2D
 var card_type
+var owner_character:Node2D
+var value:int
+var ap:int 
 
 func initialize():
 	name_text=$NameText
@@ -13,8 +16,10 @@ func initialize():
 	ap_text=$APText
 	sprite = $Sprite2D
 	name_text.text = card_to_load.card_name
-	value_text.text = str(card_to_load.value)
-	ap_text.text = str(card_to_load.ap_cost)
+	ap = card_to_load.ap_cost
+	value = card_to_load.value
+	value_text.text = str(value)
+	ap_text.text = str(ap)
 	sprite.texture = card_to_load.card_art
 	card_type=card_to_load.card_type
 
@@ -22,12 +27,37 @@ func initialize():
 func _effect(target:Node2D):
 	match  card_type:
 		Card.CARD_TYPE.ATTACK:
-			pass
+			target.damage(value)
 		Card.CARD_TYPE.HEAL:
-			pass 
+			owner_character.damage(-value)
 		Card.CARD_TYPE.OVERSHIELD:
 			pass 
 		Card.CARD_TYPE.POISON:
 			pass
 		Card.CARD_TYPE.CHARGE:
 			pass
+			
+	
+	owner_character.hand.erase(self)
+	queue_free()
+	
+	
+func _try_use():
+	if ap<=owner_character.ap:
+		owner_character.deduct_ap(ap)
+		_select_target()
+	else:
+		use_failed()
+		
+func _select_target():
+	var players = get_tree().get_nodes_in_group("character")
+	var target:Node2D
+	for i in range(players.size()):
+		if players[i]!=owner_character:
+			target=players[i]
+			break
+	
+	_effect(target)
+func use_failed():
+	pass
+		

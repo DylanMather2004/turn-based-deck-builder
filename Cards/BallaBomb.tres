@@ -8,5 +8,5 @@ script = ExtResource("2_1vjc3")
 card_name = "Balla Bomb"
 card_art = ExtResource("1_cb8d2")
 card_type = 0
-value = 10
+value = 20
 ap_cost = 10
