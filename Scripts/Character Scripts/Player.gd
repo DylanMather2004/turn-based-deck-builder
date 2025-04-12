@@ -2,7 +2,9 @@ extends Character
 @export var hand_slot:Node2D
 func _ready() -> void:
 	super._ready()
-	turn_start()
+	for i in range(max_hand_size):
+		draw_card()
+	card_sort()
 func place_card(card:Node2D):
 	
 	get_tree().get_root().call_deferred("add_child",card)

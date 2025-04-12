@@ -63,8 +63,7 @@ func deduct_ap(cost:int):
 	print(ap)
 
 func turn_start():
-	while hand.size()<max_hand_size:
-		draw_card()
+	draw_card()
 func pass_turn():
 	pass
 func deck_refresh():

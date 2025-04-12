@@ -8,5 +8,5 @@ script = ExtResource("1_37ud7")
 card_name = "Dodgeball"
 card_art = ExtResource("1_p80qv")
 card_type = 0
-value = 5
+value = 6
 ap_cost = 3

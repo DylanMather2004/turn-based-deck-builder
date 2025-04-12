@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cpmb3mos3pqsu"]
+[gd_scene load_steps=16 format=3 uid="uid://cpmb3mos3pqsu"]
 
 [ext_resource type="PackedScene" uid="uid://sw0v4ybdaltf" path="res://Prefabs/Player.tscn" id="1_4hjge"]
 [ext_resource type="Texture2D" uid="uid://why4j78o0ygw" path="res://Sprites/white-square-32x32.png" id="2_i526l"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://Scripts/Character Scripts/Character.gd" id="4_2fetv"]
 [ext_resource type="Resource" uid="uid://bu7u8pkobijiy" path="res://Characters/Balla.tres" id="5_q7evi"]
 [ext_resource type="PackedScene" uid="uid://dsmcwu7vwemfd" path="res://Prefabs/PlayerCard.tscn" id="6_syvhv"]
+[ext_resource type="Texture2D" uid="uid://dojst8fq4p63p" path="res://Cards/Pass Button.png" id="7_3l3jv"]
+[ext_resource type="Texture2D" uid="uid://dgcm8c3ti5xgt" path="res://Cards/Frame.png" id="8_olv8d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3rbnj"]
 size = Vector2(464, 218)
@@ -31,7 +33,7 @@ bg_color = Color(1, 0, 0, 1)
 [node name="Combat" type="Node2D"]
 
 [node name="Player" parent="." node_paths=PackedStringArray("hand_slot", "healthbar", "ap_bar") instance=ExtResource("1_4hjge")]
-position = Vector2(79, 143)
+position = Vector2(83, 210)
 hand_slot = NodePath("../Hand")
 healthbar = NodePath("../Control/P1 UI/P1 Healthbar")
 ap_bar = NodePath("../Control/P1 UI/P1 APbar")
@@ -71,6 +73,7 @@ position = Vector2(288, 99)
 shape = SubResource("RectangleShape2D_3rbnj")
 
 [node name="TestEnemy" type="Node2D" parent="." node_paths=PackedStringArray("sprite_animator", "healthbar", "ap_bar") groups=["character"]]
+position = Vector2(4, 67)
 script = ExtResource("4_2fetv")
 character_resource = ExtResource("5_q7evi")
 card_template = ExtResource("6_syvhv")
@@ -84,8 +87,10 @@ position = Vector2(472, 144)
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 576.0
-offset_bottom = 320.0
+offset_left = 4.0
+offset_top = 67.0
+offset_right = 580.0
+offset_bottom = 387.0
 
 [node name="P1 UI" type="Control" parent="Control"]
 anchors_preset = 0
@@ -142,3 +147,16 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ip5hk")
 value = 100.0
 fill_mode = 1
 show_percentage = false
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 502.0
+offset_top = 237.0
+offset_right = 565.0
+offset_bottom = 284.0
+texture_normal = ExtResource("7_3l3jv")
+texture_pressed = ExtResource("7_3l3jv")
+texture_hover = ExtResource("7_3l3jv")
+
+[node name="Frame" type="Sprite2D" parent="."]
+position = Vector2(288, 162)
+texture = ExtResource("8_olv8d")

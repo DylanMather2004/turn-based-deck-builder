@@ -40,3 +40,4 @@ Left-Mouse={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.861668, 0.410276, 0, 1)
