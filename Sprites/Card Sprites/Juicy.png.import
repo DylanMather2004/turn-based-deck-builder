@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq8pn0p4xx5mi"
-path="res://.godot/imported/Punch.png-db42148babd1e8b445f7d9ae68b0c397.ctex"
+uid="uid://cbxyiud2wilc2"
+path="res://.godot/imported/Juicy.png-c29259b94786a712adaf937cce987c3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Card Sprites/Punch.png"
-dest_files=["res://.godot/imported/Punch.png-db42148babd1e8b445f7d9ae68b0c397.ctex"]
+source_file="res://Sprites/Card Sprites/Juicy.png"
+dest_files=["res://.godot/imported/Juicy.png-c29259b94786a712adaf937cce987c3a.ctex"]
 
 [params]
 

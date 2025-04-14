@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://cpmb3mos3pqsu"]
+[gd_scene load_steps=17 format=3 uid="uid://cpmb3mos3pqsu"]
 
 [ext_resource type="PackedScene" uid="uid://sw0v4ybdaltf" path="res://Prefabs/Player.tscn" id="1_4hjge"]
+[ext_resource type="Script" path="res://Scenes/TurnManager.gd" id="1_m5pmw"]
 [ext_resource type="Texture2D" uid="uid://why4j78o0ygw" path="res://Sprites/white-square-32x32.png" id="2_i526l"]
 [ext_resource type="Script" path="res://Scenes/PlayerHand.gd" id="2_n1ljg"]
 [ext_resource type="Script" path="res://Scripts/Character Scripts/Character.gd" id="4_2fetv"]
@@ -30,7 +31,13 @@ bg_color = Color(0.099986, 0.099986, 0.099986, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7mo4"]
 bg_color = Color(1, 0, 0, 1)
 
-[node name="Combat" type="Node2D"]
+[node name="Combat" type="Node2D" node_paths=PackedStringArray("players")]
+script = ExtResource("1_m5pmw")
+players = [NodePath("Player"), NodePath("TestEnemy")]
+
+[node name="Frame" type="Sprite2D" parent="."]
+position = Vector2(288, 162)
+texture = ExtResource("8_olv8d")
 
 [node name="Player" parent="." node_paths=PackedStringArray("hand_slot", "healthbar", "ap_bar") instance=ExtResource("1_4hjge")]
 position = Vector2(83, 210)
@@ -148,7 +155,7 @@ value = 100.0
 fill_mode = 1
 show_percentage = false
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="Pass Button" type="TextureButton" parent="."]
 offset_left = 502.0
 offset_top = 237.0
 offset_right = 565.0
@@ -157,6 +164,4 @@ texture_normal = ExtResource("7_3l3jv")
 texture_pressed = ExtResource("7_3l3jv")
 texture_hover = ExtResource("7_3l3jv")
 
-[node name="Frame" type="Sprite2D" parent="."]
-position = Vector2(288, 162)
-texture = ExtResource("8_olv8d")
+[connection signal="pressed" from="Pass Button" to="." method="_on_pass_button_pressed"]

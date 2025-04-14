@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://c7odwrv5pjg06"]
+
+[ext_resource type="Texture2D" uid="uid://cbxyiud2wilc2" path="res://Sprites/Card Sprites/Juicy.png" id="1_dpjft"]
+[ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="1_ks62l"]
+
+[resource]
+script = ExtResource("1_ks62l")
+card_name = "Juicy"
+card_art = ExtResource("1_dpjft")
+card_type = 1
+value = 5
+ap_cost = 2

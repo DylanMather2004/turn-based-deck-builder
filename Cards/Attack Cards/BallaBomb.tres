@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://cp2p2u4du2ao7"]
 
-[ext_resource type="Texture2D" uid="uid://dxvxrqcgjm5j7" path="res://Sprites/Card Sprites/Balla_Bomb.png" id="1_cb8d2"]
+[ext_resource type="Texture2D" uid="uid://dxvxrqcgjm5j7" path="res://Sprites/Card Sprites/Attack Cards/Balla_Bomb.png" id="1_cb8d2"]
 [ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="2_1vjc3"]
 
 [resource]

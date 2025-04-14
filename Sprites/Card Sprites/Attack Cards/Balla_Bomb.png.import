@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxvxrqcgjm5j7"
-path="res://.godot/imported/Balla_Bomb.png-b15725e1ee3971f58dbebf427cd989f6.ctex"
+path="res://.godot/imported/Balla_Bomb.png-dff8ab54c6821f22a1237aeb81476684.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Card Sprites/Balla_Bomb.png"
-dest_files=["res://.godot/imported/Balla_Bomb.png-b15725e1ee3971f58dbebf427cd989f6.ctex"]
+source_file="res://Sprites/Card Sprites/Attack Cards/Balla_Bomb.png"
+dest_files=["res://.godot/imported/Balla_Bomb.png-dff8ab54c6821f22a1237aeb81476684.ctex"]
 
 [params]
 

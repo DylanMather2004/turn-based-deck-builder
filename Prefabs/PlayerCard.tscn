@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dsmcwu7vwemfd"]
 
 [ext_resource type="Script" path="res://Scripts/Card Scripts/PlayerCard.gd" id="1_xlb2b"]
-[ext_resource type="Resource" uid="uid://qoywkxvppsxg" path="res://Cards/Punch.tres" id="2_jg0cj"]
-[ext_resource type="Texture2D" uid="uid://dxvxrqcgjm5j7" path="res://Sprites/Card Sprites/Balla_Bomb.png" id="3_hwm8h"]
+[ext_resource type="Resource" uid="uid://qoywkxvppsxg" path="res://Cards/Attack Cards/Punch.tres" id="2_jg0cj"]
+[ext_resource type="Texture2D" uid="uid://dxvxrqcgjm5j7" path="res://Sprites/Card Sprites/Attack Cards/Balla_Bomb.png" id="3_hwm8h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ej4nj"]
 size = Vector2(63, 97)

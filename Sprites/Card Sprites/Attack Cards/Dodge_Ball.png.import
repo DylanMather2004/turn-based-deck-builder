@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxjc5aogt05d1"
-path="res://.godot/imported/Dodge_Ball.png-2b4c473bb9719ec7ca8d24625d410d57.ctex"
+path="res://.godot/imported/Dodge_Ball.png-efca683455dfeb3f2389b9e75b9798e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Card Sprites/Dodge_Ball.png"
-dest_files=["res://.godot/imported/Dodge_Ball.png-2b4c473bb9719ec7ca8d24625d410d57.ctex"]
+source_file="res://Sprites/Card Sprites/Attack Cards/Dodge_Ball.png"
+dest_files=["res://.godot/imported/Dodge_Ball.png-efca683455dfeb3f2389b9e75b9798e4.ctex"]
 
 [params]
 

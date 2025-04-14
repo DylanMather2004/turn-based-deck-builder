@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="CharacterTemplate" load_steps=7 format=3 uid="uid://bu7u8pkobijiy"]
+[gd_resource type="Resource" script_class="CharacterTemplate" load_steps=8 format=3 uid="uid://bu7u8pkobijiy"]
 
 [ext_resource type="Script" path="res://Characters/CharacterTemplate.gd" id="1_j8we1"]
 [ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="1_luhts"]
-[ext_resource type="Resource" uid="uid://qoywkxvppsxg" path="res://Cards/Punch.tres" id="2_nxlpf"]
-[ext_resource type="Resource" uid="uid://cpw10blpmwqap" path="res://Cards/Dodgeball.tres" id="3_wfuys"]
-[ext_resource type="Resource" uid="uid://cp2p2u4du2ao7" path="res://Cards/BallaBomb.tres" id="4_l7eei"]
+[ext_resource type="Resource" uid="uid://qoywkxvppsxg" path="res://Cards/Attack Cards/Punch.tres" id="2_hm3q1"]
+[ext_resource type="Resource" uid="uid://cpw10blpmwqap" path="res://Cards/Attack Cards/Dodgeball.tres" id="3_euvxa"]
+[ext_resource type="Resource" uid="uid://cp2p2u4du2ao7" path="res://Cards/Attack Cards/BallaBomb.tres" id="4_c25vg"]
+[ext_resource type="Resource" uid="uid://c7odwrv5pjg06" path="res://Cards/Heal Cards/Juicy.tres" id="5_e0ueo"]
 [ext_resource type="SpriteFrames" uid="uid://df0jplhfmx5q1" path="res://Sprites/Character Sprites/Hero-Balla.tres" id="6_rn4eq"]
 
 [resource]
@@ -13,4 +14,4 @@ character_name = "Balla"
 sprite_sheet = ExtResource("6_rn4eq")
 health = 100
 ap = 10
-deck = Array[ExtResource("1_luhts")]([ExtResource("2_nxlpf"), ExtResource("2_nxlpf"), ExtResource("2_nxlpf"), ExtResource("3_wfuys"), ExtResource("3_wfuys"), ExtResource("3_wfuys"), ExtResource("4_l7eei")])
+deck = Array[ExtResource("1_luhts")]([ExtResource("2_hm3q1"), ExtResource("2_hm3q1"), ExtResource("2_hm3q1"), ExtResource("3_euvxa"), ExtResource("3_euvxa"), ExtResource("3_euvxa"), ExtResource("4_c25vg"), ExtResource("5_e0ueo"), ExtResource("5_e0ueo"), ExtResource("5_e0ueo")])

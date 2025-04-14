@@ -28,21 +28,25 @@ func _ready() -> void:
 	ap_bar.max_value=ap
 	ap_bar.value=ap
 func draw_card():
-	print(character_resource.deck)
-	rng.randomize()
-	var card_ID = rng.randi_range(0,deck.size()-1)
-	var card_to_draw = deck[card_ID] 
-	var new_card_node:Node2D = card_template.instantiate()
-	new_card_node.card_to_load = card_to_draw
-	new_card_node.initialize()
-	new_card_node.owner_character = self
-	deck.remove_at(card_ID)
-	hand.append(new_card_node)
-	place_card(new_card_node)
-	print(deck)
-	print(character_resource.deck)
-	if deck.is_empty():
-		deck_refresh()
+	if hand.size()<max_hand_size:
+		print(character_resource.deck)
+		rng.randomize()
+		var card_ID = rng.randi_range(0,deck.size()-1)
+		var card_to_draw = deck[card_ID] 
+		var new_card_node:Node2D = card_template.instantiate()
+		new_card_node.card_to_load = card_to_draw
+		new_card_node.initialize()
+		new_card_node.owner_character = self
+		deck.remove_at(card_ID)
+		hand.append(new_card_node)
+		place_card(new_card_node)
+		print(deck)
+		print(character_resource.deck)
+		if deck.is_empty():
+			deck_refresh()
+			
+	else:
+		print("Deck Full!")
 	
 func place_card(card:Node2D):
 	pass
@@ -64,6 +68,9 @@ func deduct_ap(cost:int):
 
 func turn_start():
 	draw_card()
+func turn_end():
+	ap=character_resource.ap
+	
 func pass_turn():
 	pass
 func deck_refresh():
