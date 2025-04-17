@@ -10,7 +10,3 @@ func turn_switch():
 		turn_player = players [0]
 	turn_player.turn_start()
 	
-
-
-func _on_pass_button_pressed() -> void:
-	turn_switch()

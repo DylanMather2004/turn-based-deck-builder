@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterTemplate" load_steps=7 format=3 uid="uid://blyrptpbsnniw"]
+
+[ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="1_8i05m"]
+[ext_resource type="Script" path="res://Characters/CharacterTemplate.gd" id="2_8b7d8"]
+[ext_resource type="Resource" uid="uid://qoywkxvppsxg" path="res://Cards/Attack Cards/Punch.tres" id="2_s7el5"]
+[ext_resource type="Resource" uid="uid://c7odwrv5pjg06" path="res://Cards/Heal Cards/Juicy.tres" id="3_g510c"]
+[ext_resource type="Resource" uid="uid://cp2p2u4du2ao7" path="res://Cards/Attack Cards/BallaBomb.tres" id="4_jdfda"]
+[ext_resource type="SpriteFrames" uid="uid://dvau4bxmwyruh" path="res://Sprites/Character Sprites/Whacka' Mole.tres" id="6_kdh3v"]
+
+[resource]
+script = ExtResource("2_8b7d8")
+character_name = "Mini Mole"
+sprite_sheet = ExtResource("6_kdh3v")
+health = 100
+ap = 30
+deck = Array[ExtResource("1_8i05m")]([ExtResource("2_s7el5"), ExtResource("2_s7el5"), ExtResource("2_s7el5"), ExtResource("2_s7el5"), ExtResource("3_g510c"), ExtResource("3_g510c"), ExtResource("3_g510c"), ExtResource("3_g510c"), ExtResource("4_jdfda")])

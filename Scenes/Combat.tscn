@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://cpmb3mos3pqsu"]
+[gd_scene load_steps=22 format=3 uid="uid://cpmb3mos3pqsu"]
 
 [ext_resource type="PackedScene" uid="uid://sw0v4ybdaltf" path="res://Prefabs/Player.tscn" id="1_4hjge"]
 [ext_resource type="Script" path="res://Scenes/TurnManager.gd" id="1_m5pmw"]
 [ext_resource type="Texture2D" uid="uid://why4j78o0ygw" path="res://Sprites/white-square-32x32.png" id="2_i526l"]
 [ext_resource type="Script" path="res://Scenes/PlayerHand.gd" id="2_n1ljg"]
 [ext_resource type="Script" path="res://Scripts/Character Scripts/Character.gd" id="4_2fetv"]
+[ext_resource type="Resource" uid="uid://blyrptpbsnniw" path="res://Characters/Mole.tres" id="4_ih84k"]
 [ext_resource type="Resource" uid="uid://bu7u8pkobijiy" path="res://Characters/Balla.tres" id="5_q7evi"]
 [ext_resource type="PackedScene" uid="uid://dsmcwu7vwemfd" path="res://Prefabs/PlayerCard.tscn" id="6_syvhv"]
 [ext_resource type="Texture2D" uid="uid://dojst8fq4p63p" path="res://Cards/Pass Button.png" id="7_3l3jv"]
@@ -31,6 +32,84 @@ bg_color = Color(0.099986, 0.099986, 0.099986, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7mo4"]
 bg_color = Color(1, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_kecj7"]
+resource_name = "turn_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s7qr5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5lb7g"]
+resource_name = "turn_end"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"turn_switch"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_71p42"]
+_data = {
+"RESET": SubResource("Animation_s7qr5"),
+"turn_end": SubResource("Animation_5lb7g"),
+"turn_start": SubResource("Animation_kecj7")
+}
+
 [node name="Combat" type="Node2D" node_paths=PackedStringArray("players")]
 script = ExtResource("1_m5pmw")
 players = [NodePath("Player"), NodePath("TestEnemy")]
@@ -39,11 +118,13 @@ players = [NodePath("Player"), NodePath("TestEnemy")]
 position = Vector2(288, 162)
 texture = ExtResource("8_olv8d")
 
-[node name="Player" parent="." node_paths=PackedStringArray("hand_slot", "healthbar", "ap_bar") instance=ExtResource("1_4hjge")]
+[node name="Player" parent="." node_paths=PackedStringArray("hand_slot", "healthbar", "ap_bar", "turn_animator") instance=ExtResource("1_4hjge")]
 position = Vector2(83, 210)
 hand_slot = NodePath("../Hand")
-healthbar = NodePath("../Control/P1 UI/P1 Healthbar")
-ap_bar = NodePath("../Control/P1 UI/P1 APbar")
+character_resource = ExtResource("4_ih84k")
+healthbar = NodePath("../UI/P1 UI/P1 Healthbar")
+ap_bar = NodePath("../UI/P1 UI/P1 APbar")
+turn_animator = NodePath("../Turn Identifiers/Turn Start_End Animator")
 
 [node name="Hand" type="Node2D" parent="." node_paths=PackedStringArray("slots")]
 position = Vector2(279, 282)
@@ -79,19 +160,20 @@ position = Vector2(169, 6)
 position = Vector2(288, 99)
 shape = SubResource("RectangleShape2D_3rbnj")
 
-[node name="TestEnemy" type="Node2D" parent="." node_paths=PackedStringArray("sprite_animator", "healthbar", "ap_bar") groups=["character"]]
+[node name="TestEnemy" type="Node2D" parent="." node_paths=PackedStringArray("sprite_animator", "healthbar", "ap_bar", "turn_animator") groups=["character"]]
 position = Vector2(4, 67)
 script = ExtResource("4_2fetv")
 character_resource = ExtResource("5_q7evi")
 card_template = ExtResource("6_syvhv")
 sprite_animator = NodePath("AnimatedSprite2D")
-healthbar = NodePath("../Control/P2 UI/ProgressBar2")
-ap_bar = NodePath("../Control/P2 UI/P1 APbar2")
+healthbar = NodePath("../UI/P2 UI/ProgressBar2")
+ap_bar = NodePath("../UI/P2 UI/P1 APbar2")
+turn_animator = NodePath("../Turn Identifiers/Turn Start_End Animator")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TestEnemy"]
 position = Vector2(472, 144)
 
-[node name="Control" type="Control" parent="."]
+[node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 4.0
@@ -99,12 +181,12 @@ offset_top = 67.0
 offset_right = 580.0
 offset_bottom = 387.0
 
-[node name="P1 UI" type="Control" parent="Control"]
+[node name="P1 UI" type="Control" parent="UI"]
 anchors_preset = 0
 offset_right = 248.0
 offset_bottom = 71.0
 
-[node name="P1 Healthbar" type="ProgressBar" parent="Control/P1 UI"]
+[node name="P1 Healthbar" type="ProgressBar" parent="UI/P1 UI"]
 layout_mode = 0
 offset_left = 14.0
 offset_top = 28.0
@@ -115,7 +197,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_dyo5r")
 value = 100.0
 show_percentage = false
 
-[node name="P1 APbar" type="ProgressBar" parent="Control/P1 UI"]
+[node name="P1 APbar" type="ProgressBar" parent="UI/P1 UI"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 53.0
@@ -126,12 +208,12 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ip5hk")
 value = 100.0
 show_percentage = false
 
-[node name="P2 UI" type="Control" parent="Control"]
+[node name="P2 UI" type="Control" parent="UI"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ProgressBar2" type="ProgressBar" parent="Control/P2 UI"]
+[node name="ProgressBar2" type="ProgressBar" parent="UI/P2 UI"]
 layout_mode = 0
 offset_left = 371.0
 offset_top = 28.0
@@ -143,7 +225,7 @@ value = 100.0
 fill_mode = 1
 show_percentage = false
 
-[node name="P1 APbar2" type="ProgressBar" parent="Control/P2 UI"]
+[node name="P1 APbar2" type="ProgressBar" parent="UI/P2 UI"]
 layout_mode = 0
 offset_left = 402.0
 offset_top = 53.0
@@ -155,13 +237,45 @@ value = 100.0
 fill_mode = 1
 show_percentage = false
 
-[node name="Pass Button" type="TextureButton" parent="."]
-offset_left = 502.0
-offset_top = 237.0
-offset_right = 565.0
-offset_bottom = 284.0
+[node name="Pass Button" type="TextureButton" parent="UI"]
+layout_mode = 0
+offset_left = 498.0
+offset_top = 170.0
+offset_right = 561.0
+offset_bottom = 217.0
 texture_normal = ExtResource("7_3l3jv")
 texture_pressed = ExtResource("7_3l3jv")
 texture_hover = ExtResource("7_3l3jv")
 
-[connection signal="pressed" from="Pass Button" to="." method="_on_pass_button_pressed"]
+[node name="Turn Identifiers" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Turn Identifiers"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 217.0
+offset_top = 145.0
+offset_right = 373.0
+offset_bottom = 256.0
+theme_override_font_sizes/normal_font_size = 36
+text = "End Turn"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Turn Identifiers"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 209.0
+offset_top = 146.0
+offset_right = 411.0
+offset_bottom = 257.0
+theme_override_font_sizes/normal_font_size = 36
+text = "Start Turn"
+
+[node name="Turn Start_End Animator" type="AnimationPlayer" parent="Turn Identifiers"]
+libraries = {
+"": SubResource("AnimationLibrary_71p42")
+}
+
+[connection signal="pressed" from="UI/Pass Button" to="Player" method="_on_pass_button_pressed"]

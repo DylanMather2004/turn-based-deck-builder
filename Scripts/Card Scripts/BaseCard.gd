@@ -6,7 +6,7 @@ var value_text:RichTextLabel
 var ap_text:RichTextLabel
 var sprite:Sprite2D
 var card_type
-var owner_character:Node2D
+var owner_character:Character
 var value:int
 var ap:int 
 
@@ -24,11 +24,15 @@ func initialize():
 	card_type=card_to_load.card_type
 
 ##_effect will select the appropriate effect for each card type, and carry them out using [member Card.Value]
-func _effect(target:Node2D):
+func _effect(target:Character):
 	match  card_type:
 		Card.CARD_TYPE.ATTACK:
 			target.damage(value)
 		Card.CARD_TYPE.HEAL:
+			if owner_character.health ==owner_character.max_health: 
+				owner_character.deduct_ap(-ap)
+				use_failed()
+				return
 			owner_character.damage(-value)
 		Card.CARD_TYPE.OVERSHIELD:
 			pass 
