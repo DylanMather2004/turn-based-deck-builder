@@ -110,14 +110,15 @@ _data = {
 "turn_start": SubResource("Animation_kecj7")
 }
 
-[node name="Combat" type="Node2D"]
+[node name="Combat" type="Node2D" node_paths=PackedStringArray("players")]
 script = ExtResource("1_m5pmw")
+players = [NodePath("Player"), null]
 
 [node name="Frame" type="Sprite2D" parent="."]
 position = Vector2(288, 162)
 texture = ExtResource("8_olv8d")
 
-[node name="Player" parent="." node_paths=PackedStringArray("hand_slot", "healthbar", "ap_bar", "turn_animator") groups=["character"] instance=ExtResource("1_4hjge")]
+[node name="Player" parent="." node_paths=PackedStringArray("hand_slot", "healthbar", "ap_bar", "turn_animator") instance=ExtResource("1_4hjge")]
 position = Vector2(83, 210)
 hand_slot = NodePath("../Hand")
 character_resource = ExtResource("4_ih84k")
@@ -264,16 +265,12 @@ libraries = {
 "": SubResource("AnimationLibrary_71p42")
 }
 
-[node name="Player2" parent="." node_paths=PackedStringArray("card_display_point", "healthbar", "ap_bar", "turn_animator") groups=["character"] instance=ExtResource("8_0cshs")]
+[node name="Player2" parent="." node_paths=PackedStringArray("healthbar", "ap_bar", "turn_animator") instance=ExtResource("8_0cshs")]
 position = Vector2(505, 202)
-card_display_point = NodePath("Node2D")
 character_resource = ExtResource("5_q7evi")
 card_template = ExtResource("10_64u77")
 healthbar = NodePath("../UI/P2 UI/P2 Healthbar")
 ap_bar = NodePath("../UI/P2 UI/P2 APbar")
 turn_animator = NodePath("../Turn Identifiers/Turn Start_End Animator")
-
-[node name="Node2D" type="Node2D" parent="Player2"]
-position = Vector2(-202, -19)
 
 [connection signal="pressed" from="UI/Pass Button" to="Player" method="_on_pass_button_pressed"]

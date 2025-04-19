@@ -1,11 +1,37 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsmcwu7vwemfd"]
+[gd_scene load_steps=7 format=3 uid="uid://dr0dmmsk455ys"]
 
-[ext_resource type="Script" path="res://Scripts/Card Scripts/PlayerCard.gd" id="1_xlb2b"]
-[ext_resource type="Resource" uid="uid://qoywkxvppsxg" path="res://Cards/Attack Cards/Punch.tres" id="2_jg0cj"]
-[ext_resource type="Texture2D" uid="uid://dxvxrqcgjm5j7" path="res://Sprites/Card Sprites/Attack Cards/Balla_Bomb.png" id="3_hwm8h"]
+[ext_resource type="Script" path="res://Scripts/Card Scripts/EnemyCard.gd" id="1_dn7is"]
+[ext_resource type="Texture2D" uid="uid://dxvxrqcgjm5j7" path="res://Sprites/Card Sprites/Attack Cards/Balla_Bomb.png" id="3_j4m3a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ej4nj"]
 size = Vector2(63, 97)
+
+[sub_resource type="Animation" id="Animation_ump37"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_q3llk"]
 resource_name = "Used"
@@ -48,33 +74,6 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_ump37"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qqltr"]
 _data = {
 "RESET": SubResource("Animation_ump37"),
@@ -82,8 +81,7 @@ _data = {
 }
 
 [node name="Card" type="Node2D" node_paths=PackedStringArray("name_text", "value_text", "ap_text", "sprite", "card_animator")]
-script = ExtResource("1_xlb2b")
-card_to_load = ExtResource("2_jg0cj")
+script = ExtResource("1_dn7is")
 name_text = NodePath("Sprite2D/NameText")
 value_text = NodePath("Sprite2D/ValueText")
 ap_text = NodePath("Sprite2D/APText")
@@ -91,7 +89,7 @@ sprite = NodePath("Sprite2D")
 card_animator = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_hwm8h")
+texture = ExtResource("3_j4m3a")
 
 [node name="ValueText" type="RichTextLabel" parent="Sprite2D"]
 offset_left = -10.0

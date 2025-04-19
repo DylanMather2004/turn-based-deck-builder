@@ -7,12 +7,13 @@ extends Node2D
 @export var healthbar:ProgressBar
 @export var ap_bar:ProgressBar
 @export var turn_animator:AnimationPlayer
+@export var effect_animator:AnimationPlayer
 var max_health:int
 var health:int
 var max_ap:int
 var ap:int
 var deck:Array[Card]
-var hand:Array
+var hand:Array[BaseCard]
 var sprite_frames:SpriteFrames
 var max_hand_size = 6
 var rng = RandomNumberGenerator.new()
@@ -58,6 +59,7 @@ func damage(change):
 	health-=change
 	health = clamp(health,0,max_health)
 	healthbar.value=health
+	effect_animator.play("hit")
 	if health ==0:
 		die()
 func die():

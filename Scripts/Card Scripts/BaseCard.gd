@@ -1,20 +1,18 @@
 class_name BaseCard
 extends Node2D
 @export var card_to_load:Card
-var name_text:Label
-var value_text:RichTextLabel
-var ap_text:RichTextLabel
-var sprite:Sprite2D
+@export var name_text:Label
+@export var value_text:RichTextLabel
+@export var ap_text:RichTextLabel
+@export var sprite:Sprite2D
 var card_type
 var owner_character:Character
 var value:int
 var ap:int 
+@export var card_animator:AnimationPlayer
 
 func initialize():
-	name_text=$NameText
-	value_text=$ValueText
-	ap_text=$APText
-	sprite = $Sprite2D
+	
 	name_text.text = card_to_load.card_name
 	ap = card_to_load.ap_cost
 	value = card_to_load.value
@@ -42,8 +40,7 @@ func _effect(target:Character):
 			pass
 			
 	
-	owner_character.hand.erase(self)
-	queue_free()
+	card_animator.play("Used")
 	
 	
 func _try_use():
@@ -64,4 +61,7 @@ func _select_target():
 	_effect(target)
 func use_failed():
 	pass
-		
+
+func card_delete():
+	owner_character.hand.erase(self)
+	queue_free()
