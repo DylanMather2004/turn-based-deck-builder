@@ -7,7 +7,7 @@ func _ready() -> void:
 func turn_switch():
 	if turn_player == players [0]:
 		turn_player = players [1]
-	else:
+	elif turn_player==players [1]:
 		turn_player = players [0]
 	turn_player.turn_start()
 	

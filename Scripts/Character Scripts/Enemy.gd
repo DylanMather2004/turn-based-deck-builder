@@ -2,18 +2,19 @@ class_name Enemy
 extends Character
 enum PRIORITY{NONE,HEAL}
 var current_priority:PRIORITY
-var cannot_use:Array[Card]
-var card_to_use:BaseCard
+var cannot_use:Array[BaseCard]
+var card_to_use:EnemyCard
 @export var card_display_point:Node2D
 func _ready() -> void:
 	super._ready()
 	for i in range(max_hand_size):
 		draw_card()
+		
+
 func turn_start():
 	super.turn_start()
 	print("enemy turn started")
-	print(hand)
-	_choose_random_card()
+	turn()
 	
 	
 func pick_priority():
@@ -39,9 +40,29 @@ func _choose_priority_card():
 func _choose_random_card():
 	rng.randomize()
 	card_to_use = hand[rng.randi_range(0,hand.size()-1)]
-	print(card_to_use)
 	use_card(card_to_use)
-func use_card(card:BaseCard):
-	get_tree().get_root().add_child(card)
-	card.position=card_display_point.global_position
-	card._try_use()
+func use_card(card:EnemyCard):
+	if has_turn:
+		get_tree().get_root().add_child(card)
+		card.position=card_display_point.global_position
+		card._try_use()
+	
+func turn():
+	if has_turn:
+		while hand.size()>0:
+			_choose_random_card()
+			print(hand)
+			await get_tree().create_timer(1).timeout
+			if hand.size()==0||ap<=0:
+				turn_end()
+				return
+	
+func turn_end():
+	super.turn_end()
+	for i in range(cannot_use.size()-1):
+		hand.append(cannot_use[i])
+		cannot_use.remove_at(i)
+
+func die():
+	queue_free()
+	

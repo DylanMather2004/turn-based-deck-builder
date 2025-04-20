@@ -65,7 +65,6 @@ effect_animator = NodePath("EffectAnimator")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("4_pbndo")
-flip_h = true
 
 [node name="EffectAnimator" type="AnimationPlayer" parent="."]
 libraries = {

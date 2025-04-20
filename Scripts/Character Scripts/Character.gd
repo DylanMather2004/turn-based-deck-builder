@@ -17,6 +17,7 @@ var hand:Array[BaseCard]
 var sprite_frames:SpriteFrames
 var max_hand_size = 6
 var rng = RandomNumberGenerator.new()
+var has_turn:bool
 
 func _ready() -> void:
 	
@@ -62,6 +63,12 @@ func damage(change):
 	effect_animator.play("hit")
 	if health ==0:
 		die()
+func heal(heal):
+	
+	health +=heal
+	health = clamp(health,0,max_health)
+	healthbar.value=health
+	effect_animator.play("heal")
 func die():
 	pass 
 	
@@ -73,9 +80,17 @@ func deduct_ap(cost:int):
 	print(ap)
 
 func turn_start():
-	draw_card()
+	has_turn=true
+	if hand.size()>0:
+		draw_card()
+	else:
+		for i in range(max_hand_size):
+			draw_card()
 	turn_animator.play("turn_start")
 func turn_end():
+	if !has_turn:
+		return
+	has_turn=false
 	ap=max_ap
 	ap_bar.value=ap
 	turn_animator.play("turn_end")

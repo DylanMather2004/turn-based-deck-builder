@@ -1,3 +1,4 @@
+class_name EnemyCard
 extends BaseCard
 func use_failed():
 	owner_character.cannot_use.append(self)

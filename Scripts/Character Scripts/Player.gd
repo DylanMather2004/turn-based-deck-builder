@@ -5,6 +5,7 @@ func _ready() -> void:
 	for i in range(max_hand_size):
 		draw_card()
 	card_sort()
+	has_turn=true
 func place_card(card:Node2D):
 	
 	get_tree().get_root().call_deferred("add_child",card)

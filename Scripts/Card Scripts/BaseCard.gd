@@ -31,7 +31,7 @@ func _effect(target:Character):
 				owner_character.deduct_ap(-ap)
 				use_failed()
 				return
-			owner_character.damage(-value)
+			owner_character.heal(value)
 		Card.CARD_TYPE.OVERSHIELD:
 			pass 
 		Card.CARD_TYPE.POISON:
@@ -57,7 +57,9 @@ func _select_target():
 		if players[i]!=owner_character:
 			target=players[i]
 			break
-	
+	if target==null:
+		use_failed()
+		return
 	_effect(target)
 func use_failed():
 	pass
