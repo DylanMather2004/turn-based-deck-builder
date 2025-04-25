@@ -1,6 +1,7 @@
 extends Control
 @export var owned_cards:Array[Card]
 var deck=[]
+var deck_buttons=[]
 @export_category("UI Settings")
 @export var cells_per_row = 5
 @export var attack_card_menu:VBoxContainer
@@ -27,13 +28,16 @@ func _ready() -> void:
 func add_card_to_deck(card:Card):
 	deck.append(card)
 	add_deck_button(card)
-func remove_card_from_deck(card:Card):
-	deck.erase(card)
+func remove_card_from_deck(cardbutton:TextureButton):
+	deck.erase(cardbutton.card)
+	deck_buttons.erase(cardbutton)
+	cardbutton.queue_free()
 func save_deck():
 	var file = FileAccess.open(save_path,FileAccess.WRITE)
 	file.store_var(deck)
 	file.close()
 func load_deck():
+	clear_deck()
 	if FileAccess.file_exists(save_path):
 		var file = FileAccess.open(save_path,FileAccess.READ)
 		for i in file.get_var():
@@ -41,9 +45,13 @@ func load_deck():
 			
 		for i in range(deck.size()):
 			add_deck_button(deck[i])
-		
 	else:
 		print("No File to Load")
+func clear_deck():
+	while deck_buttons.size()>0:
+		remove_card_from_deck(deck_buttons[0])
+		
+		
 
 func add_deck_button(card:Card):
 	var new_button:TextureButton=deck_button_prefab.instantiate()
@@ -51,6 +59,7 @@ func add_deck_button(card:Card):
 	new_button.menu_manager=self
 	new_button.card = card
 	deck_menu.add_child(new_button)
+	deck_buttons.append(new_button)
 
 
 func _on_save_button_pressed() -> void:
