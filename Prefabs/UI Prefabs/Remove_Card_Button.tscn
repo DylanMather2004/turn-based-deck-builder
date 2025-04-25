@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtygslkjd7lo6"]
+
+[ext_resource type="Script" path="res://Scripts/UI Script/remove_card_button.gd" id="1_ydpeo"]
+
+[node name="TextureButton" type="TextureButton"]
+script = ExtResource("1_ydpeo")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

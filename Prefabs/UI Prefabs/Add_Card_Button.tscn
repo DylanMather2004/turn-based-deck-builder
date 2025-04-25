@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyxnnhr8of2l6"]
+
+[ext_resource type="Texture2D" uid="uid://dxjc5aogt05d1" path="res://Sprites/Card Sprites/Attack Cards/Dodge_Ball.png" id="1_n2qx8"]
+[ext_resource type="Script" path="res://Scripts/UI Script/Add_Button.gd" id="2_kmuj7"]
+
+[node name="TextureButton" type="TextureButton"]
+texture_normal = ExtResource("1_n2qx8")
+script = ExtResource("2_kmuj7")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -33,11 +33,11 @@ func _effect(target:Character):
 				return
 			owner_character.heal(value)
 		Card.CARD_TYPE.OVERSHIELD:
-			pass 
+			pass #Replace with Overshield Logic
 		Card.CARD_TYPE.POISON:
-			pass
+			pass #Replace wiith Poison Logic
 		Card.CARD_TYPE.CHARGE:
-			pass
+			pass #Replace with Charge Logic 
 			
 	
 	card_animator.play("Used")
