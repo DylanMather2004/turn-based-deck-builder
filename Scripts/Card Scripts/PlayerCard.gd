@@ -1,7 +1,6 @@
 class_name PlayerCard
 extends BaseCard
 var is_dragging:bool = false 
-var reset_pos:Vector2
 var in_play=false 
 
 

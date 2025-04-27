@@ -8,6 +8,7 @@ extends Node2D
 @export var ap_bar:ProgressBar
 @export var turn_animator:AnimationPlayer
 @export var effect_animator:AnimationPlayer
+@export var hand_slot:Node2D
 var max_health:int
 var health:int
 var max_ap:int
@@ -33,6 +34,9 @@ func _ready() -> void:
 	healthbar.value=health
 	ap_bar.max_value=ap
 	ap_bar.value=ap
+	for i in range(max_hand_size):
+		draw_card()
+	card_sort()
 func draw_card():
 	if hand.size()<max_hand_size:
 		print(character_resource.deck)
@@ -55,7 +59,7 @@ func draw_card():
 		print("Deck Full!")
 	
 func place_card(card:Node2D):
-	pass
+	get_tree().get_root().call_deferred("add_child",card)
 func damage(change):
 	health-=change
 	health = clamp(health,0,max_health)
@@ -98,4 +102,9 @@ func deck_refresh():
 	deck=character_resource.deck.duplicate()
 	print(character_resource.deck)
 	print(deck)
+	
+func card_sort():
+	for i in range(hand.size()):
+		hand[i].position = hand_slot.slots[i].global_position
+		hand[i].reset_pos = hand[i].position
 	

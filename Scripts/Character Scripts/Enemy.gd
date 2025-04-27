@@ -13,6 +13,7 @@ func _ready() -> void:
 
 func turn_start():
 	super.turn_start()
+	card_sort()
 	print("enemy turn started")
 	turn()
 	
@@ -43,7 +44,6 @@ func _choose_random_card():
 	use_card(card_to_use)
 func use_card(card:EnemyCard):
 	if has_turn:
-		get_tree().get_root().add_child(card)
 		card.position=card_display_point.global_position
 		card._try_use()
 	
@@ -58,10 +58,11 @@ func turn():
 				return
 	
 func turn_end():
+	print(cannot_use)
 	super.turn_end()
-	for i in range(cannot_use.size()-1):
-		hand.append(cannot_use[i])
-		cannot_use.remove_at(i)
+	for i in cannot_use:
+		hand.append(i)
+		cannot_use.erase(i)
 
 func die():
 	queue_free()

@@ -10,6 +10,7 @@ var owner_character:Character
 var value:int
 var ap:int 
 @export var card_animator:AnimationPlayer
+var reset_pos:Vector2
 
 func initialize():
 	
@@ -44,13 +45,14 @@ func _effect(target:Character):
 	
 	
 func _try_use():
-	if ap<=owner_character.ap:
+	if ap<=owner_character.ap&&get_tree()!=null:
 		owner_character.deduct_ap(ap)
 		_select_target()
 	else:
 		use_failed()
 		
 func _select_target():
+	print(get_tree())
 	var players = get_tree().get_nodes_in_group("character")
 	var target:Node2D
 	for i in range(players.size()):

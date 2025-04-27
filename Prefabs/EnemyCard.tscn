@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dr0dmmsk455ys"]
+[gd_scene load_steps=8 format=3 uid="uid://dr0dmmsk455ys"]
 
 [ext_resource type="Script" path="res://Scripts/Card Scripts/EnemyCard.gd" id="1_dn7is"]
+[ext_resource type="Texture2D" uid="uid://c56a4tkdpv76w" path="res://Sprites/Card Back.png" id="3_1jpd4"]
 [ext_resource type="Texture2D" uid="uid://dxvxrqcgjm5j7" path="res://Sprites/Card Sprites/Attack Cards/Balla_Bomb.png" id="3_j4m3a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ej4nj"]
@@ -27,6 +28,18 @@ tracks/1/path = NodePath("Sprite2D:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Back Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -72,6 +85,18 @@ tracks/2/keys = {
 "args": [],
 "method": &"card_delete"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Back Sprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qqltr"]
@@ -123,6 +148,9 @@ shape = SubResource("RectangleShape2D_ej4nj")
 libraries = {
 "": SubResource("AnimationLibrary_qqltr")
 }
+
+[node name="Back Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("3_1jpd4")
 
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]
