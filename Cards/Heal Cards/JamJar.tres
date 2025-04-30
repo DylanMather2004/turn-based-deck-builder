@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://yfvq6o6jkgpc"]
+
+[ext_resource type="Texture2D" uid="uid://c2qk0gy4ll5iy" path="res://Sprites/Card Sprites/Jar O' Jam.png" id="1_7oiog"]
+[ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="1_ibkd5"]
+
+[resource]
+script = ExtResource("1_ibkd5")
+card_name = "Jar o' Jam"
+card_art = ExtResource("1_7oiog")
+card_type = 1
+value = 10
+ap_cost = 5

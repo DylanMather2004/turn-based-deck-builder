@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://gtfn2vhoe8xs"]
+
+[ext_resource type="Texture2D" uid="uid://c0w5nscbv1vk8" path="res://Sprites/Card Sprites/Attack Cards/Sword.png" id="1_04g5y"]
+[ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="1_8un0s"]
+
+[resource]
+script = ExtResource("1_8un0s")
+card_name = "Sword"
+card_art = ExtResource("1_04g5y")
+card_type = 0
+value = 7
+ap_cost = 4

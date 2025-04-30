@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="2_uck6t"]
 [ext_resource type="PackedScene" uid="uid://dyxnnhr8of2l6" path="res://Prefabs/UI Prefabs/Add_Card_Button.tscn" id="3_nxo8m"]
 [ext_resource type="Resource" uid="uid://cpw10blpmwqap" path="res://Cards/Attack Cards/Dodgeball.tres" id="3_vb3vs"]
-[ext_resource type="Resource" uid="uid://qoywkxvppsxg" path="res://Cards/Attack Cards/Punch.tres" id="4_jd5ln"]
+[ext_resource type="Resource" uid="uid://cj5flo63obkon" path="res://Cards/Attack Cards/DrillHat.tres" id="4_evk26"]
 [ext_resource type="Resource" uid="uid://cp2p2u4du2ao7" path="res://Cards/Attack Cards/BallaBomb.tres" id="5_bscrj"]
 [ext_resource type="Resource" uid="uid://c7odwrv5pjg06" path="res://Cards/Heal Cards/Juicy.tres" id="6_inu5j"]
 [ext_resource type="PackedScene" uid="uid://dtygslkjd7lo6" path="res://Prefabs/UI Prefabs/Remove_Card_Button.tscn" id="8_vufdo"]
@@ -18,7 +18,7 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_erhco")
-owned_cards = Array[ExtResource("2_uck6t")]([ExtResource("3_vb3vs"), ExtResource("4_jd5ln"), ExtResource("5_bscrj"), ExtResource("6_inu5j")])
+owned_cards = Array[ExtResource("2_uck6t")]([ExtResource("3_vb3vs"), ExtResource("4_evk26"), ExtResource("5_bscrj"), ExtResource("6_inu5j")])
 attack_card_menu = NodePath("../TabContainer/Attack Cards")
 heal_card_menu = NodePath("../TabContainer/Heal Cards")
 deck_menu = NodePath("ScrollContainer/HBoxContainer")
@@ -42,10 +42,9 @@ size_flags_vertical = 3
 offset_right = 264.0
 offset_bottom = 189.0
 scale = Vector2(0.65, 0.65)
-current_tab = 1
+current_tab = 0
 
 [node name="Attack Cards" type="VBoxContainer" parent="TabContainer"]
-visible = false
 custom_minimum_size = Vector2(327, 98)
 layout_mode = 2
 script = ExtResource("9_n8b1u")
@@ -53,6 +52,7 @@ max_cards_per_row = 5
 metadata/_tab_index = 0
 
 [node name="Heal Cards" type="VBoxContainer" parent="TabContainer"]
+visible = false
 custom_minimum_size = Vector2(327, 98)
 layout_mode = 2
 script = ExtResource("9_n8b1u")

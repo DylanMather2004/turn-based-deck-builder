@@ -10,10 +10,10 @@ func _physics_process(delta: float) -> void:
 	
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Left-Mouse") && sprite.get_rect().has_point(get_local_mouse_position()):
+	if Input.is_action_just_pressed("drag-drop") && sprite.get_rect().has_point(get_local_mouse_position()):
 		print("clicked")
 		is_dragging = true
-	elif Input.is_action_just_released("Left-Mouse") && sprite.get_rect().has_point(get_local_mouse_position())&&is_dragging:
+	elif Input.is_action_just_released("drag-drop") && sprite.get_rect().has_point(get_local_mouse_position())&&is_dragging:
 		print("up")
 		is_dragging = false
 		if in_play==true:

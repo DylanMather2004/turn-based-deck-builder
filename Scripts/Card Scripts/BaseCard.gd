@@ -29,24 +29,26 @@ func _effect(target:Character):
 			target.damage(value)
 		Card.CARD_TYPE.HEAL:
 			if owner_character.health ==owner_character.max_health: 
-				owner_character.deduct_ap(-ap)
 				use_failed()
 				return
 			owner_character.heal(value)
 		Card.CARD_TYPE.OVERSHIELD:
-			pass #Replace with Overshield Logic
+			if owner_character.overshield<owner_character.max_overshield:
+				owner_character.grant_overshield(value)
+			else:
+				use_failed()
+				return
 		Card.CARD_TYPE.POISON:
 			pass #Replace wiith Poison Logic
 		Card.CARD_TYPE.CHARGE:
 			pass #Replace with Charge Logic 
-			
+	owner_character.deduct_ap(ap)
 	
 	card_animator.play("Used")
 	
 	
 func _try_use():
 	if ap<=owner_character.ap&&get_tree()!=null:
-		owner_character.deduct_ap(ap)
 		_select_target()
 	else:
 		use_failed()

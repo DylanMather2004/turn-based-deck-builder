@@ -19,6 +19,12 @@ var sprite_frames:SpriteFrames
 var max_hand_size = 6
 var rng = RandomNumberGenerator.new()
 var has_turn:bool
+#overshield variables
+var overshield:int = 0
+var max_overshield:int = 3
+#poison variables
+var poison_stacks:int = 0
+var poison_ticks:int = 0
 
 func _ready() -> void:
 	
@@ -57,16 +63,18 @@ func draw_card():
 			
 	else:
 		print("Deck Full!")
-	
 func place_card(card:Node2D):
 	get_tree().get_root().call_deferred("add_child",card)
 func damage(change):
-	health-=change
-	health = clamp(health,0,max_health)
-	healthbar.value=health
-	effect_animator.play("hit")
-	if health ==0:
-		die()
+	if overshield == 0:
+		health-=change
+		health = clamp(health,0,max_health)
+		healthbar.value=health
+		effect_animator.play("hit")
+		if health ==0:
+			die()
+	else:
+		overshield-=1
 func heal(heal):
 	
 	health +=heal
@@ -75,14 +83,12 @@ func heal(heal):
 	effect_animator.play("heal")
 func die():
 	pass 
-	
 func deduct_ap(cost:int):
 	ap-=cost
 	ap_bar.value=ap
 	if ap<=0:
 		turn_end()
 	print(ap)
-
 func turn_start():
 	has_turn=true
 	if hand.size()>0:
@@ -95,16 +101,22 @@ func turn_end():
 	if !has_turn:
 		return
 	has_turn=false
+	#Restore AP
 	ap=max_ap
 	ap_bar.value=ap
+	#Manage Poison
+	if poison_ticks>0:
+		damage(poison_stacks*2)
+		poison_ticks-=1
 	turn_animator.play("turn_end")
 func deck_refresh():
 	deck=character_resource.deck.duplicate()
 	print(character_resource.deck)
 	print(deck)
-	
 func card_sort():
 	for i in range(hand.size()):
 		hand[i].position = hand_slot.slots[i].global_position
-		hand[i].reset_pos = hand[i].position
-	
+		hand[i].reset_pos = hand[i].position	
+func grant_overshield(add_overshield:int):
+	overshield += add_overshield
+	overshield = clamp(overshield,0,add_overshield)
