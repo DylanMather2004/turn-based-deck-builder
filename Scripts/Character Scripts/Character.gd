@@ -119,4 +119,7 @@ func card_sort():
 		hand[i].reset_pos = hand[i].position	
 func grant_overshield(add_overshield:int):
 	overshield += add_overshield
-	overshield = clamp(overshield,0,add_overshield)
+	overshield = clamp(overshield,0,max_overshield)
+func poison(ticks:int):
+	poison_stacks+=1 
+	poison_ticks=ticks

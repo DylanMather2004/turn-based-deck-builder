@@ -39,7 +39,7 @@ func _effect(target:Character):
 				use_failed()
 				return
 		Card.CARD_TYPE.POISON:
-			pass #Replace wiith Poison Logic
+			target.poison(value)
 		Card.CARD_TYPE.CHARGE:
 			pass #Replace with Charge Logic 
 	owner_character.deduct_ap(ap)

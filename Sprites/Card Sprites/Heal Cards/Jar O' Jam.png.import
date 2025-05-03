@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgcm8c3ti5xgt"
-path="res://.godot/imported/Frame.png-aba735c4dd957b02932d96c8c546c238.ctex"
+uid="uid://c2qk0gy4ll5iy"
+path="res://.godot/imported/Jar O' Jam.png-5cfc4b026b890d13b163427e12514987.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cards/Frame.png"
-dest_files=["res://.godot/imported/Frame.png-aba735c4dd957b02932d96c8c546c238.ctex"]
+source_file="res://Sprites/Card Sprites/Heal Cards/Jar O' Jam.png"
+dest_files=["res://.godot/imported/Jar O' Jam.png-5cfc4b026b890d13b163427e12514987.ctex"]
 
 [params]
 

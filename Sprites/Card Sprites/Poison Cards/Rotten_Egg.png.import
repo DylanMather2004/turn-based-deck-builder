@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dojst8fq4p63p"
-path="res://.godot/imported/Pass Button.png-d66ecb4e56e08f9273100bb2b5e22b6c.ctex"
+uid="uid://lfaixunpu4gi"
+path="res://.godot/imported/Rotten_Egg.png-5a8e25853ff105d96f55eb3dbee8c834.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cards/Pass Button.png"
-dest_files=["res://.godot/imported/Pass Button.png-d66ecb4e56e08f9273100bb2b5e22b6c.ctex"]
+source_file="res://Sprites/Card Sprites/Poison Cards/Rotten_Egg.png"
+dest_files=["res://.godot/imported/Rotten_Egg.png-5a8e25853ff105d96f55eb3dbee8c834.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbxyiud2wilc2"
-path="res://.godot/imported/Juicy.png-c29259b94786a712adaf937cce987c3a.ctex"
+uid="uid://dgcm8c3ti5xgt"
+path="res://.godot/imported/Frame.png-6c1770a8db3ad624486bbc437ed51692.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Card Sprites/Juicy.png"
-dest_files=["res://.godot/imported/Juicy.png-c29259b94786a712adaf937cce987c3a.ctex"]
+source_file="res://Sprites/Frame.png"
+dest_files=["res://.godot/imported/Frame.png-6c1770a8db3ad624486bbc437ed51692.ctex"]
 
 [params]
 

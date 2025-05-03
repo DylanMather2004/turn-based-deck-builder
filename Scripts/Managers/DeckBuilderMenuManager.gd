@@ -6,6 +6,8 @@ var deck_buttons=[]
 @export var cells_per_row = 5
 @export var attack_card_menu:VBoxContainer
 @export var heal_card_menu:VBoxContainer
+@export var shield_card_menu:VBoxContainer
+@export var poison_card_menu:VBoxContainer
 @export var deck_menu:HBoxContainer
 @export var menu_button_prefab:PackedScene
 @export var deck_button_prefab:PackedScene
@@ -23,6 +25,10 @@ func _ready() -> void:
 				attack_card_menu.call_deferred("add_card",new_button)
 			Card.CARD_TYPE.HEAL:
 				heal_card_menu.call_deferred("add_card",new_button)
+			Card.CARD_TYPE.OVERSHIELD:
+				shield_card_menu.call_deferred("add_child",new_button)
+			Card.CARD_TYPE.POISON:
+				poison_card_menu.call_deferred("add_child",new_button)
 	load_deck()
 				
 func add_card_to_deck(card:Card):

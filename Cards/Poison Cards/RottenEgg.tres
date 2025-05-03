@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://k6y0pg5tbeco"]
+
+[ext_resource type="Texture2D" uid="uid://lfaixunpu4gi" path="res://Sprites/Card Sprites/Poison Cards/Rotten_Egg.png" id="1_gboly"]
+[ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="2_s3fu3"]
+
+[resource]
+script = ExtResource("2_s3fu3")
+card_name = "Rotten Egg"
+card_art = ExtResource("1_gboly")
+card_type = 3
+value = 2
+ap_cost = 6
