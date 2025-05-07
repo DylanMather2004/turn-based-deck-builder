@@ -13,6 +13,7 @@ var deck_buttons=[]
 @export var deck_button_prefab:PackedScene
 @export_category("Save Settings")
 @export var save_path:String = "user://deck.save"
+var save_manager = SaveManager.new()
 
 func _ready() -> void:
 	for i in range(owned_cards.size()):
@@ -69,8 +70,11 @@ func add_deck_button(card:Card):
 
 
 func _on_save_button_pressed() -> void:
-	save_deck()
+	save_manager._save_deck(deck,save_path)
 
 
 func _on_load_button_pressed() -> void:
-	load_deck()
+	clear_deck()
+	deck = save_manager._load_deck(save_path)
+	for i in range(deck.size()):
+			add_deck_button(deck[i])
