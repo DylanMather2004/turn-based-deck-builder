@@ -97,5 +97,9 @@ offset_right = 561.0
 offset_bottom = 214.0
 texture_normal = ExtResource("11_2gcl7")
 
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+
 [connection signal="pressed" from="Save Button" to="Control" method="_on_save_button_pressed"]
 [connection signal="pressed" from="Load Button" to="Control" method="_on_load_button_pressed"]

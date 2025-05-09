@@ -113,12 +113,25 @@ _data = {
 script = ExtResource("1_m5pmw")
 
 [node name="Player" parent="." node_paths=PackedStringArray("healthbar", "ap_bar", "turn_animator", "hand_slot") groups=["character"] instance=ExtResource("1_4hjge")]
-position = Vector2(83, 210)
+position = Vector2(79, 189)
 character_resource = ExtResource("4_ih84k")
 healthbar = NodePath("../UI/P1 UI/P1 Healthbar")
 ap_bar = NodePath("../UI/P1 UI/P1 APbar")
 turn_animator = NodePath("../Turn Identifiers/Turn Start_End Animator")
 hand_slot = NodePath("../PlayerHand")
+
+[node name="Player2" parent="." node_paths=PackedStringArray("card_display_point", "healthbar", "ap_bar", "turn_animator", "hand_slot") groups=["character"] instance=ExtResource("8_0cshs")]
+position = Vector2(501, 181)
+card_display_point = NodePath("Node2D")
+character_resource = ExtResource("5_q7evi")
+card_template = ExtResource("10_64u77")
+healthbar = NodePath("../UI/P2 UI/P2 Healthbar")
+ap_bar = NodePath("../UI/P2 UI/P2 APbar")
+turn_animator = NodePath("../Turn Identifiers/Turn Start_End Animator")
+hand_slot = NodePath("../EnemyHand")
+
+[node name="Node2D" type="Node2D" parent="Player2"]
+position = Vector2(-202, -19)
 
 [node name="PlayerHand" type="Node2D" parent="." node_paths=PackedStringArray("slots")]
 position = Vector2(279, 282)
@@ -286,18 +299,5 @@ text = "Start Turn"
 libraries = {
 "": SubResource("AnimationLibrary_71p42")
 }
-
-[node name="Player2" parent="." node_paths=PackedStringArray("card_display_point", "healthbar", "ap_bar", "turn_animator", "hand_slot") groups=["character"] instance=ExtResource("8_0cshs")]
-position = Vector2(505, 202)
-card_display_point = NodePath("Node2D")
-character_resource = ExtResource("5_q7evi")
-card_template = ExtResource("10_64u77")
-healthbar = NodePath("../UI/P2 UI/P2 Healthbar")
-ap_bar = NodePath("../UI/P2 UI/P2 APbar")
-turn_animator = NodePath("../Turn Identifiers/Turn Start_End Animator")
-hand_slot = NodePath("../EnemyHand")
-
-[node name="Node2D" type="Node2D" parent="Player2"]
-position = Vector2(-202, -19)
 
 [connection signal="pressed" from="UI/Pass Button" to="Player" method="_on_pass_button_pressed"]

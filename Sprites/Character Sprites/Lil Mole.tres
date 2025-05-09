@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bpbgijwrwa1iq"]
+
+[ext_resource type="Texture2D" uid="uid://d2hqnb7bhkyql" path="res://Sprites/Character Sprites/Lil Mole.png" id="1_xf1kq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwq5s"]
+atlas = ExtResource("1_xf1kq")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya2f2"]
+atlas = ExtResource("1_xf1kq")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0skk"]
+atlas = ExtResource("1_xf1kq")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3xi0"]
+atlas = ExtResource("1_xf1kq")
+region = Rect2(384, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwq5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya2f2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0skk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3xi0")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}]

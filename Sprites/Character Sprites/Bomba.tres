@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dngx2b23pf4j5"]
+
+[ext_resource type="Texture2D" uid="uid://2w7ckn00610t" path="res://Sprites/Character Sprites/Bomba-Sheet.png" id="1_m874s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0gkb"]
+atlas = ExtResource("1_m874s")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwf7l"]
+atlas = ExtResource("1_m874s")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv8jj"]
+atlas = ExtResource("1_m874s")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_036rm"]
+atlas = ExtResource("1_m874s")
+region = Rect2(384, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0gkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwf7l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vv8jj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_036rm")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}]

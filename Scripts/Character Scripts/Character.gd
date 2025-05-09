@@ -32,7 +32,7 @@ func _ready() -> void:
 	health = max_health
 	max_ap=character_resource.ap
 	ap=max_ap
-	deck=character_resource.deck.duplicate()
+	deck_init()
 	sprite_frames=character_resource.sprite_sheet
 	sprite_animator.sprite_frames = sprite_frames
 	sprite_animator.play("default")
@@ -43,6 +43,8 @@ func _ready() -> void:
 	for i in range(max_hand_size):
 		draw_card()
 	card_sort()
+func deck_init():
+	deck=character_resource.deck.duplicate()
 func draw_card():
 	if hand.size()<max_hand_size:
 		print(character_resource.deck)

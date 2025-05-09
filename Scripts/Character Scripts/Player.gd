@@ -4,8 +4,21 @@ func _ready() -> void:
 	super._ready()
 	has_turn=true
 
-
+func deck_init():
+	if !PlayerData.deck.is_empty():
+		for i in range(PlayerData.deck.size()):
+			deck.append(PlayerData.deck[i])
+		print(deck)
+	else:
+		super.deck_init()
+		print("hello!")
 	
+func deck_refresh():
+	if !PlayerData.deck.is_empty():
+		for i in range(PlayerData.deck.size()):
+			deck.append(PlayerData.deck[i])
+	else:
+		super.deck_refresh()
 	
 func turn_start():
 	super.turn_start()

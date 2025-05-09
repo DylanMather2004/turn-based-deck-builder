@@ -77,4 +77,5 @@ func _on_load_button_pressed() -> void:
 	clear_deck()
 	deck = save_manager._load_deck(save_path)
 	for i in range(deck.size()):
+		if is_instance_valid(deck[i]):
 			add_deck_button(deck[i])
