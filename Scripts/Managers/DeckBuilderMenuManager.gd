@@ -14,6 +14,7 @@ var deck_buttons=[]
 @export_category("Save Settings")
 @export var save_path:String = "user://deck.save"
 var save_manager = SaveManager.new()
+@export var main_menu:PackedScene
 
 func _ready() -> void:
 	for i in range(owned_cards.size()):
@@ -79,3 +80,9 @@ func _on_load_button_pressed() -> void:
 	for i in range(deck.size()):
 		if is_instance_valid(deck[i]):
 			add_deck_button(deck[i])
+
+
+func _on_texture_button_pressed() -> void:
+	print("press")
+	get_tree().change_scene_to_packed(main_menu)
+	
