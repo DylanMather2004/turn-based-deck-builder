@@ -122,6 +122,33 @@ _data = {
 "turn_start": SubResource("Animation_kecj7")
 }
 
+[sub_resource type="Animation" id="Animation_x41a5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_u04cd"]
 resource_name = "show"
 length = 0.5
@@ -150,45 +177,20 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_x41a5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fsxef"]
 _data = {
 "RESET": SubResource("Animation_x41a5"),
 "show": SubResource("Animation_u04cd")
 }
 
-[node name="Combat" type="Node2D" node_paths=PackedStringArray("win_screen")]
+[node name="Combat" type="Node2D" node_paths=PackedStringArray("win_screen", "lose_screen")]
 script = ExtResource("1_m5pmw")
 win_screen = NodePath("WinScreen/AnimationPlayer")
+lose_screen = NodePath("LoseScreen/AnimationPlayer")
 
-[node name="Player" parent="." node_paths=PackedStringArray("healthbar", "ap_bar", "turn_animator", "hand_slot") groups=["character"] instance=ExtResource("1_4hjge")]
+[node name="Player" parent="." node_paths=PackedStringArray("game_manager", "healthbar", "ap_bar", "turn_animator", "hand_slot") groups=["character"] instance=ExtResource("1_4hjge")]
 position = Vector2(79, 189)
+game_manager = NodePath("..")
 character_resource = ExtResource("4_ih84k")
 healthbar = NodePath("../UI/P1 UI/P1 Healthbar")
 ap_bar = NodePath("../UI/P1 UI/P1 APbar")
@@ -215,6 +217,13 @@ hand_slot = NodePath("../EnemyHand")
 
 [node name="Node2D" type="Node2D" parent="Player2"]
 position = Vector2(-202, -19)
+
+[node name="Poison_Particles" type="GPUParticles2D" parent="Player2"]
+position = Vector2(0, 13)
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_0raiy")
+texture = ExtResource("4_3ggen")
+lifetime = 1.5
 
 [node name="PlayerHand" type="Node2D" parent="." node_paths=PackedStringArray("slots")]
 position = Vector2(279, 282)
@@ -418,5 +427,42 @@ libraries = {
 "": SubResource("AnimationLibrary_fsxef")
 }
 
+[node name="LoseScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 575.0
+offset_bottom = 323.0
+
+[node name="Sprite2D" type="Sprite2D" parent="LoseScreen"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(283, 169.5)
+scale = Vector2(18.6875, 11.5938)
+texture = ExtResource("2_i526l")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LoseScreen"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 3.0
+offset_right = 447.0
+offset_bottom = 91.0
+theme_override_font_sizes/normal_font_size = 60
+text = "You Lose!
+"
+
+[node name="Button" type="Button" parent="LoseScreen"]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 142.0
+offset_right = 361.0
+offset_bottom = 187.0
+text = "Back To Menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LoseScreen"]
+libraries = {
+"": SubResource("AnimationLibrary_fsxef")
+}
+
 [connection signal="pressed" from="UI/Pass Button" to="Player" method="_on_pass_button_pressed"]
 [connection signal="pressed" from="WinScreen/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="LoseScreen/Button" to="." method="_on_button_pressed"]

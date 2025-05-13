@@ -30,4 +30,13 @@ func win():
 	for i in cards:
 		i.queue_free()
 	win_screen.play("show")
+
+func lose():
+	for i in players: 
+		i.queue_free()
+	
+	var cards = get_tree().get_nodes_in_group("card")
+	for i in cards:
+		i.queue_free()
+	lose_screen.play("show")
 		

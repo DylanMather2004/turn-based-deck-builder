@@ -1,4 +1,5 @@
 extends Character
+@export var game_manager:Node2D
 var selected_card:BaseCard
 func _ready() -> void:
 	super._ready()
@@ -31,3 +32,7 @@ func _on_pass_button_pressed() -> void:
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("use_card")&&selected_card!=null:
 		selected_card._try_use()
+
+func die():
+	game_manager.lose()
+	
