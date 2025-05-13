@@ -20,12 +20,12 @@ offset_bottom = 40.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TitleMenu"]
 layout_mode = 0
-offset_left = 122.0
-offset_top = 10.0
-offset_right = 473.0
-offset_bottom = 209.0
-theme_override_font_sizes/normal_font_size = 65
-text = "Deck Out!"
+offset_left = 106.0
+offset_top = 29.0
+offset_right = 522.0
+offset_bottom = 228.0
+theme_override_font_sizes/normal_font_size = 35
+text = "Unnamed Card Game"
 
 [node name="Play Button" type="Button" parent="TitleMenu"]
 layout_mode = 0

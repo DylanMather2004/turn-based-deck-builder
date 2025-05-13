@@ -5,6 +5,7 @@ var current_priority:PRIORITY
 var cannot_use:Array[BaseCard]
 var card_to_use:EnemyCard
 @export var card_display_point:Node2D
+@export var game_manager:Node2D
 func _ready() -> void:
 	super._ready()
 	for i in range(max_hand_size):
@@ -65,5 +66,7 @@ func turn_end():
 		cannot_use.erase(i)
 
 func die():
-	queue_free()
+	game_manager.win()
+	
+	
 	

@@ -1,14 +1,27 @@
-[gd_scene load_steps=21 format=3 uid="uid://cpmb3mos3pqsu"]
+[gd_scene load_steps=26 format=3 uid="uid://cpmb3mos3pqsu"]
 
 [ext_resource type="PackedScene" uid="uid://sw0v4ybdaltf" path="res://Prefabs/Player.tscn" id="1_4hjge"]
 [ext_resource type="Script" path="res://Scenes/TurnManager.gd" id="1_m5pmw"]
 [ext_resource type="Texture2D" uid="uid://why4j78o0ygw" path="res://Sprites/white-square-32x32.png" id="2_i526l"]
 [ext_resource type="Script" path="res://Scenes/PlayerHand.gd" id="2_n1ljg"]
+[ext_resource type="Texture2D" uid="uid://u03e27dsjjdk" path="res://Sprites/Poison Bubble.png" id="4_3ggen"]
 [ext_resource type="Resource" uid="uid://blyrptpbsnniw" path="res://Characters/Mole.tres" id="4_ih84k"]
 [ext_resource type="Resource" uid="uid://bu7u8pkobijiy" path="res://Characters/Balla.tres" id="5_q7evi"]
 [ext_resource type="Texture2D" uid="uid://dojst8fq4p63p" path="res://Sprites/Pass Button.png" id="7_3l3jv"]
 [ext_resource type="PackedScene" uid="uid://drjysvvp5rtyp" path="res://Prefabs/Enemy.tscn" id="8_0cshs"]
 [ext_resource type="PackedScene" uid="uid://dr0dmmsk455ys" path="res://Prefabs/EnemyCard.tscn" id="10_64u77"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0raiy"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 61.18
+gravity = Vector3(0, -50, 0)
+radial_accel_min = -28.17
+radial_accel_max = 100.0
+tangential_accel_min = -61.97
+tangential_accel_max = 78.87
+scale_min = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3rbnj"]
 size = Vector2(464, 218)
@@ -109,8 +122,70 @@ _data = {
 "turn_start": SubResource("Animation_kecj7")
 }
 
-[node name="Combat" type="Node2D"]
+[sub_resource type="Animation" id="Animation_u04cd"]
+resource_name = "show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_x41a5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fsxef"]
+_data = {
+"RESET": SubResource("Animation_x41a5"),
+"show": SubResource("Animation_u04cd")
+}
+
+[node name="Combat" type="Node2D" node_paths=PackedStringArray("win_screen")]
 script = ExtResource("1_m5pmw")
+win_screen = NodePath("WinScreen/AnimationPlayer")
 
 [node name="Player" parent="." node_paths=PackedStringArray("healthbar", "ap_bar", "turn_animator", "hand_slot") groups=["character"] instance=ExtResource("1_4hjge")]
 position = Vector2(79, 189)
@@ -120,9 +195,17 @@ ap_bar = NodePath("../UI/P1 UI/P1 APbar")
 turn_animator = NodePath("../Turn Identifiers/Turn Start_End Animator")
 hand_slot = NodePath("../PlayerHand")
 
-[node name="Player2" parent="." node_paths=PackedStringArray("card_display_point", "healthbar", "ap_bar", "turn_animator", "hand_slot") groups=["character"] instance=ExtResource("8_0cshs")]
+[node name="Poison_Particles" type="GPUParticles2D" parent="Player"]
+position = Vector2(0, 13)
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_0raiy")
+texture = ExtResource("4_3ggen")
+lifetime = 1.5
+
+[node name="Player2" parent="." node_paths=PackedStringArray("card_display_point", "game_manager", "healthbar", "ap_bar", "turn_animator", "hand_slot") groups=["character"] instance=ExtResource("8_0cshs")]
 position = Vector2(501, 181)
 card_display_point = NodePath("Node2D")
+game_manager = NodePath("..")
 character_resource = ExtResource("5_q7evi")
 card_template = ExtResource("10_64u77")
 healthbar = NodePath("../UI/P2 UI/P2 Healthbar")
@@ -300,4 +383,40 @@ libraries = {
 "": SubResource("AnimationLibrary_71p42")
 }
 
+[node name="WinScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 575.0
+offset_bottom = 323.0
+
+[node name="Sprite2D" type="Sprite2D" parent="WinScreen"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(283, 169.5)
+scale = Vector2(18.6875, 11.5938)
+texture = ExtResource("2_i526l")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="WinScreen"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 3.0
+offset_right = 447.0
+offset_bottom = 91.0
+theme_override_font_sizes/normal_font_size = 60
+text = "You Win!"
+
+[node name="Button" type="Button" parent="WinScreen"]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 142.0
+offset_right = 361.0
+offset_bottom = 187.0
+text = "Back To Menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WinScreen"]
+libraries = {
+"": SubResource("AnimationLibrary_fsxef")
+}
+
 [connection signal="pressed" from="UI/Pass Button" to="Player" method="_on_pass_button_pressed"]
+[connection signal="pressed" from="WinScreen/Button" to="." method="_on_button_pressed"]

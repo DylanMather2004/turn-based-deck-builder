@@ -81,7 +81,7 @@ _data = {
 "Used": SubResource("Animation_q3llk")
 }
 
-[node name="Card" type="Node2D" node_paths=PackedStringArray("name_text", "value_text", "ap_text", "sprite", "card_animator")]
+[node name="Card" type="Node2D" node_paths=PackedStringArray("name_text", "value_text", "ap_text", "sprite", "card_animator") groups=["card"]]
 script = ExtResource("1_xlb2b")
 card_to_load = ExtResource("2_jg0cj")
 name_text = NodePath("Sprite2D/NameText")

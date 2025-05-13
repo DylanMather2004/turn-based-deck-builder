@@ -117,8 +117,9 @@ func deck_refresh():
 	print(deck)
 func card_sort():
 	for i in range(hand.size()):
-		hand[i].position = hand_slot.slots[i].global_position
-		hand[i].reset_pos = hand[i].position	
+		if hand[i]!=null:
+			hand[i].position = hand_slot.slots[i].global_position
+			hand[i].reset_pos = hand[i].position	
 func grant_overshield(add_overshield:int):
 	overshield += add_overshield
 	overshield = clamp(overshield,0,max_overshield)
