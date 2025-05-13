@@ -1,8 +1,9 @@
 extends Node2D
 @export var title_menu:Control
 @export var game_mode_screen:Control
-@export var combat_scene:PackedScene
-@export var deck_builder_scene:PackedScene
+@export var combat_scene ="res://Scenes/Combat.tscn"
+@export var deck_builder_scene = "res://Scenes/Deck Builder Menu.tscn"
+
 var save_manager=SaveManager.new()
 func _ready() -> void:
 	PlayerData.deck = save_manager._load_deck("user://deck.save")
@@ -19,15 +20,14 @@ func _on_back_button_button_down() -> void:
 
 
 func _on_fight_button_pressed() -> void:
-	get_tree().change_scene_to_packed(combat_scene)
-	get_tree().unload_current_scene()
+	get_tree().change_scene_to_file("res://Scenes/Combat.tscn")
+	
 
 
 
 
 func _on_deck_button_pressed() -> void:
-	get_tree().change_scene_to_packed(deck_builder_scene)
-	get_tree().unload_current_scene()
+	get_tree().change_scene_to_file("res://Scenes/Deck Builder Menu.tscn")
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()

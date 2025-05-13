@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bty6qga3l0gim"]
+[gd_scene load_steps=19 format=3 uid="uid://bty6qga3l0gim"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/DeckBuilderMenuManager.gd" id="1_erhco"]
 [ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="2_uck6t"]
@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://c81sm3ldwwoj1" path="res://Sprites/Load.png" id="11_2gcl7"]
 [ext_resource type="Resource" uid="uid://k6y0pg5tbeco" path="res://Cards/Poison Cards/RottenEgg.tres" id="11_orldm"]
 [ext_resource type="Resource" uid="uid://mp3anqjhybd5" path="res://Cards/Shield Cards/NuhUh.tres" id="12_00rs1"]
-[ext_resource type="PackedScene" uid="uid://djxutphtxguqu" path="res://Scenes/main_menu.tscn" id="15_jv5le"]
 [ext_resource type="Texture2D" uid="uid://b40n4lbsqkhqr" path="res://Sprites/Back-Button.png" id="18_ce4ss"]
 
 [node name="DeckBuilderMenu" type="Node2D"]
@@ -34,7 +33,6 @@ poison_card_menu = NodePath("../TabContainer/Poison Cards")
 deck_menu = NodePath("ScrollContainer/HBoxContainer")
 menu_button_prefab = ExtResource("3_nxo8m")
 deck_button_prefab = ExtResource("8_vufdo")
-main_menu = ExtResource("15_jv5le")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control"]
 layout_mode = 0

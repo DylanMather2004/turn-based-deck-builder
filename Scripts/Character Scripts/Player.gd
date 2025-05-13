@@ -5,7 +5,7 @@ func _ready() -> void:
 	has_turn=true
 
 func deck_init():
-	if !PlayerData.deck.is_empty():
+	if PlayerData.deck!= null && !PlayerData.deck.is_empty():
 		for i in range(PlayerData.deck.size()):
 			deck.append(PlayerData.deck[i])
 		print(deck)

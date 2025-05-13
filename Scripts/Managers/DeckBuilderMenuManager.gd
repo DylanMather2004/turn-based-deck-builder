@@ -14,7 +14,7 @@ var deck_buttons=[]
 @export_category("Save Settings")
 @export var save_path:String = "user://deck.save"
 var save_manager = SaveManager.new()
-@export var main_menu:PackedScene
+
 
 func _ready() -> void:
 	for i in range(owned_cards.size()):
@@ -34,10 +34,10 @@ func _ready() -> void:
 	load_deck()
 				
 func add_card_to_deck(card:Card):
-	deck.append(card)
+	deck.append(card.resource_path)
 	add_deck_button(card)
 func remove_card_from_deck(cardbutton:TextureButton):
-	deck.erase(cardbutton.card)
+	deck.erase(cardbutton.card.resource_path)
 	deck_buttons.erase(cardbutton)
 	cardbutton.queue_free()
 func save_deck():
@@ -49,10 +49,10 @@ func load_deck():
 	if FileAccess.file_exists(save_path):
 		var file = FileAccess.open(save_path,FileAccess.READ)
 		for i in file.get_var():
-			deck.append(instance_from_id(i.object_id))
+			deck.append(i)
 			
 		for i in range(deck.size()):
-			add_deck_button(deck[i])
+			add_deck_button(load(deck[i]))
 	else:
 		print("No File to Load")
 func clear_deck():
@@ -68,6 +68,7 @@ func add_deck_button(card:Card):
 	new_button.card = card
 	deck_menu.add_child(new_button)
 	deck_buttons.append(new_button)
+	print(card.resource_path)
 
 
 func _on_save_button_pressed() -> void:
@@ -84,5 +85,5 @@ func _on_load_button_pressed() -> void:
 
 func _on_texture_button_pressed() -> void:
 	print("press")
-	get_tree().change_scene_to_packed(main_menu)
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 	

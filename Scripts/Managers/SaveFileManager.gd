@@ -10,6 +10,6 @@ func _load_deck(path:String):
 	if FileAccess.file_exists(path):
 		var file = FileAccess.open(path,FileAccess.READ)
 		for i in file.get_var():
-			deck.append(instance_from_id(i.object_id))
-		
+			deck.append(load(i))
+		file.close()
 		return deck 
