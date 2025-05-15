@@ -7,7 +7,9 @@ var character_resource:CharacterTemplate
 @export var poison_particles:GPUParticles2D
 @export_category("UI References")
 @export var healthbar:ProgressBar
+@export var health_text:RichTextLabel
 @export var ap_bar:ProgressBar
+@export var ap_text:RichTextLabel
 @export var turn_animator:AnimationPlayer
 @export var effect_animator:AnimationPlayer
 @export var hand_slot:Node2D
@@ -40,8 +42,10 @@ func _ready() -> void:
 	sprite_animator.play("default")
 	healthbar.max_value=health
 	healthbar.value=health
+	health_text.text="HP: "+ str(health)
 	ap_bar.max_value=ap
 	ap_bar.value=ap
+	ap_text.text="AP: "+str(ap)
 	for i in range(max_hand_size):
 		draw_card()
 	card_sort()
@@ -77,6 +81,7 @@ func damage(change):
 		health-=change
 		health = clamp(health,0,max_health)
 		healthbar.value=health
+		health_text.text = "HP: "+str(health)
 		effect_animator.play("hit")
 		if health ==0:
 			die()
@@ -93,6 +98,7 @@ func die():
 func deduct_ap(cost:int):
 	ap-=cost
 	ap_bar.value=ap
+	ap_text.text="AP: "+ str(ap)
 	if ap<=0:
 		turn_end()
 	print(ap)
@@ -111,6 +117,7 @@ func turn_end():
 	#Restore AP
 	ap=max_ap
 	ap_bar.value=ap
+	ap_text.text="AP: "+str(ap)
 	#Manage Poison
 	if poison_ticks>0:
 		damage(poison_stacks*2)

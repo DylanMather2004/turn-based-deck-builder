@@ -187,13 +187,15 @@ script = ExtResource("1_m5pmw")
 win_screen = NodePath("WinScreen/AnimationPlayer")
 lose_screen = NodePath("LoseScreen/AnimationPlayer")
 
-[node name="Player" parent="." node_paths=PackedStringArray("game_manager", "poison_particles", "healthbar", "ap_bar", "turn_animator", "hand_slot") groups=["character"] instance=ExtResource("1_4hjge")]
+[node name="Player" parent="." node_paths=PackedStringArray("game_manager", "poison_particles", "healthbar", "health_text", "ap_bar", "ap_text", "turn_animator", "hand_slot") groups=["character"] instance=ExtResource("1_4hjge")]
 position = Vector2(79, 189)
 game_manager = NodePath("..")
 player_character = ExtResource("4_ih84k")
 poison_particles = NodePath("Poison_Particles")
 healthbar = NodePath("../UI/P1 UI/P1 Healthbar")
+health_text = NodePath("../UI/P1 UI/HealthText")
 ap_bar = NodePath("../UI/P1 UI/P1 APbar")
+ap_text = NodePath("../UI/P1 UI/APText")
 turn_animator = NodePath("../Turn Identifiers/Turn Start_End Animator")
 hand_slot = NodePath("../PlayerHand")
 
@@ -205,14 +207,16 @@ process_material = SubResource("ParticleProcessMaterial_0raiy")
 texture = ExtResource("4_3ggen")
 lifetime = 1.5
 
-[node name="Player2" parent="." node_paths=PackedStringArray("card_display_point", "game_manager", "poison_particles", "healthbar", "ap_bar", "turn_animator", "hand_slot") groups=["character"] instance=ExtResource("8_0cshs")]
+[node name="Player2" parent="." node_paths=PackedStringArray("card_display_point", "game_manager", "poison_particles", "healthbar", "health_text", "ap_bar", "ap_text", "turn_animator", "hand_slot") groups=["character"] instance=ExtResource("8_0cshs")]
 position = Vector2(501, 181)
 card_display_point = NodePath("Node2D")
 game_manager = NodePath("..")
 card_template = ExtResource("10_64u77")
 poison_particles = NodePath("Poison_Particles")
 healthbar = NodePath("../UI/P2 UI/P2 Healthbar")
+health_text = NodePath("../UI/P2 UI/HealthText")
 ap_bar = NodePath("../UI/P2 UI/P2 APbar")
+ap_text = NodePath("../UI/P2 UI/APText2")
 turn_animator = NodePath("../Turn Identifiers/Turn Start_End Animator")
 hand_slot = NodePath("../EnemyHand")
 
@@ -324,6 +328,22 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ip5hk")
 value = 100.0
 show_percentage = false
 
+[node name="HealthText" type="RichTextLabel" parent="UI/P1 UI"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 27.0
+offset_right = 137.0
+offset_bottom = 67.0
+text = "HP:100"
+
+[node name="APText" type="RichTextLabel" parent="UI/P1 UI"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 49.0
+offset_right = 137.0
+offset_bottom = 89.0
+text = "AP:10"
+
 [node name="P2 UI" type="Control" parent="UI"]
 anchors_preset = 0
 offset_right = 40.0
@@ -352,6 +372,22 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ip5hk")
 value = 100.0
 fill_mode = 1
 show_percentage = false
+
+[node name="HealthText" type="RichTextLabel" parent="UI/P2 UI"]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 27.0
+offset_right = 618.0
+offset_bottom = 67.0
+text = "HP:100"
+
+[node name="APText2" type="RichTextLabel" parent="UI/P2 UI"]
+layout_mode = 0
+offset_left = 508.0
+offset_top = 49.0
+offset_right = 626.0
+offset_bottom = 89.0
+text = "AP:10"
 
 [node name="Pass Button" type="TextureButton" parent="UI"]
 layout_mode = 0
