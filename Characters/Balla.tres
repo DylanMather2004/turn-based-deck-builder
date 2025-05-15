@@ -1,18 +1,11 @@
-[gd_resource type="Resource" script_class="CharacterTemplate" load_steps=9 format=3 uid="uid://bu7u8pkobijiy"]
+[gd_resource type="Resource" script_class="CharacterTemplate" load_steps=3 format=3 uid="uid://cww52qnsl656k"]
 
 [ext_resource type="Script" path="res://Characters/CharacterTemplate.gd" id="1_j8we1"]
 [ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="1_luhts"]
-[ext_resource type="Resource" uid="uid://qoywkxvppsxg" path="res://Cards/Attack Cards/Punch.tres" id="2_hm3q1"]
-[ext_resource type="Resource" uid="uid://cpw10blpmwqap" path="res://Cards/Attack Cards/Dodgeball.tres" id="3_euvxa"]
-[ext_resource type="Resource" uid="uid://gtfn2vhoe8xs" path="res://Cards/Attack Cards/Sword.tres" id="4_oxpvo"]
-[ext_resource type="Resource" uid="uid://c7odwrv5pjg06" path="res://Cards/Heal Cards/Juicy.tres" id="5_e0ueo"]
-[ext_resource type="Resource" uid="uid://mp3anqjhybd5" path="res://Cards/Shield Cards/NuhUh.tres" id="6_gmwys"]
-[ext_resource type="SpriteFrames" uid="uid://dngx2b23pf4j5" path="res://Sprites/Character Sprites/Bomba.tres" id="8_hyv1o"]
 
 [resource]
 script = ExtResource("1_j8we1")
-character_name = "Balla"
-sprite_sheet = ExtResource("8_hyv1o")
-health = 100
-ap = 10
-deck = Array[ExtResource("1_luhts")]([ExtResource("2_hm3q1"), ExtResource("2_hm3q1"), ExtResource("2_hm3q1"), ExtResource("3_euvxa"), ExtResource("3_euvxa"), ExtResource("3_euvxa"), ExtResource("4_oxpvo"), ExtResource("5_e0ueo"), ExtResource("5_e0ueo"), ExtResource("5_e0ueo"), ExtResource("4_oxpvo"), ExtResource("6_gmwys"), ExtResource("6_gmwys"), ExtResource("6_gmwys")])
+character_name = ""
+health = 0
+ap = 0
+deck = Array[ExtResource("1_luhts")]([])

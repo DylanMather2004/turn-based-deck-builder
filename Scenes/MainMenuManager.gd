@@ -3,6 +3,7 @@ extends Node2D
 @export var game_mode_screen:Control
 @export var combat_scene ="res://Scenes/Combat.tscn"
 @export var deck_builder_scene = "res://Scenes/Deck Builder Menu.tscn"
+@export var enemy_select_menu:Control
 
 var save_manager=SaveManager.new()
 func _ready() -> void:
@@ -20,7 +21,9 @@ func _on_back_button_button_down() -> void:
 
 
 func _on_fight_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Combat.tscn")
+	enemy_select_menu.show()
+	game_mode_screen.hide()
+	
 	
 
 

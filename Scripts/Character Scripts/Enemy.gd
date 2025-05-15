@@ -11,7 +11,8 @@ func _ready() -> void:
 	for i in range(max_hand_size):
 		draw_card()
 		
-
+func character_loader():
+	character_resource=PlayerData.character_selection
 func turn_start():
 	super.turn_start()
 	card_sort()

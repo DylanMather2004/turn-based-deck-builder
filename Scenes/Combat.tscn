@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cpmb3mos3pqsu"]
+[gd_scene load_steps=25 format=3 uid="uid://cpmb3mos3pqsu"]
 
 [ext_resource type="PackedScene" uid="uid://sw0v4ybdaltf" path="res://Prefabs/Player.tscn" id="1_4hjge"]
 [ext_resource type="Script" path="res://Scenes/TurnManager.gd" id="1_m5pmw"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://Scenes/PlayerHand.gd" id="2_n1ljg"]
 [ext_resource type="Texture2D" uid="uid://u03e27dsjjdk" path="res://Sprites/Poison Bubble.png" id="4_3ggen"]
 [ext_resource type="Resource" uid="uid://blyrptpbsnniw" path="res://Characters/Mole.tres" id="4_ih84k"]
-[ext_resource type="Resource" uid="uid://bu7u8pkobijiy" path="res://Characters/Balla.tres" id="5_q7evi"]
 [ext_resource type="Texture2D" uid="uid://dojst8fq4p63p" path="res://Sprites/Pass Button.png" id="7_3l3jv"]
 [ext_resource type="PackedScene" uid="uid://drjysvvp5rtyp" path="res://Prefabs/Enemy.tscn" id="8_0cshs"]
 [ext_resource type="PackedScene" uid="uid://dr0dmmsk455ys" path="res://Prefabs/EnemyCard.tscn" id="10_64u77"]
@@ -188,10 +187,11 @@ script = ExtResource("1_m5pmw")
 win_screen = NodePath("WinScreen/AnimationPlayer")
 lose_screen = NodePath("LoseScreen/AnimationPlayer")
 
-[node name="Player" parent="." node_paths=PackedStringArray("game_manager", "healthbar", "ap_bar", "turn_animator", "hand_slot") groups=["character"] instance=ExtResource("1_4hjge")]
+[node name="Player" parent="." node_paths=PackedStringArray("game_manager", "poison_particles", "healthbar", "ap_bar", "turn_animator", "hand_slot") groups=["character"] instance=ExtResource("1_4hjge")]
 position = Vector2(79, 189)
 game_manager = NodePath("..")
-character_resource = ExtResource("4_ih84k")
+player_character = ExtResource("4_ih84k")
+poison_particles = NodePath("Poison_Particles")
 healthbar = NodePath("../UI/P1 UI/P1 Healthbar")
 ap_bar = NodePath("../UI/P1 UI/P1 APbar")
 turn_animator = NodePath("../Turn Identifiers/Turn Start_End Animator")
@@ -199,17 +199,18 @@ hand_slot = NodePath("../PlayerHand")
 
 [node name="Poison_Particles" type="GPUParticles2D" parent="Player"]
 position = Vector2(0, 13)
+emitting = false
 amount = 5
 process_material = SubResource("ParticleProcessMaterial_0raiy")
 texture = ExtResource("4_3ggen")
 lifetime = 1.5
 
-[node name="Player2" parent="." node_paths=PackedStringArray("card_display_point", "game_manager", "healthbar", "ap_bar", "turn_animator", "hand_slot") groups=["character"] instance=ExtResource("8_0cshs")]
+[node name="Player2" parent="." node_paths=PackedStringArray("card_display_point", "game_manager", "poison_particles", "healthbar", "ap_bar", "turn_animator", "hand_slot") groups=["character"] instance=ExtResource("8_0cshs")]
 position = Vector2(501, 181)
 card_display_point = NodePath("Node2D")
 game_manager = NodePath("..")
-character_resource = ExtResource("5_q7evi")
 card_template = ExtResource("10_64u77")
+poison_particles = NodePath("Poison_Particles")
 healthbar = NodePath("../UI/P2 UI/P2 Healthbar")
 ap_bar = NodePath("../UI/P2 UI/P2 APbar")
 turn_animator = NodePath("../Turn Identifiers/Turn Start_End Animator")
@@ -220,6 +221,7 @@ position = Vector2(-202, -19)
 
 [node name="Poison_Particles" type="GPUParticles2D" parent="Player2"]
 position = Vector2(0, 13)
+emitting = false
 amount = 5
 process_material = SubResource("ParticleProcessMaterial_0raiy")
 texture = ExtResource("4_3ggen")

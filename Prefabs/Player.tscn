@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://sw0v4ybdaltf"]
+[gd_scene load_steps=8 format=3 uid="uid://sw0v4ybdaltf"]
 
 [ext_resource type="Script" path="res://Scripts/Character Scripts/Player.gd" id="1_6j77u"]
-[ext_resource type="Resource" uid="uid://bu7u8pkobijiy" path="res://Characters/Balla.tres" id="2_t0kuy"]
 [ext_resource type="PackedScene" uid="uid://dsmcwu7vwemfd" path="res://Prefabs/PlayerCard.tscn" id="3_01xk2"]
 [ext_resource type="SpriteFrames" uid="uid://bpbgijwrwa1iq" path="res://Sprites/Character Sprites/Lil Mole.tres" id="4_nq83q"]
 
@@ -79,7 +78,6 @@ _data = {
 
 [node name="Player" type="Node2D" node_paths=PackedStringArray("sprite_animator", "effect_animator")]
 script = ExtResource("1_6j77u")
-character_resource = ExtResource("2_t0kuy")
 card_template = ExtResource("3_01xk2")
 sprite_animator = NodePath("AnimatedSprite2D")
 effect_animator = NodePath("EffectAnimator")

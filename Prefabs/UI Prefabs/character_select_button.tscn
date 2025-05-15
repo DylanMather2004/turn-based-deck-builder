@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://kyiycgefeqw6"]
+
+[ext_resource type="Script" path="res://Scripts/UI Script/character_select_button.gd" id="1_ukgmd"]
+[ext_resource type="Texture2D" uid="uid://2upxtnegd36j" path="res://Sprites/Icons/Balla_Icon.png" id="2_qcfyw"]
+
+[node name="Character Select Button" type="Button" node_paths=PackedStringArray("sprite")]
+offset_right = 291.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 36
+text = "Balla"
+script = ExtResource("1_ukgmd")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 29)
+scale = Vector2(2.13433, 2.13433)
+texture = ExtResource("2_qcfyw")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

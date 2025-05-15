@@ -40,3 +40,7 @@ func lose():
 		i.queue_free()
 	lose_screen.play("show")
 		
+
+
+func _on_area_2d_mouse_entered() -> void:
+	print("mouse in")

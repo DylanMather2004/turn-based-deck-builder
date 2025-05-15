@@ -8,6 +8,7 @@ extends Resource
 @export var character_name:String
 ##[member CharacterTemplate.sprite_sheet] is a SpriteFrames resource reference that freatures the sprite sheet of the character
 @export var sprite_sheet:SpriteFrames
+@export var icon:Texture2D
 @export_category("Combat Settings")
 @export var health:int
 @export var ap:int

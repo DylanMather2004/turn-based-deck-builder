@@ -1,8 +1,10 @@
 class_name Character
 extends Node2D
-@export var character_resource:CharacterTemplate
+var character_resource:CharacterTemplate
 @export var card_template:PackedScene
+@export_category("Graphics References")
 @export var sprite_animator:AnimatedSprite2D
+@export var poison_particles:GPUParticles2D
 @export_category("UI References")
 @export var healthbar:ProgressBar
 @export var ap_bar:ProgressBar
@@ -27,7 +29,7 @@ var poison_stacks:int = 0
 var poison_ticks:int = 0
 
 func _ready() -> void:
-	
+	character_loader()
 	max_health = character_resource.health
 	health = max_health
 	max_ap=character_resource.ap
@@ -43,8 +45,11 @@ func _ready() -> void:
 	for i in range(max_hand_size):
 		draw_card()
 	card_sort()
+func character_loader():
+	pass
 func deck_init():
 	deck=character_resource.deck.duplicate()
+
 func draw_card():
 	if hand.size()<max_hand_size:
 		print(character_resource.deck)
@@ -110,6 +115,8 @@ func turn_end():
 	if poison_ticks>0:
 		damage(poison_stacks*2)
 		poison_ticks-=1
+		if poison_ticks ==0:
+			poison_particles.emitting=false
 	turn_animator.play("turn_end")
 func deck_refresh():
 	deck=character_resource.deck.duplicate()
@@ -126,3 +133,5 @@ func grant_overshield(add_overshield:int):
 func poison(ticks:int):
 	poison_stacks+=1 
 	poison_ticks=ticks
+	poison_particles.emitting=true
+	
