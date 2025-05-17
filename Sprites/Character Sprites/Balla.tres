@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://b8mnwaw3agreq"]
+
+[ext_resource type="Texture2D" uid="uid://byv4wenuxqmnm" path="res://Sprites/Character Sprites/balla_sheet.png" id="1_yvl3u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0iso"]
+atlas = ExtResource("1_yvl3u")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37mu7"]
+atlas = ExtResource("1_yvl3u")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1f0a"]
+atlas = ExtResource("1_yvl3u")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yo07"]
+atlas = ExtResource("1_yvl3u")
+region = Rect2(384, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0iso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37mu7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1f0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yo07")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}]

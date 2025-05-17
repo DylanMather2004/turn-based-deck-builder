@@ -92,7 +92,9 @@ func heal(heal):
 	health +=heal
 	health = clamp(health,0,max_health)
 	healthbar.value=health
+	health_text.text="HP: "+ str(health)
 	effect_animator.play("heal")
+	
 func die():
 	pass 
 func deduct_ap(cost:int):
