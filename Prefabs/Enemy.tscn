@@ -1,7 +1,57 @@
-[gd_scene load_steps=7 format=3 uid="uid://drjysvvp5rtyp"]
+[gd_scene load_steps=14 format=3 uid="uid://drjysvvp5rtyp"]
 
 [ext_resource type="Script" path="res://Scripts/Character Scripts/Enemy.gd" id="1_y4cov"]
-[ext_resource type="SpriteFrames" uid="uid://dvau4bxmwyruh" path="res://Sprites/Character Sprites/Whacka' Mole.tres" id="4_pbndo"]
+[ext_resource type="Texture2D" uid="uid://qudhm3c88aar" path="res://Sprites/Character Sprites/Mole_Sheet.png" id="2_ylpvs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d82uj"]
+atlas = ExtResource("2_ylpvs")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obpme"]
+atlas = ExtResource("2_ylpvs")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i72au"]
+atlas = ExtResource("2_ylpvs")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv3eu"]
+atlas = ExtResource("2_ylpvs")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u23md"]
+atlas = ExtResource("2_ylpvs")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3fhp"]
+atlas = ExtResource("2_ylpvs")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ha1k2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d82uj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obpme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i72au")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bv3eu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u23md")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3fhp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="Animation" id="Animation_h7ghq"]
 length = 0.001
@@ -92,7 +142,7 @@ sprite_animator = NodePath("AnimatedSprite2D")
 effect_animator = NodePath("EffectAnimator")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("4_pbndo")
+sprite_frames = SubResource("SpriteFrames_ha1k2")
 
 [node name="EffectAnimator" type="AnimationPlayer" parent="."]
 libraries = {
