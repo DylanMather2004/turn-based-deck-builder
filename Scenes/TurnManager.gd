@@ -3,11 +3,16 @@ extends Node2D
 @export var win_screen:AnimationPlayer
 @export var lose_screen:AnimationPlayer
 
+@export_category("Pause Menus")
+@export var pause_screen:Control
+
 var players:Array[Node]
 var turn_player
 func _ready() -> void:
 	players=get_tree().get_nodes_in_group("character")
 	turn_player=players[0]
+	pause_screen.hide()
+	Engine.time_scale=1
 func turn_switch():
 	if turn_player == players [0]:
 		turn_player = players [1]
@@ -44,3 +49,19 @@ func lose():
 
 func _on_area_2d_mouse_entered() -> void:
 	print("mouse in")
+
+
+func _on_pause_button_pressed() -> void:
+	pause_screen.show()
+	Engine.time_scale=0
+
+
+func _on_unpause_button_pressed() -> void:
+	pause_screen.hide()
+	Engine.time_scale=1
+
+
+func _on_quit_button_pressed() -> void:
+	lose()
+	pause_screen.hide()
+	Engine.time_scale=1
