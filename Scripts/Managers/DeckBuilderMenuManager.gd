@@ -1,5 +1,5 @@
 extends Control
-@export var owned_cards:Array[Card]
+var owned_cards = []
 var deck=[]
 var deck_buttons=[]
 @export_category("UI Settings")
@@ -17,6 +17,9 @@ var save_manager = SaveManager.new()
 
 
 func _ready() -> void:
+	for i in (PlayerData.owned_cards):
+		owned_cards.append(load(i))
+		
 	for i in range(owned_cards.size()):
 		var new_button:TextureButton = menu_button_prefab.instantiate()
 		new_button.texture_normal=owned_cards[i].card_art

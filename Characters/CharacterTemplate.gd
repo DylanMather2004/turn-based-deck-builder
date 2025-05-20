@@ -13,3 +13,6 @@ extends Resource
 @export var health:int
 @export var ap:int
 @export var deck: Array[Card]
+
+@export_category("Rewards")
+@export var reward_cards:Array[Card]

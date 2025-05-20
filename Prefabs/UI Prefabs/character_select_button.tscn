@@ -5,16 +5,18 @@
 
 [node name="Character Select Button" type="Button" node_paths=PackedStringArray("sprite")]
 offset_top = -1.0
-offset_right = 245.0
-offset_bottom = 57.0
-theme_override_font_sizes/font_size = 36
+offset_right = 164.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 30
 text = "Balla"
 script = ExtResource("1_ukgmd")
 sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3, 30)
-scale = Vector2(1.81185, 1.81185)
+position = Vector2(-5, 23)
+scale = Vector2(1.45912, 1.45912)
 texture = ExtResource("2_qcfyw")
 
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

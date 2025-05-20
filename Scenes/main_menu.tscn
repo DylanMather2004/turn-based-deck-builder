@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://djxutphtxguqu"]
+[gd_scene load_steps=18 format=3 uid="uid://djxutphtxguqu"]
 
 [ext_resource type="Texture2D" uid="uid://crnt2cbd5ugs4" path="res://Sprites/Fight Button.png" id="1_bldvy"]
 [ext_resource type="Script" path="res://Scenes/MainMenuManager.gd" id="1_dv1vn"]
@@ -11,18 +11,28 @@
 [ext_resource type="Script" path="res://Characters/CharacterTemplate.gd" id="8_imjai"]
 [ext_resource type="Resource" uid="uid://bu7u8pkobijiy" path="res://Characters/Bomba.tres" id="8_r5t2j"]
 [ext_resource type="Resource" uid="uid://cww52qnsl656k" path="res://Characters/Balla.tres" id="9_komr2"]
+[ext_resource type="Texture2D" uid="uid://why4j78o0ygw" path="res://Sprites/white-square-32x32.png" id="12_abw1p"]
+[ext_resource type="SpriteFrames" uid="uid://bpbgijwrwa1iq" path="res://Sprites/Character Sprites/Lil Mole.tres" id="13_q5nw8"]
+[ext_resource type="Script" path="res://Scenes/sprite_funny.gd" id="14_6gr6b"]
+[ext_resource type="Texture2D" uid="uid://d181tckqwqt4d" path="res://Sprites/Icons/Health Icon.png" id="14_dwyu2"]
+[ext_resource type="Texture2D" uid="uid://blaavtlc76mnc" path="res://Sprites/Icons/AP_Icon.png" id="15_ftamg"]
+[ext_resource type="Texture2D" uid="uid://c7c8l3svxpswq" path="res://Absolutely Mortified Danton.png" id="16_8gu8a"]
 
-[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("title_menu", "game_mode_screen", "enemy_select_menu")]
+[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("title_menu", "game_mode_screen", "enemy_select_menu", "settings_menu")]
+position = Vector2(-1, 0)
 script = ExtResource("1_dv1vn")
 title_menu = NodePath("TitleMenu")
 game_mode_screen = NodePath("Gameplay Select Screen")
 enemy_select_menu = NodePath("EnemySelectMenu")
+settings_menu = NodePath("Settings Menu")
+starter_cards = Array[String](["res://Cards/Attack Cards/MoleMallet.tres", "res://Cards/Attack Cards/Punch.tres", "res://Cards/Heal Cards/Juicy.tres", "res://Cards/Shield Cards/NuhUh.tres"])
 
 [node name="TitleMenu" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TitleMenu"]
 layout_mode = 0
@@ -73,8 +83,8 @@ offset_left = 34.0
 offset_top = 46.0
 offset_right = 260.0
 offset_bottom = 268.0
-texture_normal = ExtResource("1_bldvy")
-texture_hover = ExtResource("2_qphe6")
+texture_normal = ExtResource("2_qphe6")
+texture_hover = ExtResource("1_bldvy")
 
 [node name="Deck Button" type="TextureButton" parent="Gameplay Select Screen"]
 layout_mode = 0
@@ -82,8 +92,8 @@ offset_left = 299.0
 offset_top = 46.0
 offset_right = 525.0
 offset_bottom = 268.0
-texture_normal = ExtResource("3_xxews")
-texture_hover = ExtResource("4_tblqs")
+texture_normal = ExtResource("4_tblqs")
+texture_hover = ExtResource("3_xxews")
 
 [node name="Back Button" type="TextureButton" parent="Gameplay Select Screen"]
 layout_mode = 0
@@ -93,26 +103,132 @@ offset_right = 56.0
 offset_bottom = 60.0
 texture_normal = ExtResource("5_pqi47")
 
-[node name="EnemySelectMenu" type="Control" parent="." node_paths=PackedStringArray("menu_panel")]
+[node name="EnemySelectMenu" type="Control" parent="." node_paths=PackedStringArray("menu_panel", "sprite", "health_text", "ap_text")]
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = 40.0
+offset_left = 57.0
 offset_top = 30.0
-offset_right = 413.0
+offset_right = 307.0
 offset_bottom = 353.0
 script = ExtResource("7_fi60y")
 enemies = Array[ExtResource("8_imjai")]([ExtResource("9_komr2"), ExtResource("8_r5t2j")])
 button_prefab = ExtResource("7_fbbau")
 menu_panel = NodePath("VBoxContainer")
+sprite = NodePath("Enemy Panel/AnimatedSprite2D")
+health_text = NodePath("Enemy Panel/HealthText")
+ap_text = NodePath("Enemy Panel/APText")
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemySelectMenu"]
+modulate = Color(0, 0, 0, 0.562)
+position = Vector2(69, 131)
+scale = Vector2(7.8125, 10.1875)
+texture = ExtResource("12_abw1p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="EnemySelectMenu"]
 layout_mode = 0
-offset_right = 274.0
-offset_bottom = 319.0
+offset_left = -11.0
+offset_top = 55.0
+offset_right = 143.0
+offset_bottom = 374.0
+
+[node name="EnemyMenu-BackButton" type="TextureButton" parent="EnemySelectMenu"]
+layout_mode = 0
+offset_left = 450.0
+offset_top = -23.0
+offset_right = 505.0
+offset_bottom = 31.0
+texture_normal = ExtResource("5_pqi47")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="EnemySelectMenu"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -16.0
+offset_right = 142.0
+offset_bottom = 30.0
+text = "Choose Your "
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="EnemySelectMenu"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -8.0
+offset_right = 162.0
+offset_bottom = 80.0
+theme_override_font_sizes/normal_font_size = 30
+text = "Opponent"
+
+[node name="Enemy Panel" type="Control" parent="EnemySelectMenu"]
+anchors_preset = 0
+offset_left = 233.0
+offset_top = -2.0
+offset_right = 470.0
+offset_bottom = 251.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemySelectMenu/Enemy Panel"]
+position = Vector2(148, 130)
+sprite_frames = ExtResource("13_q5nw8")
+script = ExtResource("14_6gr6b")
+
+[node name="HealthIcon" type="Sprite2D" parent="EnemySelectMenu/Enemy Panel"]
+position = Vector2(92.25, 193.25)
+scale = Vector2(1.83333, 1.83333)
+texture = ExtResource("14_dwyu2")
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemySelectMenu/Enemy Panel"]
+position = Vector2(175, 192)
+scale = Vector2(1.63333, 1.63333)
+texture = ExtResource("15_ftamg")
+
+[node name="HealthText" type="RichTextLabel" parent="EnemySelectMenu/Enemy Panel"]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 181.0
+offset_right = 146.0
+offset_bottom = 221.0
+text = ":100"
+
+[node name="APText" type="RichTextLabel" parent="EnemySelectMenu/Enemy Panel"]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 181.0
+offset_right = 229.0
+offset_bottom = 221.0
+text = ":25
+"
+
+[node name="Settings Menu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 573.0
+offset_bottom = 325.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Settings Menu"]
+position = Vector2(453, 206)
+scale = Vector2(0.270313, 0.217578)
+texture = ExtResource("16_8gu8a")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Settings Menu"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 135.0
+offset_right = 199.0
+offset_bottom = 257.0
+theme_override_font_sizes/normal_font_size = 28
+text = "Not a chance mate"
+
+[node name="SettingsBackButton" type="TextureButton" parent="Settings Menu"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("5_pqi47")
 
 [connection signal="pressed" from="TitleMenu/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="button_down" from="TitleMenu/Settings Button" to="." method="_on_settings_button_button_down"]
+[connection signal="pressed" from="TitleMenu/Settings Button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="TitleMenu/Quit Button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Gameplay Select Screen/Fight Button" to="." method="_on_fight_button_pressed"]
 [connection signal="pressed" from="Gameplay Select Screen/Deck Button" to="." method="_on_deck_button_pressed"]
 [connection signal="button_down" from="Gameplay Select Screen/Back Button" to="." method="_on_back_button_button_down"]
+[connection signal="pressed" from="EnemySelectMenu/EnemyMenu-BackButton" to="." method="_on_enemy_menu_back_button_pressed"]
+[connection signal="pressed" from="Settings Menu/SettingsBackButton" to="." method="_on_settings_back_button_pressed"]

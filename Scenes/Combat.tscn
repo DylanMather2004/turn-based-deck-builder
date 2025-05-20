@@ -238,7 +238,8 @@ script = ExtResource("2_n1ljg")
 slots = [NodePath("Slot 1"), NodePath("Slot 2"), NodePath("Slot 3"), NodePath("Slot 4"), NodePath("Slot 5"), NodePath("Slot 6")]
 
 [node name="White-square-32x32" type="Sprite2D" parent="PlayerHand"]
-position = Vector2(9, 20)
+modulate = Color(0, 0, 0, 0.33)
+position = Vector2(8.16, 20.16)
 scale = Vector2(12.76, 3.76)
 texture = ExtResource("2_i526l")
 
@@ -266,7 +267,8 @@ script = ExtResource("2_n1ljg")
 slots = [NodePath("Slot 1"), NodePath("Slot 2"), NodePath("Slot 3"), NodePath("Slot 4"), NodePath("Slot 5"), NodePath("Slot 6")]
 
 [node name="White-square-32x32" type="Sprite2D" parent="EnemyHand"]
-position = Vector2(9, 20)
+modulate = Color(0, 0, 0, 0.33)
+position = Vector2(8.16, 20.16)
 scale = Vector2(12.76, 3.76)
 texture = ExtResource("2_i526l")
 
