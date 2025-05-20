@@ -19,3 +19,4 @@ icon = ExtResource("7_j48yf")
 health = 150
 ap = 25
 deck = Array[ExtResource("1_78umn")]([ExtResource("2_7ubcl"), ExtResource("2_7ubcl"), ExtResource("2_7ubcl"), ExtResource("3_qwerg"), ExtResource("3_qwerg"), ExtResource("3_qwerg"), ExtResource("3_wni7m"), ExtResource("5_tbjc6"), ExtResource("5_tbjc6"), ExtResource("5_tbjc6"), ExtResource("4_yabi6"), ExtResource("6_82j38"), ExtResource("6_82j38"), ExtResource("6_82j38")])
+reward_cards = Array[ExtResource("1_78umn")]([ExtResource("3_qwerg")])

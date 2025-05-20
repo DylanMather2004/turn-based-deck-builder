@@ -1,6 +1,8 @@
 extends Node2D
 @export_category("end screens")
 @export var win_screen:AnimationPlayer
+@export var reward_image:Sprite2D
+@export var reward_text:RichTextLabel
 @export var lose_screen:AnimationPlayer
 
 @export_category("Pause Menus")
@@ -28,6 +30,7 @@ func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 func win():
+	grant_reward()
 	for i in players: 
 		i.queue_free()
 	
@@ -65,3 +68,14 @@ func _on_quit_button_pressed() -> void:
 	lose()
 	pause_screen.hide()
 	Engine.time_scale=1
+
+func grant_reward():
+	for i in players[1].character_resource.reward_cards:
+		if !PlayerData.owned_cards.has(i.resource_path):
+			PlayerData.owned_cards.append(i.resource_path)
+			var save_manager=SaveManager.new()#
+			save_manager.save_owned_cards(PlayerData.owned_cards,"user://owned_cards.save")
+			
+			reward_text.show()
+			reward_image.texture=i.card_art
+			break 
