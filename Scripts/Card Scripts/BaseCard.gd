@@ -48,7 +48,7 @@ func _effect(target:Character):
 	
 	
 func _try_use():
-	if ap<=owner_character.ap&&get_tree()!=null:
+	if get_tree()!=null&& ap<=owner_character.ap:
 		_select_target()
 	else:
 		use_failed()

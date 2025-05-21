@@ -50,11 +50,13 @@ func use_card(card:EnemyCard):
 		card._try_use()
 	
 func turn():
+	await get_tree().create_timer(1).timeout
 	if has_turn:
 		while hand.size()>0:
 			_choose_random_card()
 			print(hand)
 			await get_tree().create_timer(1).timeout
+			#card_sort()
 			if hand.size()==0||ap<=0:
 				turn_end()
 				return

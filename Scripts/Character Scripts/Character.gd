@@ -87,6 +87,14 @@ func damage(change):
 			die()
 	else:
 		overshield-=1
+func poison_damage():
+	health -=poison_stacks*3
+	health=clamp(health,0,max_health)
+	health_text.text="HP:"+str(health)
+	healthbar.value=health
+	effect_animator.play("poison")
+	if health==0:
+		die()
 func heal(heal):
 	
 	health +=heal
@@ -122,7 +130,7 @@ func turn_end():
 	ap_text.text="AP: "+str(ap)
 	#Manage Poison
 	if poison_ticks>0:
-		damage(poison_stacks*2)
+		poison_damage()
 		poison_ticks-=1
 		if poison_ticks ==0:
 			poison_particles.emitting=false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://djxutphtxguqu"]
+[gd_scene load_steps=19 format=3 uid="uid://djxutphtxguqu"]
 
 [ext_resource type="Texture2D" uid="uid://crnt2cbd5ugs4" path="res://Sprites/Fight Button.png" id="1_bldvy"]
 [ext_resource type="Script" path="res://Scenes/MainMenuManager.gd" id="1_dv1vn"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Characters/CharacterTemplate.gd" id="8_imjai"]
 [ext_resource type="Resource" uid="uid://bu7u8pkobijiy" path="res://Characters/Bomba.tres" id="8_r5t2j"]
 [ext_resource type="Resource" uid="uid://cww52qnsl656k" path="res://Characters/Balla.tres" id="9_komr2"]
+[ext_resource type="Resource" uid="uid://x6aeaa7yrqw7" path="res://Characters/EggMage.tres" id="11_btj0c"]
 [ext_resource type="Texture2D" uid="uid://why4j78o0ygw" path="res://Sprites/white-square-32x32.png" id="12_abw1p"]
 [ext_resource type="SpriteFrames" uid="uid://bpbgijwrwa1iq" path="res://Sprites/Character Sprites/Lil Mole.tres" id="13_q5nw8"]
 [ext_resource type="Script" path="res://Scenes/sprite_funny.gd" id="14_6gr6b"]
@@ -112,7 +113,7 @@ offset_top = 30.0
 offset_right = 307.0
 offset_bottom = 353.0
 script = ExtResource("7_fi60y")
-enemies = Array[ExtResource("8_imjai")]([ExtResource("9_komr2"), ExtResource("8_r5t2j")])
+enemies = Array[ExtResource("8_imjai")]([ExtResource("9_komr2"), ExtResource("8_r5t2j"), ExtResource("11_btj0c")])
 button_prefab = ExtResource("7_fbbau")
 menu_panel = NodePath("VBoxContainer")
 sprite = NodePath("Enemy Panel/AnimatedSprite2D")

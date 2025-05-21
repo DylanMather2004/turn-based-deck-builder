@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://pbhenodpdhar"]
+
+[ext_resource type="Texture2D" uid="uid://4doinjp7m4ia" path="res://Sprites/Character Sprites/Egg_Mage_Sheet.png" id="1_1l1ub"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q72em"]
+atlas = ExtResource("1_1l1ub")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yupnc"]
+atlas = ExtResource("1_1l1ub")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3228m"]
+atlas = ExtResource("1_1l1ub")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7wd6"]
+atlas = ExtResource("1_1l1ub")
+region = Rect2(384, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q72em")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yupnc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3228m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7wd6")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}]

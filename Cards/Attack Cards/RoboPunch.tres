@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://clnyb03532ehp"]
+
+[ext_resource type="Texture2D" uid="uid://bcqlk2at8ufch" path="res://Sprites/Card Sprites/Attack Cards/Robo_Punch.png" id="1_0skvh"]
+[ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="1_oerlr"]
+
+[resource]
+script = ExtResource("1_oerlr")
+card_name = "RoboPunch"
+card_art = ExtResource("1_0skvh")
+card_type = 0
+value = 12
+ap_cost = 6

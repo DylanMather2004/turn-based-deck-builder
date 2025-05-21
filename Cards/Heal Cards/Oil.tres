@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://d2o55igduwrjr"]
+
+[ext_resource type="Texture2D" uid="uid://b8ks8j1m6j1ge" path="res://Sprites/Card Sprites/Heal Cards/Oil.png" id="1_dih7v"]
+[ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="1_rmdt7"]
+
+[resource]
+script = ExtResource("1_rmdt7")
+card_name = "Motor Oil"
+card_art = ExtResource("1_dih7v")
+card_type = 1
+value = 11
+ap_cost = 5

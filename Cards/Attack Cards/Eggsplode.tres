@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://c3jc1ij6bndeq"]
+
+[ext_resource type="Texture2D" uid="uid://detysiqlh15r2" path="res://Sprites/Card Sprites/Attack Cards/Eggsplode.png" id="1_hhpbx"]
+[ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="1_q8mlo"]
+
+[resource]
+script = ExtResource("1_q8mlo")
+card_name = "Eggsplode"
+card_art = ExtResource("1_hhpbx")
+card_type = 0
+value = 15
+ap_cost = 8

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://r0dnafxtlfa7"]
+
+[ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="1_7em5o"]
+[ext_resource type="Texture2D" uid="uid://ca6sy7dfp4cy7" path="res://Sprites/Card Sprites/Attack Cards/Scramble.png" id="1_dcu32"]
+
+[resource]
+script = ExtResource("1_7em5o")
+card_name = "Scramble"
+card_art = ExtResource("1_dcu32")
+card_type = 0
+value = 5
+ap_cost = 2

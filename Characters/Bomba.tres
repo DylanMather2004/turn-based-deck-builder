@@ -1,11 +1,10 @@
-[gd_resource type="Resource" script_class="CharacterTemplate" load_steps=11 format=3 uid="uid://bu7u8pkobijiy"]
+[gd_resource type="Resource" script_class="CharacterTemplate" load_steps=10 format=3 uid="uid://bu7u8pkobijiy"]
 
 [ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="1_78umn"]
-[ext_resource type="Resource" uid="uid://qoywkxvppsxg" path="res://Cards/Attack Cards/Punch.tres" id="2_7ubcl"]
+[ext_resource type="Resource" uid="uid://clnyb03532ehp" path="res://Cards/Attack Cards/RoboPunch.tres" id="2_65ysg"]
 [ext_resource type="Resource" uid="uid://cp2p2u4du2ao7" path="res://Cards/Attack Cards/BallaBomb.tres" id="3_qwerg"]
 [ext_resource type="Resource" uid="uid://cpw10blpmwqap" path="res://Cards/Attack Cards/Dodgeball.tres" id="3_wni7m"]
-[ext_resource type="Resource" uid="uid://gtfn2vhoe8xs" path="res://Cards/Attack Cards/Sword.tres" id="4_yabi6"]
-[ext_resource type="Resource" uid="uid://c7odwrv5pjg06" path="res://Cards/Heal Cards/Juicy.tres" id="5_tbjc6"]
+[ext_resource type="Resource" uid="uid://d2o55igduwrjr" path="res://Cards/Heal Cards/Oil.tres" id="5_rxurn"]
 [ext_resource type="Resource" uid="uid://mp3anqjhybd5" path="res://Cards/Shield Cards/NuhUh.tres" id="6_82j38"]
 [ext_resource type="Texture2D" uid="uid://do3iwg3b8axn" path="res://Sprites/Icons/Bomba_Icon.png" id="7_j48yf"]
 [ext_resource type="Script" path="res://Characters/CharacterTemplate.gd" id="8_hlwdh"]
@@ -18,5 +17,5 @@ sprite_sheet = ExtResource("9_87ys1")
 icon = ExtResource("7_j48yf")
 health = 150
 ap = 25
-deck = Array[ExtResource("1_78umn")]([ExtResource("2_7ubcl"), ExtResource("2_7ubcl"), ExtResource("2_7ubcl"), ExtResource("3_qwerg"), ExtResource("3_qwerg"), ExtResource("3_qwerg"), ExtResource("3_wni7m"), ExtResource("5_tbjc6"), ExtResource("5_tbjc6"), ExtResource("5_tbjc6"), ExtResource("4_yabi6"), ExtResource("6_82j38"), ExtResource("6_82j38"), ExtResource("6_82j38")])
+deck = Array[ExtResource("1_78umn")]([ExtResource("2_65ysg"), ExtResource("2_65ysg"), ExtResource("2_65ysg"), ExtResource("3_qwerg"), ExtResource("3_qwerg"), ExtResource("3_qwerg"), ExtResource("3_wni7m"), ExtResource("5_rxurn"), ExtResource("5_rxurn"), ExtResource("5_rxurn"), ExtResource("6_82j38"), ExtResource("6_82j38"), ExtResource("6_82j38")])
 reward_cards = Array[ExtResource("1_78umn")]([ExtResource("3_qwerg")])
