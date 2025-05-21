@@ -20,6 +20,7 @@ func _try_use():
 		
 		
 func use_failed():
+	in_play=false
 	super.use_failed()
 	position=reset_pos
 

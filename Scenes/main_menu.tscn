@@ -28,6 +28,7 @@ settings_menu = NodePath("Settings Menu")
 starter_cards = Array[String](["res://Cards/Attack Cards/MoleMallet.tres", "res://Cards/Attack Cards/Punch.tres", "res://Cards/Heal Cards/Juicy.tres", "res://Cards/Shield Cards/NuhUh.tres"])
 
 [node name="TitleMenu" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -104,7 +105,6 @@ offset_bottom = 60.0
 texture_normal = ExtResource("5_pqi47")
 
 [node name="EnemySelectMenu" type="Control" parent="." node_paths=PackedStringArray("menu_panel", "sprite", "health_text", "ap_text")]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 57.0
@@ -153,7 +153,7 @@ layout_mode = 0
 offset_left = -20.0
 offset_top = -8.0
 offset_right = 162.0
-offset_bottom = 80.0
+offset_bottom = 36.0
 theme_override_font_sizes/normal_font_size = 30
 text = "Opponent"
 
@@ -196,6 +196,13 @@ offset_bottom = 221.0
 text = ":25
 "
 
+[node name="Spritebox" type="Control" parent="EnemySelectMenu/Enemy Panel"]
+anchors_preset = 0
+offset_left = 110.0
+offset_top = 93.0
+offset_right = 189.0
+offset_bottom = 162.0
+
 [node name="Settings Menu" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -231,4 +238,6 @@ texture_normal = ExtResource("5_pqi47")
 [connection signal="pressed" from="Gameplay Select Screen/Deck Button" to="." method="_on_deck_button_pressed"]
 [connection signal="button_down" from="Gameplay Select Screen/Back Button" to="." method="_on_back_button_button_down"]
 [connection signal="pressed" from="EnemySelectMenu/EnemyMenu-BackButton" to="." method="_on_enemy_menu_back_button_pressed"]
+[connection signal="mouse_entered" from="EnemySelectMenu/Enemy Panel/Spritebox" to="EnemySelectMenu/Enemy Panel/AnimatedSprite2D" method="_on_spritebox_mouse_entered"]
+[connection signal="mouse_exited" from="EnemySelectMenu/Enemy Panel/Spritebox" to="EnemySelectMenu/Enemy Panel/AnimatedSprite2D" method="_on_spritebox_mouse_exited"]
 [connection signal="pressed" from="Settings Menu/SettingsBackButton" to="." method="_on_settings_back_button_pressed"]
