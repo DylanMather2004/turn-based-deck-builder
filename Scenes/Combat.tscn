@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cpmb3mos3pqsu"]
+[gd_scene load_steps=24 format=3 uid="uid://cpmb3mos3pqsu"]
 
 [ext_resource type="PackedScene" uid="uid://sw0v4ybdaltf" path="res://Prefabs/Player.tscn" id="1_4hjge"]
 [ext_resource type="Script" path="res://Scenes/TurnManager.gd" id="1_m5pmw"]
@@ -21,9 +21,6 @@ radial_accel_max = 100.0
 tangential_accel_min = -61.97
 tangential_accel_max = 78.87
 scale_min = 0.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rbnj"]
-size = Vector2(464, 218)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_natyv"]
 bg_color = Color(0.099986, 0.099986, 0.099986, 1)
@@ -292,12 +289,6 @@ position = Vector2(105, 32)
 [node name="Slot 6" type="Node2D" parent="EnemyHand"]
 position = Vector2(169, 32)
 
-[node name="Play Area" type="Area2D" parent="." groups=["play area"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Play Area"]
-position = Vector2(288, 99)
-shape = SubResource("RectangleShape2D_3rbnj")
-
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -474,6 +465,7 @@ libraries = {
 position = Vector2(64, 186)
 
 [node name="Reward Text" type="RichTextLabel" parent="WinScreen"]
+visible = false
 layout_mode = 0
 offset_left = 21.0
 offset_top = 106.0

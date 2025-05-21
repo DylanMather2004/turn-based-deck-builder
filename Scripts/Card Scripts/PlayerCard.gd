@@ -3,7 +3,7 @@ extends BaseCard
 var is_dragging:bool = false 
 var in_play=false 
 		
-	
+
 func _physics_process(delta: float) -> void:
 	if sprite.get_rect().has_point(get_local_mouse_position()):
 		owner_character.selected_card=self
@@ -14,8 +14,10 @@ func _physics_process(delta: float) -> void:
 		position.y =lerp(position.y,reset_pos.y,0.5)
 
 func _try_use():
-	if sprite.get_rect().has_point(get_local_mouse_position()):
+	if sprite.get_rect().has_point(get_local_mouse_position())&&!in_play:
+		in_play=true
 		super._try_use()
+		
 		
 func use_failed():
 	super.use_failed()
