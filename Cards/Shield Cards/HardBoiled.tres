@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dbpfrodkkyisn"]
+
+[ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="1_3b4mk"]
+[ext_resource type="Texture2D" uid="uid://drl1mp2kv5q6r" path="res://Sprites/Card Sprites/Shield Cards/Hard Boiled.png" id="1_cvtg7"]
+
+[resource]
+script = ExtResource("1_3b4mk")
+card_name = "Hard Boiled"
+card_art = ExtResource("1_cvtg7")
+card_type = 2
+value = 2
+ap_cost = 20

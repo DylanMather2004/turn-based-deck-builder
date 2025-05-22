@@ -11,6 +11,11 @@ var deck_buttons=[]
 @export var deck_menu:HBoxContainer
 @export var menu_button_prefab:PackedScene
 @export var deck_button_prefab:PackedScene
+@export_category("Card Display")
+@export var sprite:Sprite2D
+@export var name_Text:Label
+@export var value_text:RichTextLabel
+@export var ap_cost_text:RichTextLabel
 @export_category("Save Settings")
 @export var save_path:String = "user://deck.save"
 var save_manager = SaveManager.new()
@@ -90,3 +95,8 @@ func _on_texture_button_pressed() -> void:
 	print("press")
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 	
+func show_card(card:Card):
+	sprite.texture=card.card_art
+	name_Text.text=card.card_name
+	value_text.text=str(card.value)
+	ap_cost_text.text=str(card.ap_cost)

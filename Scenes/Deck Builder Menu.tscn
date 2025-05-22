@@ -1,18 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://bty6qga3l0gim"]
+[gd_scene load_steps=10 format=3 uid="uid://bty6qga3l0gim"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/DeckBuilderMenuManager.gd" id="1_erhco"]
 [ext_resource type="PackedScene" uid="uid://dyxnnhr8of2l6" path="res://Prefabs/UI Prefabs/Add_Card_Button.tscn" id="3_nxo8m"]
+[ext_resource type="Texture2D" uid="uid://dxvxrqcgjm5j7" path="res://Sprites/Card Sprites/Attack Cards/Balla_Bomb.png" id="8_o3rkk"]
 [ext_resource type="PackedScene" uid="uid://dtygslkjd7lo6" path="res://Prefabs/UI Prefabs/Remove_Card_Button.tscn" id="8_vufdo"]
 [ext_resource type="Script" path="res://Scripts/Managers/Submenu Manager.gd" id="9_n8b1u"]
 [ext_resource type="Texture2D" uid="uid://bjoiwibvs61k1" path="res://Sprites/Save Button.png" id="10_3l3rw"]
 [ext_resource type="Texture2D" uid="uid://c81sm3ldwwoj1" path="res://Sprites/Load.png" id="11_2gcl7"]
 [ext_resource type="Texture2D" uid="uid://b40n4lbsqkhqr" path="res://Sprites/Back-Button.png" id="18_ce4ss"]
 
+[sub_resource type="Theme" id="Theme_8jqhw"]
+
 [node name="DeckBuilderMenu" type="Node2D"]
 
-[node name="Control" type="Control" parent="." node_paths=PackedStringArray("attack_card_menu", "heal_card_menu", "shield_card_menu", "poison_card_menu", "deck_menu")]
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("attack_card_menu", "heal_card_menu", "shield_card_menu", "poison_card_menu", "deck_menu", "sprite", "name_Text", "value_text", "ap_cost_text")]
 layout_mode = 3
 anchors_preset = 0
+theme = SubResource("Theme_8jqhw")
 script = ExtResource("1_erhco")
 attack_card_menu = NodePath("../TabContainer/Attack Cards")
 heal_card_menu = NodePath("../TabContainer/Heal Cards")
@@ -21,6 +25,10 @@ poison_card_menu = NodePath("../TabContainer/Poison Cards")
 deck_menu = NodePath("ScrollContainer/HBoxContainer")
 menu_button_prefab = ExtResource("3_nxo8m")
 deck_button_prefab = ExtResource("8_vufdo")
+sprite = NodePath("../Sprite2D")
+name_Text = NodePath("../Sprite2D/RichTextLabel")
+value_text = NodePath("../Sprite2D/ValueText")
+ap_cost_text = NodePath("../Sprite2D/APText")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control"]
 layout_mode = 0
@@ -96,6 +104,36 @@ offset_top = 4.0
 offset_right = 570.0
 offset_bottom = 58.0
 texture_normal = ExtResource("18_ce4ss")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(394, 79.0286)
+scale = Vector2(1.31429, 1.31429)
+texture = ExtResource("8_o3rkk")
+
+[node name="RichTextLabel" type="Label" parent="Sprite2D"]
+offset_left = -77.6087
+offset_top = -1.54348
+offset_right = 76.3913
+offset_bottom = 38.4565
+theme_override_font_sizes/font_size = 13
+text = "Name"
+horizontal_alignment = 1
+
+[node name="ValueText" type="RichTextLabel" parent="Sprite2D"]
+offset_left = -12.1739
+offset_top = 10.6304
+offset_right = 49.8261
+offset_bottom = 50.6304
+theme_override_font_sizes/normal_font_size = 14
+text = "10"
+
+[node name="APText" type="RichTextLabel" parent="Sprite2D"]
+offset_left = -12.1739
+offset_top = 28.1304
+offset_right = 49.8261
+offset_bottom = 68.1304
+theme_override_font_sizes/normal_font_size = 14
+text = "10"
 
 [connection signal="pressed" from="Save Button" to="Control" method="_on_save_button_pressed"]
 [connection signal="pressed" from="Load Button" to="Control" method="_on_load_button_pressed"]
