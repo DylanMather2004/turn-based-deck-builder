@@ -16,3 +16,4 @@ sprite_sheet = ExtResource("8_oe1pt")
 health = 100
 ap = 30
 deck = Array[ExtResource("1_8i05m")]([ExtResource("2_s7el5"), ExtResource("2_s7el5"), ExtResource("2_s7el5"), ExtResource("3_b511i"), ExtResource("4_o1orp"), ExtResource("3_b511i"), ExtResource("3_b511i"), ExtResource("5_pkvti"), ExtResource("5_pkvti"), ExtResource("5_pkvti"), ExtResource("5_pkvti"), ExtResource("6_qciv8"), ExtResource("6_qciv8"), ExtResource("6_qciv8")])
+reward_cards = Array[ExtResource("1_8i05m")]([])
