@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cekrh8gtkff6x"]
+
+[ext_resource type="Texture2D" uid="uid://6mxjj0eqetsa" path="res://Sprites/Icons/Shield Icon.png" id="1_wj3oj"]
+
+[node name="ShieldIcon" type="TextureRect"]
+texture = ExtResource("1_wj3oj")
+stretch_mode = 2

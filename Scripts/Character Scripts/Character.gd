@@ -13,6 +13,8 @@ var character_resource:CharacterTemplate
 @export var turn_animator:AnimationPlayer
 @export var effect_animator:AnimationPlayer
 @export var hand_slot:Node2D
+@export var shield_icon_pref:PackedScene
+@export var poison_icon_ref:PackedScene
 var max_health:int
 var health:int
 var max_ap:int
@@ -26,6 +28,10 @@ var has_turn:bool
 #overshield variables
 var overshield:int = 0
 var max_overshield:int = 3
+@export var shield_bar:HBoxContainer
+@export var poison_bar:HBoxContainer
+var shield_icons=[]
+var poison_icons=[]
 #poison variables
 var poison_stacks:int = 0
 var poison_ticks:int = 0
@@ -87,6 +93,8 @@ func damage(change):
 			die()
 	else:
 		overshield-=1
+		shield_icons[shield_icons.size()-1].queue_free()
+		shield_icons.erase(shield_icons[shield_icons.size()-1])
 func poison_damage():
 	health -=poison_stacks*3
 	health=clamp(health,0,max_health)
@@ -132,6 +140,8 @@ func turn_end():
 	if poison_ticks>0:
 		poison_damage()
 		poison_ticks-=1
+		poison_icons[poison_icons.size()-1].queue_free()
+		poison_icons.remove_at(poison_icons.size()-1)
 		if poison_ticks ==0:
 			poison_particles.emitting=false
 	turn_animator.play("turn_end")
@@ -147,8 +157,16 @@ func card_sort():
 func grant_overshield(add_overshield:int):
 	overshield += add_overshield
 	overshield = clamp(overshield,0,max_overshield)
+	var shield_icon = shield_icon_pref.instantiate()
+	shield_icons.append(shield_icon)
+	shield_bar.add_child(shield_icon)
+	
 func poison(ticks:int):
 	poison_stacks+=1 
 	poison_ticks=ticks
 	poison_particles.emitting=true
+	while poison_icons.size()<poison_ticks:
+		var poison_icon = poison_icon_ref.instantiate()
+		poison_icons.append(poison_icon)
+		poison_bar.add_child(poison_icon)
 	

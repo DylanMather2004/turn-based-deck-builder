@@ -1,14 +1,16 @@
-[gd_scene load_steps=24 format=3 uid="uid://cpmb3mos3pqsu"]
+[gd_scene load_steps=26 format=3 uid="uid://cpmb3mos3pqsu"]
 
 [ext_resource type="PackedScene" uid="uid://sw0v4ybdaltf" path="res://Prefabs/Player.tscn" id="1_4hjge"]
 [ext_resource type="Script" path="res://Scenes/TurnManager.gd" id="1_m5pmw"]
 [ext_resource type="Texture2D" uid="uid://why4j78o0ygw" path="res://Sprites/white-square-32x32.png" id="2_i526l"]
 [ext_resource type="Script" path="res://Scenes/PlayerHand.gd" id="2_n1ljg"]
 [ext_resource type="Texture2D" uid="uid://u03e27dsjjdk" path="res://Sprites/Poison Bubble.png" id="4_3ggen"]
+[ext_resource type="PackedScene" uid="uid://cekrh8gtkff6x" path="res://Prefabs/UI Prefabs/shield_icon.tscn" id="4_dgsoa"]
 [ext_resource type="Resource" uid="uid://blyrptpbsnniw" path="res://Characters/Mole.tres" id="4_ih84k"]
 [ext_resource type="Texture2D" uid="uid://dojst8fq4p63p" path="res://Sprites/Pass Button.png" id="7_3l3jv"]
 [ext_resource type="PackedScene" uid="uid://drjysvvp5rtyp" path="res://Prefabs/Enemy.tscn" id="8_0cshs"]
 [ext_resource type="PackedScene" uid="uid://dr0dmmsk455ys" path="res://Prefabs/EnemyCard.tscn" id="10_64u77"]
+[ext_resource type="PackedScene" uid="uid://x8j80vn1lni5" path="res://Prefabs/UI Prefabs/poison_icon.tscn" id="10_b4i26"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0raiy"]
 particle_flag_disable_z = true
@@ -179,15 +181,14 @@ _data = {
 "show": SubResource("Animation_u04cd")
 }
 
-[node name="Combat" type="Node2D" node_paths=PackedStringArray("win_screen", "reward_image", "reward_text", "lose_screen", "pause_screen")]
+[node name="Combat" type="Node2D" node_paths=PackedStringArray("win_screen", "reward_image", "lose_screen", "pause_screen")]
 script = ExtResource("1_m5pmw")
 win_screen = NodePath("WinScreen/AnimationPlayer")
 reward_image = NodePath("WinScreen/Reward")
-reward_text = NodePath("WinScreen/Reward Text")
 lose_screen = NodePath("LoseScreen/AnimationPlayer")
 pause_screen = NodePath("Pause Menu")
 
-[node name="Player" parent="." node_paths=PackedStringArray("game_manager", "poison_particles", "healthbar", "health_text", "ap_bar", "ap_text", "turn_animator", "hand_slot") groups=["character"] instance=ExtResource("1_4hjge")]
+[node name="Player" parent="." node_paths=PackedStringArray("game_manager", "poison_particles", "healthbar", "health_text", "ap_bar", "ap_text", "turn_animator", "hand_slot", "shield_bar", "poison_bar") groups=["character"] instance=ExtResource("1_4hjge")]
 position = Vector2(79, 189)
 game_manager = NodePath("..")
 player_character = ExtResource("4_ih84k")
@@ -198,6 +199,10 @@ ap_bar = NodePath("../UI/P1 UI/P1 APbar")
 ap_text = NodePath("../UI/P1 UI/APText")
 turn_animator = NodePath("../Turn Identifiers/Turn Start_End Animator")
 hand_slot = NodePath("../PlayerHand")
+shield_icon_pref = ExtResource("4_dgsoa")
+poison_icon_ref = ExtResource("10_b4i26")
+shield_bar = NodePath("../UI/P1 UI/ShieldBar")
+poison_bar = NodePath("../UI/P1 UI/PoisonBar")
 
 [node name="Poison_Particles" type="GPUParticles2D" parent="Player"]
 position = Vector2(0, 13)
@@ -207,7 +212,7 @@ process_material = SubResource("ParticleProcessMaterial_0raiy")
 texture = ExtResource("4_3ggen")
 lifetime = 1.5
 
-[node name="Player2" parent="." node_paths=PackedStringArray("card_display_point", "game_manager", "poison_particles", "healthbar", "health_text", "ap_bar", "ap_text", "turn_animator", "hand_slot") groups=["character"] instance=ExtResource("8_0cshs")]
+[node name="Player2" parent="." node_paths=PackedStringArray("card_display_point", "game_manager", "poison_particles", "healthbar", "health_text", "ap_bar", "ap_text", "turn_animator", "hand_slot", "shield_bar", "poison_bar") groups=["character"] instance=ExtResource("8_0cshs")]
 position = Vector2(501, 181)
 card_display_point = NodePath("Node2D")
 game_manager = NodePath("..")
@@ -219,6 +224,10 @@ ap_bar = NodePath("../UI/P2 UI/P2 APbar")
 ap_text = NodePath("../UI/P2 UI/APText2")
 turn_animator = NodePath("../Turn Identifiers/Turn Start_End Animator")
 hand_slot = NodePath("../EnemyHand")
+shield_icon_pref = ExtResource("4_dgsoa")
+poison_icon_ref = ExtResource("10_b4i26")
+shield_bar = NodePath("../UI/P2 UI/ShieldBar")
+poison_bar = NodePath("../UI/P2 UI/PoisonBar2")
 
 [node name="Node2D" type="Node2D" parent="Player2"]
 position = Vector2(-202, -19)
@@ -300,7 +309,7 @@ offset_bottom = 387.0
 [node name="P1 UI" type="Control" parent="UI"]
 anchors_preset = 0
 offset_right = 248.0
-offset_bottom = 71.0
+offset_bottom = 90.0
 
 [node name="P1 Healthbar" type="ProgressBar" parent="UI/P1 UI"]
 layout_mode = 0
@@ -339,6 +348,21 @@ offset_top = 49.0
 offset_right = 137.0
 offset_bottom = 89.0
 text = "AP:10"
+
+[node name="ShieldBar" type="HBoxContainer" parent="UI/P1 UI"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 71.0
+offset_right = 167.0
+offset_bottom = 111.0
+
+[node name="PoisonBar" type="HBoxContainer" parent="UI/P1 UI"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 72.0
+offset_right = 238.0
+offset_bottom = 98.0
+scale = Vector2(0.5, 0.5)
 
 [node name="P2 UI" type="Control" parent="UI"]
 anchors_preset = 0
@@ -384,6 +408,23 @@ offset_top = 49.0
 offset_right = 626.0
 offset_bottom = 89.0
 text = "AP:10"
+
+[node name="ShieldBar" type="HBoxContainer" parent="UI/P2 UI"]
+layout_mode = 0
+offset_left = 405.0
+offset_top = 71.0
+offset_right = 555.0
+offset_bottom = 111.0
+alignment = 2
+
+[node name="PoisonBar2" type="HBoxContainer" parent="UI/P2 UI"]
+layout_mode = 0
+offset_left = 397.0
+offset_top = 72.0
+offset_right = 536.0
+offset_bottom = 98.0
+scale = Vector2(0.5, 0.5)
+alignment = 2
 
 [node name="Pass Button" type="TextureButton" parent="UI"]
 layout_mode = 0
@@ -464,14 +505,8 @@ libraries = {
 [node name="Reward" type="Sprite2D" parent="WinScreen"]
 position = Vector2(64, 186)
 
-[node name="Reward Text" type="RichTextLabel" parent="WinScreen"]
-visible = false
+[node name="Reward Text" parent="WinScreen" instance=ExtResource("10_b4i26")]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 106.0
-offset_right = 127.0
-offset_bottom = 167.0
-text = "New Card!"
 
 [node name="LoseScreen" type="Control" parent="."]
 visible = false

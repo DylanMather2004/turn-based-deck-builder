@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://x8j80vn1lni5"]
+
+[ext_resource type="Texture2D" uid="uid://u03e27dsjjdk" path="res://Sprites/Poison Bubble.png" id="1_4w6p3"]
+
+[node name="PoisonIcon" type="TextureRect"]
+texture = ExtResource("1_4w6p3")
+stretch_mode = 2
