@@ -95,6 +95,7 @@ func damage(change):
 		overshield-=1
 		shield_icons[shield_icons.size()-1].queue_free()
 		shield_icons.erase(shield_icons[shield_icons.size()-1])
+		effect_animator.play("block")
 func poison_damage():
 	health -=poison_stacks*3
 	health=clamp(health,0,max_health)
@@ -157,9 +158,12 @@ func card_sort():
 func grant_overshield(add_overshield:int):
 	overshield += add_overshield
 	overshield = clamp(overshield,0,max_overshield)
-	var shield_icon = shield_icon_pref.instantiate()
-	shield_icons.append(shield_icon)
-	shield_bar.add_child(shield_icon)
+	for i in range(add_overshield):
+		if shield_icons.size()<max_overshield:
+			var shield_icon = shield_icon_pref.instantiate()
+			shield_icons.append(shield_icon)
+			shield_bar.add_child(shield_icon)
+	effect_animator.play("block")
 	
 func poison(ticks:int):
 	poison_stacks+=1 

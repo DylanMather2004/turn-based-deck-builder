@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterTemplate" load_steps=9 format=3 uid="uid://x6aeaa7yrqw7"]
+[gd_resource type="Resource" script_class="CharacterTemplate" load_steps=10 format=3 uid="uid://x6aeaa7yrqw7"]
 
 [ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="1_tdri8"]
 [ext_resource type="Script" path="res://Characters/CharacterTemplate.gd" id="2_4dcom"]
@@ -8,6 +8,7 @@
 [ext_resource type="SpriteFrames" uid="uid://pbhenodpdhar" path="res://Sprites/Character Sprites/Egg_Mage.tres" id="4_1k4sy"]
 [ext_resource type="Resource" uid="uid://c7sr0tdoduvyj" path="res://Cards/Heal Cards/Breakfast.tres" id="4_kx3k4"]
 [ext_resource type="Resource" uid="uid://k6y0pg5tbeco" path="res://Cards/Poison Cards/RottenEgg.tres" id="5_q7cvj"]
+[ext_resource type="Resource" uid="uid://dbpfrodkkyisn" path="res://Cards/Shield Cards/HardBoiled.tres" id="6_1jems"]
 
 [resource]
 script = ExtResource("2_4dcom")
@@ -15,6 +16,6 @@ character_name = "Egg Mage"
 sprite_sheet = ExtResource("4_1k4sy")
 icon = ExtResource("2_xbdnv")
 health = 75
-ap = 50
-deck = Array[ExtResource("1_tdri8")]([ExtResource("2_5v8mx"), ExtResource("2_5v8mx"), ExtResource("2_5v8mx"), ExtResource("3_lb04j"), ExtResource("3_lb04j"), ExtResource("3_lb04j"), ExtResource("4_kx3k4"), ExtResource("4_kx3k4"), ExtResource("4_kx3k4"), ExtResource("4_kx3k4"), ExtResource("4_kx3k4"), ExtResource("4_kx3k4"), ExtResource("5_q7cvj"), ExtResource("5_q7cvj"), ExtResource("5_q7cvj")])
-reward_cards = Array[ExtResource("1_tdri8")]([ExtResource("4_kx3k4"), ExtResource("5_q7cvj"), ExtResource("2_5v8mx"), ExtResource("3_lb04j")])
+ap = 35
+deck = Array[ExtResource("1_tdri8")]([ExtResource("2_5v8mx"), ExtResource("2_5v8mx"), ExtResource("2_5v8mx"), ExtResource("3_lb04j"), ExtResource("3_lb04j"), ExtResource("3_lb04j"), ExtResource("4_kx3k4"), ExtResource("4_kx3k4"), ExtResource("4_kx3k4"), ExtResource("4_kx3k4"), ExtResource("4_kx3k4"), ExtResource("4_kx3k4"), ExtResource("5_q7cvj"), ExtResource("5_q7cvj"), ExtResource("5_q7cvj"), ExtResource("6_1jems"), ExtResource("6_1jems"), ExtResource("6_1jems"), ExtResource("2_5v8mx"), ExtResource("3_lb04j")])
+reward_cards = Array[ExtResource("1_tdri8")]([ExtResource("4_kx3k4"), ExtResource("5_q7cvj"), ExtResource("2_5v8mx"), ExtResource("3_lb04j"), ExtResource("6_1jems")])

@@ -2,6 +2,8 @@ extends Control
 var owned_cards = []
 var deck=[]
 var deck_buttons=[]
+@export_category("Deck Settings")
+@export var max_deck_size:int =20
 @export_category("UI Settings")
 @export var cells_per_row = 5
 @export var attack_card_menu:VBoxContainer
@@ -11,6 +13,7 @@ var deck_buttons=[]
 @export var deck_menu:HBoxContainer
 @export var menu_button_prefab:PackedScene
 @export var deck_button_prefab:PackedScene
+@export var deck_size_text:RichTextLabel
 @export_category("Card Display")
 @export var sprite:Sprite2D
 @export var name_Text:Label
@@ -36,18 +39,22 @@ func _ready() -> void:
 			Card.CARD_TYPE.HEAL:
 				heal_card_menu.call_deferred("add_card",new_button)
 			Card.CARD_TYPE.OVERSHIELD:
-				shield_card_menu.call_deferred("add_child",new_button)
+				shield_card_menu.call_deferred("add_card",new_button)
 			Card.CARD_TYPE.POISON:
-				poison_card_menu.call_deferred("add_child",new_button)
+				poison_card_menu.call_deferred("add_card",new_button)
 	load_deck()
+	update_deck_size_text()
 				
 func add_card_to_deck(card:Card):
 	deck.append(card.resource_path)
 	add_deck_button(card)
+	update_deck_size_text()
+	
 func remove_card_from_deck(cardbutton:TextureButton):
 	deck.erase(cardbutton.card.resource_path)
 	deck_buttons.erase(cardbutton)
 	cardbutton.queue_free()
+	update_deck_size_text()
 func save_deck():
 	var file = FileAccess.open(save_path,FileAccess.WRITE)
 	file.store_var(deck)
@@ -100,3 +107,6 @@ func show_card(card:Card):
 	name_Text.text=card.card_name
 	value_text.text=str(card.value)
 	ap_cost_text.text=str(card.ap_cost)
+	
+func update_deck_size_text():
+	deck_size_text.text=str(deck.size())+"/"+str(max_deck_size)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://djxutphtxguqu"]
+[gd_scene load_steps=22 format=3 uid="uid://djxutphtxguqu"]
 
 [ext_resource type="Texture2D" uid="uid://crnt2cbd5ugs4" path="res://Sprites/Fight Button.png" id="1_bldvy"]
 [ext_resource type="Script" path="res://Scenes/MainMenuManager.gd" id="1_dv1vn"]
@@ -18,6 +18,12 @@
 [ext_resource type="Texture2D" uid="uid://d181tckqwqt4d" path="res://Sprites/Icons/Health Icon.png" id="14_dwyu2"]
 [ext_resource type="Texture2D" uid="uid://blaavtlc76mnc" path="res://Sprites/Icons/AP_Icon.png" id="15_ftamg"]
 [ext_resource type="Texture2D" uid="uid://c7c8l3svxpswq" path="res://Absolutely Mortified Danton.png" id="16_8gu8a"]
+[ext_resource type="Shader" path="res://Shaders/scrollBG.gdshader" id="19_mqyjr"]
+[ext_resource type="Texture2D" uid="uid://bluuwcnjknyl8" path="res://Sprites/Background Ballas.png" id="20_vq222"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yaa46"]
+shader = ExtResource("19_mqyjr")
+shader_parameter/scroll_speed = 0.1
 
 [node name="MainMenu" type="Node2D" node_paths=PackedStringArray("title_menu", "game_mode_screen", "enemy_select_menu", "settings_menu")]
 position = Vector2(-1, 0)
@@ -28,8 +34,16 @@ enemy_select_menu = NodePath("EnemySelectMenu")
 settings_menu = NodePath("Settings Menu")
 starter_cards = Array[String](["res://Cards/Attack Cards/MoleMallet.tres", "res://Cards/Attack Cards/Punch.tres", "res://Cards/Heal Cards/Juicy.tres", "res://Cards/Shield Cards/NuhUh.tres"])
 
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.70333, 0.292784, 9.62615e-08, 1)
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_yaa46")
+offset_right = 578.0
+offset_bottom = 324.0
+texture = ExtResource("20_vq222")
+
 [node name="TitleMenu" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -106,6 +120,7 @@ offset_bottom = 60.0
 texture_normal = ExtResource("5_pqi47")
 
 [node name="EnemySelectMenu" type="Control" parent="." node_paths=PackedStringArray("menu_panel", "sprite", "health_text", "ap_text")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 57.0

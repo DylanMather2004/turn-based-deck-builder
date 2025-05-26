@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://sw0v4ybdaltf"]
+[gd_scene load_steps=11 format=3 uid="uid://sw0v4ybdaltf"]
 
 [ext_resource type="Script" path="res://Scripts/Character Scripts/Player.gd" id="1_6j77u"]
 [ext_resource type="PackedScene" uid="uid://dsmcwu7vwemfd" path="res://Prefabs/PlayerCard.tscn" id="3_01xk2"]
+[ext_resource type="Texture2D" uid="uid://6mxjj0eqetsa" path="res://Sprites/Icons/Shield Icon.png" id="4_mpgph"]
 [ext_resource type="SpriteFrames" uid="uid://bpbgijwrwa1iq" path="res://Sprites/Character Sprites/Lil Mole.tres" id="4_nq83q"]
 
 [sub_resource type="Animation" id="Animation_h7ghq"]
@@ -17,6 +18,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShieldIcon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShieldIcon:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_o28hn"]
@@ -103,9 +128,50 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_cv68j"]
+resource_name = "block"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 5.946, 100, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShieldIcon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(3, 3), Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShieldIcon:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gdtrf"]
 _data = {
 "RESET": SubResource("Animation_h7ghq"),
+"block": SubResource("Animation_cv68j"),
 "heal": SubResource("Animation_o28hn"),
 "hit": SubResource("Animation_i37ub"),
 "poison": SubResource("Animation_0op1d")
@@ -125,3 +191,7 @@ flip_h = true
 libraries = {
 "": SubResource("AnimationLibrary_gdtrf")
 }
+
+[node name="ShieldIcon" type="Sprite2D" parent="."]
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("4_mpgph")

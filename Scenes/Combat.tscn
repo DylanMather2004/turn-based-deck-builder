@@ -181,10 +181,11 @@ _data = {
 "show": SubResource("Animation_u04cd")
 }
 
-[node name="Combat" type="Node2D" node_paths=PackedStringArray("win_screen", "reward_image", "lose_screen", "pause_screen")]
+[node name="Combat" type="Node2D" node_paths=PackedStringArray("win_screen", "reward_image", "reward_text", "lose_screen", "pause_screen")]
 script = ExtResource("1_m5pmw")
 win_screen = NodePath("WinScreen/AnimationPlayer")
 reward_image = NodePath("WinScreen/Reward")
+reward_text = NodePath("WinScreen/Reward Text")
 lose_screen = NodePath("LoseScreen/AnimationPlayer")
 pause_screen = NodePath("Pause Menu")
 
@@ -505,8 +506,11 @@ libraries = {
 [node name="Reward" type="Sprite2D" parent="WinScreen"]
 position = Vector2(64, 186)
 
-[node name="Reward Text" parent="WinScreen" instance=ExtResource("10_b4i26")]
+[node name="Reward Text" type="RichTextLabel" parent="WinScreen"]
 layout_mode = 0
+offset_right = 28.0
+offset_bottom = 26.0
+text = "New Card!"
 
 [node name="LoseScreen" type="Control" parent="."]
 visible = false
