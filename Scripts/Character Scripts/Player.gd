@@ -2,6 +2,7 @@ extends Character
 @export var game_manager:Node2D
 @export var player_character:CharacterTemplate #IMPORTANT - This is a temporary variable that will be used until character selection is implemented
 var selected_card:BaseCard
+var cards_used=[]
 func _ready() -> void:
 	super._ready()
 	has_turn=true

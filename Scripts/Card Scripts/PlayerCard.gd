@@ -16,6 +16,7 @@ func _physics_process(delta: float) -> void:
 func _try_use():
 	if sprite.get_rect().has_point(get_local_mouse_position())&&!in_play:
 		in_play=true
+		owner_character.cards_used.append(card_to_load.card_name)
 		super._try_use()
 		
 		

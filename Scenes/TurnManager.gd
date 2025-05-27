@@ -31,6 +31,7 @@ func _on_button_pressed() -> void:
 
 func win():
 	grant_reward()
+	log_battle()
 	for i in players: 
 		i.queue_free()
 	
@@ -40,6 +41,7 @@ func win():
 	win_screen.play("show")
 
 func lose():
+	log_battle()
 	for i in players: 
 		i.queue_free()
 	
@@ -79,3 +81,14 @@ func grant_reward():
 			reward_text.show()
 			reward_image.texture=i.card_art
 			break 
+
+func log_battle():
+	var cards_used = players[0].cards_used
+	var unique_cards =[]
+	for i in cards_used:
+		if !unique_cards.has(i):
+			unique_cards.append(i)
+	var file = FileAccess.open("user://battle_log.txt",FileAccess.WRITE)
+	for i in unique_cards:
+		file.store_line(i + ":" + str(cards_used.count(i)))
+	file.close()
