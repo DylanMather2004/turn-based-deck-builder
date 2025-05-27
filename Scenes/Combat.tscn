@@ -1,9 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://cpmb3mos3pqsu"]
+[gd_scene load_steps=29 format=3 uid="uid://cpmb3mos3pqsu"]
 
 [ext_resource type="PackedScene" uid="uid://sw0v4ybdaltf" path="res://Prefabs/Player.tscn" id="1_4hjge"]
 [ext_resource type="Script" path="res://Scenes/TurnManager.gd" id="1_m5pmw"]
 [ext_resource type="Texture2D" uid="uid://why4j78o0ygw" path="res://Sprites/white-square-32x32.png" id="2_i526l"]
 [ext_resource type="Script" path="res://Scenes/PlayerHand.gd" id="2_n1ljg"]
+[ext_resource type="Shader" path="res://Shaders/scrollBG.gdshader" id="2_qd867"]
+[ext_resource type="Texture2D" uid="uid://35o76o75abrb" path="res://Sprites/Background versus.png" id="3_fm7kl"]
 [ext_resource type="Texture2D" uid="uid://u03e27dsjjdk" path="res://Sprites/Poison Bubble.png" id="4_3ggen"]
 [ext_resource type="PackedScene" uid="uid://cekrh8gtkff6x" path="res://Prefabs/UI Prefabs/shield_icon.tscn" id="4_dgsoa"]
 [ext_resource type="Resource" uid="uid://blyrptpbsnniw" path="res://Characters/Mole.tres" id="4_ih84k"]
@@ -11,6 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://drjysvvp5rtyp" path="res://Prefabs/Enemy.tscn" id="8_0cshs"]
 [ext_resource type="PackedScene" uid="uid://dr0dmmsk455ys" path="res://Prefabs/EnemyCard.tscn" id="10_64u77"]
 [ext_resource type="PackedScene" uid="uid://x8j80vn1lni5" path="res://Prefabs/UI Prefabs/poison_icon.tscn" id="10_b4i26"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fd5l0"]
+shader = ExtResource("2_qd867")
+shader_parameter/scroll_speed = 0.1
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0raiy"]
 particle_flag_disable_z = true
@@ -188,6 +194,14 @@ reward_image = NodePath("WinScreen/Reward")
 reward_text = NodePath("WinScreen/Reward Text")
 lose_screen = NodePath("LoseScreen/AnimationPlayer")
 pause_screen = NodePath("Pause Menu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.782611, 0.303947, 0.120984, 1)
+texture_repeat = 2
+material = SubResource("ShaderMaterial_fd5l0")
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_fm7kl")
 
 [node name="Player" parent="." node_paths=PackedStringArray("game_manager", "poison_particles", "healthbar", "health_text", "ap_bar", "ap_text", "turn_animator", "hand_slot", "shield_bar", "poison_bar") groups=["character"] instance=ExtResource("1_4hjge")]
 position = Vector2(79, 189)
