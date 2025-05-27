@@ -2,7 +2,7 @@ extends Node2D
 @export_category("end screens")
 @export var win_screen:AnimationPlayer
 @export var reward_image:Sprite2D
-@export var reward_text:RichTextLabel
+@export var reward_text:Sprite2D
 @export var lose_screen:AnimationPlayer
 
 @export_category("Pause Menus")

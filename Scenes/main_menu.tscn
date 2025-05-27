@@ -32,7 +32,7 @@ title_menu = NodePath("TitleMenu")
 game_mode_screen = NodePath("Gameplay Select Screen")
 enemy_select_menu = NodePath("EnemySelectMenu")
 settings_menu = NodePath("Settings Menu")
-starter_cards = Array[String](["res://Cards/Attack Cards/MoleMallet.tres", "res://Cards/Attack Cards/Punch.tres", "res://Cards/Heal Cards/Juicy.tres", "res://Cards/Shield Cards/NuhUh.tres"])
+starter_cards = Array[String](["res://Cards/Attack Cards/MoleMallet.tres", "res://Cards/Attack Cards/Punch.tres", "res://Cards/Shield Cards/NuhUh.tres", "res://Cards/Heal Cards/JamJar.tres"])
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.70333, 0.292784, 9.62615e-08, 1)

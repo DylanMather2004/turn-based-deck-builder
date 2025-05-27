@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cpmb3mos3pqsu"]
+[gd_scene load_steps=36 format=3 uid="uid://cpmb3mos3pqsu"]
 
 [ext_resource type="PackedScene" uid="uid://sw0v4ybdaltf" path="res://Prefabs/Player.tscn" id="1_4hjge"]
 [ext_resource type="Script" path="res://Scenes/TurnManager.gd" id="1_m5pmw"]
@@ -13,6 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://drjysvvp5rtyp" path="res://Prefabs/Enemy.tscn" id="8_0cshs"]
 [ext_resource type="PackedScene" uid="uid://dr0dmmsk455ys" path="res://Prefabs/EnemyCard.tscn" id="10_64u77"]
 [ext_resource type="PackedScene" uid="uid://x8j80vn1lni5" path="res://Prefabs/UI Prefabs/poison_icon.tscn" id="10_b4i26"]
+[ext_resource type="Texture2D" uid="uid://dmj5plntxf6hw" path="res://Sprites/You Win!.png" id="14_jxxp3"]
+[ext_resource type="Texture2D" uid="uid://dut2k786okmvm" path="res://Sprites/Background win.png" id="14_vb28y"]
+[ext_resource type="Texture2D" uid="uid://ch163j1t6knj7" path="res://Sprites/New Card.png" id="16_cf13v"]
+[ext_resource type="Texture2D" uid="uid://brme74dypd105" path="res://Sprites/Background lose.png" id="16_jpubi"]
+[ext_resource type="Texture2D" uid="uid://dkijq5og6lr87" path="res://Sprites/You Lose!.png" id="17_b0wfv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fd5l0"]
 shader = ExtResource("2_qd867")
@@ -126,6 +131,10 @@ _data = {
 "turn_start": SubResource("Animation_kecj7")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_whv86"]
+shader = ExtResource("2_qd867")
+shader_parameter/scroll_speed = 0.1
+
 [sub_resource type="Animation" id="Animation_x41a5"]
 length = 0.001
 tracks/0/type = "value"
@@ -187,6 +196,10 @@ _data = {
 "show": SubResource("Animation_u04cd")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j4aat"]
+shader = ExtResource("2_qd867")
+shader_parameter/scroll_speed = -0.1
+
 [node name="Combat" type="Node2D" node_paths=PackedStringArray("win_screen", "reward_image", "reward_text", "lose_screen", "pause_screen")]
 script = ExtResource("1_m5pmw")
 win_screen = NodePath("WinScreen/AnimationPlayer")
@@ -199,8 +212,8 @@ pause_screen = NodePath("Pause Menu")
 modulate = Color(0.782611, 0.303947, 0.120984, 1)
 texture_repeat = 2
 material = SubResource("ShaderMaterial_fd5l0")
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 576.0
+offset_bottom = 324.0
 texture = ExtResource("3_fm7kl")
 
 [node name="Player" parent="." node_paths=PackedStringArray("game_manager", "poison_particles", "healthbar", "health_text", "ap_bar", "ap_text", "turn_animator", "hand_slot", "shield_bar", "poison_bar") groups=["character"] instance=ExtResource("1_4hjge")]
@@ -256,7 +269,7 @@ texture = ExtResource("4_3ggen")
 lifetime = 1.5
 
 [node name="PlayerHand" type="Node2D" parent="." node_paths=PackedStringArray("slots")]
-position = Vector2(279, 282)
+position = Vector2(198, 282)
 script = ExtResource("2_n1ljg")
 slots = [NodePath("Slot 1"), NodePath("Slot 2"), NodePath("Slot 3"), NodePath("Slot 4"), NodePath("Slot 5"), NodePath("Slot 6")]
 
@@ -285,7 +298,7 @@ position = Vector2(105, 6)
 position = Vector2(169, 6)
 
 [node name="EnemyHand" type="Node2D" parent="." node_paths=PackedStringArray("slots")]
-position = Vector2(279, -4)
+position = Vector2(363, -4)
 script = ExtResource("2_n1ljg")
 slots = [NodePath("Slot 1"), NodePath("Slot 2"), NodePath("Slot 3"), NodePath("Slot 4"), NodePath("Slot 5"), NodePath("Slot 6")]
 
@@ -482,6 +495,11 @@ libraries = {
 "": SubResource("AnimationLibrary_71p42")
 }
 
+[node name="Pause Button" type="Button" parent="."]
+offset_right = 50.0
+offset_bottom = 32.0
+text = "II"
+
 [node name="WinScreen" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -489,27 +507,27 @@ anchors_preset = 0
 offset_right = 575.0
 offset_bottom = 323.0
 
-[node name="Sprite2D" type="Sprite2D" parent="WinScreen"]
-modulate = Color(0, 0, 0, 1)
+[node name="BGColour" type="Sprite2D" parent="WinScreen"]
+modulate = Color(1, 0.218853, 0.252461, 1)
 position = Vector2(283, 169.5)
 scale = Vector2(18.6875, 11.5938)
 texture = ExtResource("2_i526l")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="WinScreen"]
+[node name="TextureRect" type="TextureRect" parent="WinScreen"]
+modulate = Color(0.842898, 0, 0.193805, 1)
+texture_repeat = 2
+material = SubResource("ShaderMaterial_whv86")
 layout_mode = 0
-offset_left = 144.0
-offset_top = 3.0
-offset_right = 447.0
-offset_bottom = 91.0
-theme_override_font_sizes/normal_font_size = 60
-text = "You Win!"
+offset_right = 576.0
+offset_bottom = 324.0
+texture = ExtResource("14_vb28y")
 
 [node name="Button" type="Button" parent="WinScreen"]
 layout_mode = 0
 offset_left = 236.0
-offset_top = 142.0
+offset_top = 183.0
 offset_right = 361.0
-offset_bottom = 187.0
+offset_bottom = 228.0
 text = "Back To Menu"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WinScreen"]
@@ -520,11 +538,16 @@ libraries = {
 [node name="Reward" type="Sprite2D" parent="WinScreen"]
 position = Vector2(64, 186)
 
-[node name="Reward Text" type="RichTextLabel" parent="WinScreen"]
-layout_mode = 0
-offset_right = 28.0
-offset_bottom = 26.0
-text = "New Card!"
+[node name="Reward Text" type="Sprite2D" parent="WinScreen"]
+visible = false
+position = Vector2(63, 110.5)
+scale = Vector2(0.382813, 0.414063)
+texture = ExtResource("16_cf13v")
+
+[node name="YouWin!" type="Sprite2D" parent="WinScreen"]
+position = Vector2(304, 91)
+scale = Vector2(1.60938, 1.60938)
+texture = ExtResource("14_jxxp3")
 
 [node name="LoseScreen" type="Control" parent="."]
 visible = false
@@ -534,27 +557,31 @@ offset_right = 575.0
 offset_bottom = 323.0
 
 [node name="Sprite2D" type="Sprite2D" parent="LoseScreen"]
-modulate = Color(0, 0, 0, 1)
+modulate = Color(0.218209, 0.234729, 0.635927, 1)
 position = Vector2(283, 169.5)
 scale = Vector2(18.6875, 11.5938)
 texture = ExtResource("2_i526l")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="LoseScreen"]
+[node name="TextureRect" type="TextureRect" parent="LoseScreen"]
+modulate = Color(0.254656, 0.000700206, 0.586724, 1)
+texture_repeat = 2
+material = SubResource("ShaderMaterial_j4aat")
 layout_mode = 0
-offset_left = 144.0
-offset_top = 3.0
-offset_right = 447.0
-offset_bottom = 91.0
-theme_override_font_sizes/normal_font_size = 60
-text = "You Lose!
-"
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("16_jpubi")
+
+[node name="YouLose!" type="Sprite2D" parent="LoseScreen"]
+position = Vector2(293, 92)
+scale = Vector2(1.82813, 1.78125)
+texture = ExtResource("17_b0wfv")
 
 [node name="Button" type="Button" parent="LoseScreen"]
 layout_mode = 0
 offset_left = 236.0
-offset_top = 142.0
+offset_top = 183.0
 offset_right = 361.0
-offset_bottom = 187.0
+offset_bottom = 228.0
 text = "Back To Menu"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="LoseScreen"]
@@ -610,14 +637,9 @@ offset_bottom = 266.0
 text = "Quit
 "
 
-[node name="Pause Button" type="Button" parent="."]
-offset_right = 50.0
-offset_bottom = 32.0
-text = "II"
-
 [connection signal="pressed" from="UI/Pass Button" to="Player" method="_on_pass_button_pressed"]
+[connection signal="pressed" from="Pause Button" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="WinScreen/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="LoseScreen/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Pause Menu/Unpause Button" to="." method="_on_unpause_button_pressed"]
 [connection signal="pressed" from="Pause Menu/Quit Button" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="Pause Button" to="." method="_on_pause_button_pressed"]

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="1_luhts"]
 [ext_resource type="Resource" uid="uid://cpw10blpmwqap" path="res://Cards/Attack Cards/Dodgeball.tres" id="3_euvxa"]
 [ext_resource type="Resource" uid="uid://gtfn2vhoe8xs" path="res://Cards/Attack Cards/Sword.tres" id="3_gmk15"]
-[ext_resource type="Resource" uid="uid://yfvq6o6jkgpc" path="res://Cards/Heal Cards/JamJar.tres" id="4_yp6xe"]
+[ext_resource type="Resource" uid="uid://c7odwrv5pjg06" path="res://Cards/Heal Cards/Juicy.tres" id="5_uibv6"]
 [ext_resource type="Texture2D" uid="uid://2upxtnegd36j" path="res://Sprites/Icons/Balla_Icon.png" id="6_7qi4i"]
 [ext_resource type="Resource" uid="uid://mp3anqjhybd5" path="res://Cards/Shield Cards/NuhUh.tres" id="6_gmwys"]
 [ext_resource type="SpriteFrames" uid="uid://b8mnwaw3agreq" path="res://Sprites/Character Sprites/Balla.tres" id="8_c7irr"]
@@ -15,6 +15,6 @@ character_name = "Balla"
 sprite_sheet = ExtResource("8_c7irr")
 icon = ExtResource("6_7qi4i")
 health = 80
-ap = 35
-deck = Array[ExtResource("1_luhts")]([ExtResource("3_euvxa"), ExtResource("3_euvxa"), ExtResource("3_euvxa"), ExtResource("3_gmk15"), ExtResource("3_gmk15"), ExtResource("3_gmk15"), ExtResource("4_yp6xe"), ExtResource("4_yp6xe"), ExtResource("4_yp6xe"), ExtResource("6_gmwys"), ExtResource("6_gmwys")])
-reward_cards = Array[ExtResource("1_luhts")]([ExtResource("3_euvxa"), ExtResource("3_gmk15"), ExtResource("4_yp6xe")])
+ap = 30
+deck = Array[ExtResource("1_luhts")]([ExtResource("3_euvxa"), ExtResource("3_euvxa"), ExtResource("3_euvxa"), ExtResource("3_gmk15"), ExtResource("3_gmk15"), ExtResource("3_gmk15"), ExtResource("6_gmwys"), ExtResource("6_gmwys"), ExtResource("5_uibv6"), ExtResource("5_uibv6"), ExtResource("5_uibv6")])
+reward_cards = Array[ExtResource("1_luhts")]([ExtResource("3_euvxa"), ExtResource("3_gmk15"), ExtResource("5_uibv6")])
