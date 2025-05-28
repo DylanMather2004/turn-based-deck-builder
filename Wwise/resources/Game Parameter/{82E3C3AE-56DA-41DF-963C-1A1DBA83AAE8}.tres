@@ -1,0 +1,7 @@
+[gd_resource type="WwiseRTPC" format=3 uid="uid://b1110dfm3u7wd"]
+
+[resource]
+name = "Combat_Volume"
+id = 744091534
+guid = "{82E3C3AE-56DA-41DF-963C-1A1DBA83AAE8}"
+dummy = true

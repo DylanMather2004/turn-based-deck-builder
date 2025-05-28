@@ -1,0 +1,29 @@
+{
+ "ProjectInfo": {
+  "Project": {
+   "Name": "Turn-Based-Deckbuilder-Audio",
+   "GUID": "{2424B76E-563A-4989-B3B7-7145B588F223}",
+   "Generator": "2024.1.2.8726"
+  },
+  "CacheRoot": "../../WwiseProjects/Turn-Based-Deckbuilder-Audio/.cache",
+  "Platforms": [
+   {
+    "Name": "Windows",
+    "GUID": "{82E07DC5-0AD1-443D-BCB8-430E088CD49D}",
+    "BasePlatform": "Windows",
+    "BasePlatformGUID": "{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}",
+    "Path": "Windows"
+   }
+  ],
+  "Languages": [
+   {
+    "Name": "English(US)",
+    "Id": "684519430",
+    "GUID": "{4E2D7C3F-C409-4EF0-844D-6964C670671B}",
+    "Default": "true",
+    "UseAsStandIn": "true"
+   }
+  ],
+  "FileHash": "{32D0FCC7-8A80-7E19-E906-059370839D9C}"
+ }
+}

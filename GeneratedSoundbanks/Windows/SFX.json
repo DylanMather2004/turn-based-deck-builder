@@ -1,0 +1,283 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "393239870",
+    "Type": "User",
+    "GUID": "{943A638A-6E86-455C-89F3-000BD676973B}",
+    "Language": "SFX",
+    "Hash": "{451F40FB-F83D-C867-8385-549A09DE4BA1}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\SFX",
+    "ShortName": "SFX",
+    "Path": "SFX.bnk",
+    "Media": [
+     {
+      "Id": "115341217",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Card flick 2.wav",
+      "CachePath": "23/{230DDE2C-6092-F0A9-B310-78C6F123A852}.wem"
+     },
+     {
+      "Id": "295674122",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "403060__valeriebbb96__boooh.wav",
+      "CachePath": "02/{02C06F2B-C7FB-CAC9-3653-14F19F095097}.wem"
+     },
+     {
+      "Id": "317040721",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "4_Wah Bass.wav",
+      "CachePath": "35/{35A64BC1-AF47-089E-EA3D-2A65FF987188}.wem"
+     },
+     {
+      "Id": "333799316",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "8_Kicker.wav",
+      "CachePath": "AD/{ADF6E3B3-29F0-4A00-0EC2-AEA3CE3AC679}.wem"
+     },
+     {
+      "Id": "340577453",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Card flick 3.wav",
+      "CachePath": "09/{091AA59A-19AB-DAF5-D42A-545F8DC9E56D}.wem"
+     },
+     {
+      "Id": "391615625",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Card flick.wav",
+      "CachePath": "6F/{6F61A75F-1475-0204-9FD5-E893BE6654E1}.wem"
+     },
+     {
+      "Id": "459459891",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "333405__jayfrosting__cheer-1-short.wav",
+      "CachePath": "34/{3463507C-281F-3B07-6FBB-3164F590643A}.wem"
+     },
+     {
+      "Id": "518535275",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "2_Drums Kit1.wav",
+      "CachePath": "5D/{5DEB9CF0-20E4-5CF9-27EE-DD26A83C3051}.wem"
+     },
+     {
+      "Id": "556946456",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "card place 3.wav",
+      "CachePath": "4B/{4B3D62CF-33EC-EE03-F60E-FA50358B6BDC}.wem"
+     },
+     {
+      "Id": "565218300",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "5_Touhou.wav",
+      "CachePath": "AC/{AC40ECF3-6852-FD08-BE70-F9E7DF1DD7A4}.wem"
+     },
+     {
+      "Id": "576467095",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "card place 2.wav",
+      "CachePath": "90/{90B383A6-CD0F-E994-140C-97FF521BFDEE}.wem"
+     },
+     {
+      "Id": "739747137",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "7_SharpBass1.wav",
+      "CachePath": "F9/{F9C42328-37BA-EA46-7447-E40978A8AD24}.wem"
+     },
+     {
+      "Id": "810268825",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "6_Touhou.wav",
+      "CachePath": "92/{92191AB1-4546-141D-1A59-63FA31409A4E}.wem"
+     },
+     {
+      "Id": "857876676",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "card place 1.wav",
+      "CachePath": "46/{46E00DB2-6D55-047A-BB5B-C060229574C6}.wem"
+     },
+     {
+      "Id": "917897658",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "1_Bass 3 _analog_.wav",
+      "CachePath": "A2/{A2D719CF-2CE4-AAD1-EB71-236C50D3BF69}.wem"
+     },
+     {
+      "Id": "971030903",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "3_synth_bass_4.wav",
+      "CachePath": "EC/{EC36D436-3ACE-3926-9383-0AA1865C03AB}.wem"
+     },
+     {
+      "Id": "972111337",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "9_Bass 1.wav",
+      "CachePath": "AD/{ADF6E3B3-29F0-4A00-0EC2-AEA3CE3AC679}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "4089622659",
+      "Name": "Card_Flick",
+      "ObjectPath": "\\Events\\Default Work Unit\\Card_Flick",
+      "GUID": "{FBDF0699-A65A-4711-8099-73416EFE018F}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.16599807",
+      "DurationMax": "0.25742814",
+      "MediaRefs": [
+       {
+        "Id": "115341217"
+       },
+       {
+        "Id": "340577453"
+       },
+       {
+        "Id": "391615625"
+       }
+      ]
+     },
+     {
+      "Id": "85545103",
+      "Name": "Card_Place",
+      "ObjectPath": "\\Events\\Default Work Unit\\Card_Place",
+      "GUID": "{739C8DA9-5D8E-46D9-99F1-B66A7473CC4B}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.6761484",
+      "DurationMax": "1.0594631",
+      "MediaRefs": [
+       {
+        "Id": "556946456"
+       },
+       {
+        "Id": "576467095"
+       },
+       {
+        "Id": "857876676"
+       }
+      ]
+     },
+     {
+      "Id": "202194903",
+      "Name": "Music_Play",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music_Play",
+      "GUID": "{D6462897-2C40-4977-99CB-6646837146EC}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "317040721"
+       },
+       {
+        "Id": "333799316"
+       },
+       {
+        "Id": "518535275"
+       },
+       {
+        "Id": "565218300"
+       },
+       {
+        "Id": "739747137"
+       },
+       {
+        "Id": "810268825"
+       },
+       {
+        "Id": "917897658"
+       },
+       {
+        "Id": "971030903"
+       },
+       {
+        "Id": "972111337"
+       }
+      ]
+     },
+     {
+      "Id": "3227181061",
+      "Name": "Music_Stop",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music_Stop",
+      "GUID": "{F8C8C01E-A828-41EF-B44E-377E88BCFDA6}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
+     {
+      "Id": "2017586002",
+      "Name": "You_Lose",
+      "ObjectPath": "\\Events\\Default Work Unit\\You_Lose",
+      "GUID": "{158DB580-0724-4693-9352-78E59FD12F82}",
+      "DurationType": "OneShot",
+      "DurationMin": "4.0073695",
+      "DurationMax": "4.0073695",
+      "MediaRefs": [
+       {
+        "Id": "295674122"
+       }
+      ]
+     },
+     {
+      "Id": "756815689",
+      "Name": "You_Win",
+      "ObjectPath": "\\Events\\Default Work Unit\\You_Win",
+      "GUID": "{1B7E0326-2164-4AC3-AFCE-2751F5AFFD8B}",
+      "DurationType": "OneShot",
+      "DurationMin": "5.016667",
+      "DurationMax": "5.016667",
+      "MediaRefs": [
+       {
+        "Id": "459459891"
+       }
+      ]
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "744091534",
+      "Name": "Combat_Volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Combat_Volume",
+      "GUID": "{82E3C3AE-56DA-41DF-963C-1A1DBA83AAE8}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{4DDDE4EA-5CEE-0519-13D4-5239330142A4}"
+ }
+}

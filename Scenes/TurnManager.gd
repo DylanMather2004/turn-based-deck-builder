@@ -7,7 +7,10 @@ extends Node2D
 
 @export_category("Pause Menus")
 @export var pause_screen:Control
-
+@export_category("audio")
+@export var combat_volume:WwiseRTPC
+@export var win_sound:WwiseEvent
+@export var lose_sound:WwiseEvent
 var players:Array[Node]
 var turn_player
 func _ready() -> void:
@@ -15,6 +18,7 @@ func _ready() -> void:
 	turn_player=players[0]
 	pause_screen.hide()
 	Engine.time_scale=1
+	combat_volume.set_global_value(100)
 func turn_switch():
 	if turn_player == players [0]:
 		turn_player = players [1]
@@ -39,6 +43,7 @@ func win():
 	for i in cards:
 		i.queue_free()
 	win_screen.play("show")
+	win_sound.post(self)
 
 func lose():
 	log_battle()
@@ -49,7 +54,7 @@ func lose():
 	for i in cards:
 		i.queue_free()
 	lose_screen.play("show")
-		
+	lose_sound.post(self)	
 
 
 func _on_area_2d_mouse_entered() -> void:

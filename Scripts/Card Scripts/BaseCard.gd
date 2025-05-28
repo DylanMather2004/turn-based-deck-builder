@@ -11,6 +11,7 @@ var value:int
 var ap:int 
 @export var card_animator:AnimationPlayer
 var reset_pos:Vector2
+@export var card_audio:WwiseEvent
 
 func initialize():
 	
@@ -45,6 +46,7 @@ func _effect(target:Character):
 	owner_character.deduct_ap(ap)
 	
 	card_animator.play("Used")
+	card_audio.post(self)
 	
 	
 func _try_use():

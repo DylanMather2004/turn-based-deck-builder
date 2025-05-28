@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://ci44jqc350deh"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "Music_Stop"
+id = 3227181061
+guid = "{F8C8C01E-A828-41EF-B44E-377E88BCFDA6}"
+dummy = true

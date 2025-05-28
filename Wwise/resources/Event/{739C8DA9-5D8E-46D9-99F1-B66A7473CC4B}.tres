@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://durjn3drb8onx"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "Card_Place"
+id = 85545103
+guid = "{739C8DA9-5D8E-46D9-99F1-B66A7473CC4B}"
+dummy = true

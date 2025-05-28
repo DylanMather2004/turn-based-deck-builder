@@ -1,12 +1,15 @@
-[gd_scene load_steps=36 format=3 uid="uid://cpmb3mos3pqsu"]
+[gd_scene load_steps=40 format=3 uid="uid://cpmb3mos3pqsu"]
 
 [ext_resource type="PackedScene" uid="uid://sw0v4ybdaltf" path="res://Prefabs/Player.tscn" id="1_4hjge"]
 [ext_resource type="Script" path="res://Scenes/TurnManager.gd" id="1_m5pmw"]
+[ext_resource type="WwiseRTPC" uid="uid://b1110dfm3u7wd" path="res://Wwise/resources/Game Parameter/{82E3C3AE-56DA-41DF-963C-1A1DBA83AAE8}.tres" id="2_6ctmv"]
 [ext_resource type="Texture2D" uid="uid://why4j78o0ygw" path="res://Sprites/white-square-32x32.png" id="2_i526l"]
 [ext_resource type="Script" path="res://Scenes/PlayerHand.gd" id="2_n1ljg"]
 [ext_resource type="Shader" path="res://Shaders/scrollBG.gdshader" id="2_qd867"]
 [ext_resource type="Texture2D" uid="uid://35o76o75abrb" path="res://Sprites/Background versus.png" id="3_fm7kl"]
+[ext_resource type="WwiseEvent" uid="uid://c5t75f2kr0yc7" path="res://Wwise/resources/Event/{1B7E0326-2164-4AC3-AFCE-2751F5AFFD8B}.tres" id="3_puvjy"]
 [ext_resource type="Texture2D" uid="uid://u03e27dsjjdk" path="res://Sprites/Poison Bubble.png" id="4_3ggen"]
+[ext_resource type="WwiseEvent" uid="uid://bytmhvx43wdx3" path="res://Wwise/resources/Event/{158DB580-0724-4693-9352-78E59FD12F82}.tres" id="4_68l74"]
 [ext_resource type="PackedScene" uid="uid://cekrh8gtkff6x" path="res://Prefabs/UI Prefabs/shield_icon.tscn" id="4_dgsoa"]
 [ext_resource type="Resource" uid="uid://blyrptpbsnniw" path="res://Characters/Mole.tres" id="4_ih84k"]
 [ext_resource type="Texture2D" uid="uid://dojst8fq4p63p" path="res://Sprites/Pass Button.png" id="7_3l3jv"]
@@ -18,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://ch163j1t6knj7" path="res://Sprites/New Card.png" id="16_cf13v"]
 [ext_resource type="Texture2D" uid="uid://brme74dypd105" path="res://Sprites/Background lose.png" id="16_jpubi"]
 [ext_resource type="Texture2D" uid="uid://dkijq5og6lr87" path="res://Sprites/You Lose!.png" id="17_b0wfv"]
+[ext_resource type="WwiseBank" uid="uid://cslhmf20pf65p" path="res://Wwise/resources/SoundBank/{943A638A-6E86-455C-89F3-000BD676973B}.tres" id="19_7aoc2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fd5l0"]
 shader = ExtResource("2_qd867")
@@ -207,6 +211,9 @@ reward_image = NodePath("WinScreen/Reward")
 reward_text = NodePath("WinScreen/Reward Text")
 lose_screen = NodePath("LoseScreen/AnimationPlayer")
 pause_screen = NodePath("Pause Menu")
+combat_volume = ExtResource("2_6ctmv")
+win_sound = ExtResource("3_puvjy")
+lose_sound = ExtResource("4_68l74")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.782611, 0.303947, 0.120984, 1)
@@ -636,6 +643,12 @@ offset_right = 366.0
 offset_bottom = 266.0
 text = "Quit
 "
+
+[node name="AkBank" type="AkBank" parent="."]
+bank = ExtResource("19_7aoc2")
+load_on = 1
+
+[node name="AkListener2D" type="AkListener2D" parent="."]
 
 [connection signal="pressed" from="UI/Pass Button" to="Player" method="_on_pass_button_pressed"]
 [connection signal="pressed" from="Pause Button" to="." method="_on_pause_button_pressed"]

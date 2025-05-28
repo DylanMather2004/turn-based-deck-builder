@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dr0dmmsk455ys"]
+[gd_scene load_steps=9 format=3 uid="uid://dr0dmmsk455ys"]
 
 [ext_resource type="Script" path="res://Scripts/Card Scripts/EnemyCard.gd" id="1_dn7is"]
+[ext_resource type="WwiseEvent" uid="uid://durjn3drb8onx" path="res://Wwise/resources/Event/{739C8DA9-5D8E-46D9-99F1-B66A7473CC4B}.tres" id="2_5p7ne"]
 [ext_resource type="Texture2D" uid="uid://c56a4tkdpv76w" path="res://Sprites/Card Back.png" id="3_1jpd4"]
 [ext_resource type="Texture2D" uid="uid://dxvxrqcgjm5j7" path="res://Sprites/Card Sprites/Attack Cards/Balla_Bomb.png" id="3_j4m3a"]
 
@@ -112,6 +113,7 @@ value_text = NodePath("Sprite2D/ValueText")
 ap_text = NodePath("Sprite2D/APText")
 sprite = NodePath("Sprite2D")
 card_animator = NodePath("AnimationPlayer")
+card_audio = ExtResource("2_5p7ne")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, 0)

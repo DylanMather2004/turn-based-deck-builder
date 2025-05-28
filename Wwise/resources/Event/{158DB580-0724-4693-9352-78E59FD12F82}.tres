@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://bytmhvx43wdx3"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "You_Lose"
+id = 2017586002
+guid = "{158DB580-0724-4693-9352-78E59FD12F82}"
+dummy = true

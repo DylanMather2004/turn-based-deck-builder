@@ -9,12 +9,18 @@ extends Node2D
 @export_category("Player Data")
 @export var starter_cards:Array[String]
 
+@export_category("Music")
+@export var music_event:WwiseEvent
+@export var music_stop:WwiseEvent
+@export var combat_volume:WwiseRTPC
+
 var save_manager=SaveManager.new()
 func _ready() -> void:
 	PlayerData.owned_cards = save_manager.load_owned_cards(starter_cards,"user://owned_cards.save")
 	PlayerData.deck = save_manager._load_deck("user://deck.save")
-	print(PlayerData.deck)
-	
+	music_stop.post(self)
+	music_event.post(self)
+	combat_volume.set_global_value(0)
 func _on_play_button_pressed() -> void:
 	game_mode_screen.show()
 	title_menu.hide()
@@ -28,11 +34,6 @@ func _on_back_button_button_down() -> void:
 func _on_fight_button_pressed() -> void:
 	enemy_select_menu.show()
 	game_mode_screen.hide()
-	
-	
-
-
-
 
 func _on_deck_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Deck Builder Menu.tscn")

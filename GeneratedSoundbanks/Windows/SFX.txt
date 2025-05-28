@@ -1,0 +1,30 @@
+Event	ID	Name			Wwise Object Path	Notes
+	85545103	Card_Place			\Default Work Unit\Card_Place	
+	202194903	Music_Play			\Default Work Unit\Music_Play	
+	756815689	You_Win			\Default Work Unit\You_Win	
+	2017586002	You_Lose			\Default Work Unit\You_Lose	
+	3227181061	Music_Stop			\Default Work Unit\Music_Stop	
+	4089622659	Card_Flick			\Default Work Unit\Card_Flick	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	744091534	Combat_Volume			\Default Work Unit\Combat_Volume	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	115341217	Card flick 2	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\23\{230DDE2C-6092-F0A9-B310-78C6F123A852}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Card flick\Card flick 2		8312
+	295674122	403060__valeriebbb96__boooh	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\02\{02C06F2B-C7FB-CAC9-3653-14F19F095097}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\403060__valeriebbb96__boooh		353544
+	317040721	4_Wah Bass	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\35\{35A64BC1-AF47-089E-EA3D-2A65FF987188}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\4_Wah Bass		10281568
+	333799316	8_Kicker	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\AD\{ADF6E3B3-29F0-4A00-0EC2-AEA3CE3AC679}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\8_Kicker		10281568
+	340577453	Card flick 3	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\09\{091AA59A-19AB-DAF5-D42A-545F8DC9E56D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Card flick\Card flick 3		10210
+	391615625	Card flick	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\6F\{6F61A75F-1475-0204-9FD5-E893BE6654E1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Card flick\Card flick		8314
+	459459891	333405__jayfrosting__cheer-1-short	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\34\{3463507C-281F-3B07-6FBB-3164F590643A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\333405__jayfrosting__cheer-1-short		442564
+	518535275	2_Drums Kit1	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\5D\{5DEB9CF0-20E4-5CF9-27EE-DD26A83C3051}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\2_Drums Kit1		10281568
+	556946456	card place 3	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\4B\{4B3D62CF-33EC-EE03-F60E-FA50358B6BDC}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Card place\card place 3		46516
+	565218300	5_Touhou	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\AC\{AC40ECF3-6852-FD08-BE70-F9E7DF1DD7A4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\5_Touhou		10281568
+	576467095	card place 2	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\90\{90B383A6-CD0F-E994-140C-97FF521BFDEE}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Card place\card place 2		44196
+	739747137	7_SharpBass1	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\F9\{F9C42328-37BA-EA46-7447-E40978A8AD24}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\7_SharpBass1		10281568
+	810268825	6_Touhou	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\92\{92191AB1-4546-141D-1A59-63FA31409A4E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\6_Touhou		10281568
+	857876676	card place 1	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\46\{46E00DB2-6D55-047A-BB5B-C060229574C6}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Card place\card place 1		37232
+	917897658	1_Bass 3 _analog_	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\A2\{A2D719CF-2CE4-AAD1-EB71-236C50D3BF69}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\1_Bass 3 _analog_		10281568
+	971030903	3_synth_bass_4	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\EC\{EC36D436-3ACE-3926-9383-0AA1865C03AB}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\3_synth_bass_4		10281568
+	972111337	9_Bass 1	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\AD\{ADF6E3B3-29F0-4A00-0EC2-AEA3CE3AC679}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\9_Bass 1		10281568
+

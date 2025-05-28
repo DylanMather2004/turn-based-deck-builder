@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsmcwu7vwemfd"]
+[gd_scene load_steps=10 format=3 uid="uid://dsmcwu7vwemfd"]
 
 [ext_resource type="Script" path="res://Scripts/Card Scripts/PlayerCard.gd" id="1_xlb2b"]
+[ext_resource type="WwiseEvent" uid="uid://bmictfe4ijirp" path="res://Wwise/resources/Event/{FBDF0699-A65A-4711-8099-73416EFE018F}.tres" id="2_6heos"]
 [ext_resource type="Resource" uid="uid://qoywkxvppsxg" path="res://Cards/Attack Cards/Punch.tres" id="2_jg0cj"]
 [ext_resource type="Texture2D" uid="uid://dxvxrqcgjm5j7" path="res://Sprites/Card Sprites/Attack Cards/Balla_Bomb.png" id="3_hwm8h"]
+[ext_resource type="WwiseEvent" uid="uid://durjn3drb8onx" path="res://Wwise/resources/Event/{739C8DA9-5D8E-46D9-99F1-B66A7473CC4B}.tres" id="3_ssd6q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ej4nj"]
 size = Vector2(63, 97)
@@ -83,12 +85,14 @@ _data = {
 
 [node name="Card" type="Node2D" node_paths=PackedStringArray("name_text", "value_text", "ap_text", "sprite", "card_animator") groups=["card"]]
 script = ExtResource("1_xlb2b")
+card_flick_audio = ExtResource("2_6heos")
 card_to_load = ExtResource("2_jg0cj")
 name_text = NodePath("Sprite2D/NameText")
 value_text = NodePath("Sprite2D/ValueText")
 ap_text = NodePath("Sprite2D/APText")
 sprite = NodePath("Sprite2D")
 card_animator = NodePath("AnimationPlayer")
+card_audio = ExtResource("3_ssd6q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_hwm8h")
