@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://djxutphtxguqu"]
+[gd_scene load_steps=31 format=3 uid="uid://djxutphtxguqu"]
 
 [ext_resource type="Texture2D" uid="uid://crnt2cbd5ugs4" path="res://Sprites/Fight Button.png" id="1_bldvy"]
 [ext_resource type="Script" path="res://Scenes/MainMenuManager.gd" id="1_dv1vn"]
@@ -11,9 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://b40n4lbsqkhqr" path="res://Sprites/Back-Button.png" id="5_pqi47"]
 [ext_resource type="PackedScene" uid="uid://kyiycgefeqw6" path="res://Prefabs/UI Prefabs/character_select_button.tscn" id="7_fbbau"]
 [ext_resource type="Script" path="res://Scenes/enemy_select_menu.gd" id="7_fi60y"]
+[ext_resource type="Texture2D" uid="uid://bts2vo7c7i8ar" path="res://Sprites/Play.png" id="7_xf3tk"]
+[ext_resource type="Texture2D" uid="uid://bmmikj7swk5ls" path="res://Sprites/Settings.png" id="8_5pmcr"]
 [ext_resource type="Script" path="res://Characters/CharacterTemplate.gd" id="8_imjai"]
 [ext_resource type="Resource" uid="uid://bu7u8pkobijiy" path="res://Characters/Bomba.tres" id="8_r5t2j"]
+[ext_resource type="Script" path="res://Scripts/UI Script/main_menu_button.gd" id="8_xbm44"]
 [ext_resource type="Resource" uid="uid://cww52qnsl656k" path="res://Characters/Balla.tres" id="9_komr2"]
+[ext_resource type="Texture2D" uid="uid://yk0swesin31y" path="res://Sprites/Quit.png" id="9_qcfsh"]
 [ext_resource type="Resource" uid="uid://x6aeaa7yrqw7" path="res://Characters/EggMage.tres" id="11_btj0c"]
 [ext_resource type="Texture2D" uid="uid://why4j78o0ygw" path="res://Sprites/white-square-32x32.png" id="12_abw1p"]
 [ext_resource type="SpriteFrames" uid="uid://bpbgijwrwa1iq" path="res://Sprites/Character Sprites/Lil Mole.tres" id="13_q5nw8"]
@@ -24,6 +28,7 @@
 [ext_resource type="Shader" path="res://Shaders/scrollBG.gdshader" id="19_mqyjr"]
 [ext_resource type="Texture2D" uid="uid://bluuwcnjknyl8" path="res://Sprites/Background Ballas.png" id="20_vq222"]
 [ext_resource type="WwiseBank" uid="uid://cslhmf20pf65p" path="res://Wwise/resources/SoundBank/{943A638A-6E86-455C-89F3-000BD676973B}.tres" id="21_gs4jw"]
+[ext_resource type="Texture2D" uid="uid://cd1xp2hgj86h8" path="res://Sprites/Balla Battle text.png" id="28_yivo6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yaa46"]
 shader = ExtResource("19_mqyjr")
@@ -57,41 +62,68 @@ offset_right = 40.0
 offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="TitleMenu"]
+[node name="Play Button" type="TextureButton" parent="TitleMenu"]
 layout_mode = 0
-offset_left = 106.0
-offset_top = 29.0
-offset_right = 522.0
-offset_bottom = 228.0
-theme_override_font_sizes/normal_font_size = 35
-text = "Unnamed Card Game"
+offset_left = 223.0
+offset_top = 127.0
+offset_right = 371.0
+offset_bottom = 202.0
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(64, 37)
+texture_normal = ExtResource("7_xf3tk")
+script = ExtResource("8_xbm44")
 
-[node name="Play Button" type="Button" parent="TitleMenu"]
-layout_mode = 0
-offset_left = 207.0
-offset_top = 114.0
-offset_right = 355.0
-offset_bottom = 171.0
-theme_override_font_sizes/font_size = 30
-text = "Play"
+[node name="Shadow" type="Sprite2D" parent="TitleMenu/Play Button"]
+modulate = Color(0, 0, 0, 0.576471)
+z_index = -1
+position = Vector2(72.5, 40)
+texture = ExtResource("7_xf3tk")
 
-[node name="Settings Button" type="Button" parent="TitleMenu"]
+[node name="Settings Button" type="TextureButton" parent="TitleMenu"]
 layout_mode = 0
-offset_left = 209.0
-offset_top = 186.0
-offset_right = 357.0
-offset_bottom = 243.0
-theme_override_font_sizes/font_size = 30
-text = "Settings"
+offset_left = 178.0
+offset_top = 191.0
+offset_right = 413.0
+offset_bottom = 260.0
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(117, 34)
+texture_normal = ExtResource("8_5pmcr")
+script = ExtResource("8_xbm44")
 
-[node name="Quit Button" type="Button" parent="TitleMenu"]
+[node name="Shadow" type="Sprite2D" parent="TitleMenu/Settings Button"]
+modulate = Color(0, 0, 0, 0.576471)
+z_index = -1
+position = Vector2(122.5, 41.25)
+texture = ExtResource("8_5pmcr")
+
+[node name="Quit Button" type="TextureButton" parent="TitleMenu"]
 layout_mode = 0
-offset_left = 210.0
-offset_top = 259.0
-offset_right = 358.0
-offset_bottom = 316.0
-theme_override_font_sizes/font_size = 30
-text = "Quit"
+offset_left = 217.0
+offset_top = 249.0
+offset_right = 367.0
+offset_bottom = 313.0
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(75, 32)
+texture_normal = ExtResource("9_qcfsh")
+script = ExtResource("8_xbm44")
+
+[node name="Shadow" type="Sprite2D" parent="TitleMenu/Quit Button"]
+modulate = Color(0, 0, 0, 0.576471)
+z_index = -1
+position = Vector2(78.75, 36.25)
+texture = ExtResource("9_qcfsh")
+
+[node name="BallaBattleText" type="Sprite2D" parent="TitleMenu"]
+position = Vector2(279, 80)
+scale = Vector2(1.25167, 1.13167)
+texture = ExtResource("28_yivo6")
+
+[node name="BallaBattleText2" type="Sprite2D" parent="TitleMenu"]
+modulate = Color(0, 0, 0, 0.533333)
+z_index = -1
+position = Vector2(287, 83)
+scale = Vector2(1.25167, 1.13167)
+texture = ExtResource("28_yivo6")
 
 [node name="Gameplay Select Screen" type="Control" parent="."]
 visible = false
@@ -260,9 +292,15 @@ load_on = 1
 [node name="AkListener2D" type="AkListener2D" parent="."]
 position = Vector2(1, 0)
 
+[connection signal="mouse_entered" from="TitleMenu/Play Button" to="TitleMenu/Play Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="TitleMenu/Play Button" to="TitleMenu/Play Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="TitleMenu/Play Button" to="." method="_on_play_button_pressed"]
 [connection signal="button_down" from="TitleMenu/Settings Button" to="." method="_on_settings_button_button_down"]
+[connection signal="mouse_entered" from="TitleMenu/Settings Button" to="TitleMenu/Settings Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="TitleMenu/Settings Button" to="TitleMenu/Settings Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="TitleMenu/Settings Button" to="." method="_on_settings_button_pressed"]
+[connection signal="mouse_entered" from="TitleMenu/Quit Button" to="TitleMenu/Quit Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="TitleMenu/Quit Button" to="TitleMenu/Quit Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="TitleMenu/Quit Button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Gameplay Select Screen/Fight Button" to="." method="_on_fight_button_pressed"]
 [connection signal="pressed" from="Gameplay Select Screen/Deck Button" to="." method="_on_deck_button_pressed"]
