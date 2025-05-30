@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cpmb3mos3pqsu"]
+[gd_scene load_steps=41 format=3 uid="uid://cpmb3mos3pqsu"]
 
 [ext_resource type="PackedScene" uid="uid://sw0v4ybdaltf" path="res://Prefabs/Player.tscn" id="1_4hjge"]
 [ext_resource type="Script" path="res://Scenes/TurnManager.gd" id="1_m5pmw"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://ch163j1t6knj7" path="res://Sprites/New Card.png" id="16_cf13v"]
 [ext_resource type="Texture2D" uid="uid://brme74dypd105" path="res://Sprites/Background lose.png" id="16_jpubi"]
 [ext_resource type="Texture2D" uid="uid://dkijq5og6lr87" path="res://Sprites/You Lose!.png" id="17_b0wfv"]
+[ext_resource type="Script" path="res://Scripts/UI Script/main_menu_button.gd" id="17_x380m"]
 [ext_resource type="WwiseBank" uid="uid://cslhmf20pf65p" path="res://Wwise/resources/SoundBank/{943A638A-6E86-455C-89F3-000BD676973B}.tres" id="19_7aoc2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fd5l0"]
@@ -467,9 +468,11 @@ offset_left = 498.0
 offset_top = 170.0
 offset_right = 561.0
 offset_bottom = 217.0
+pivot_offset = Vector2(31, 23)
 texture_normal = ExtResource("7_3l3jv")
 texture_pressed = ExtResource("7_3l3jv")
 texture_hover = ExtResource("7_3l3jv")
+script = ExtResource("17_x380m")
 
 [node name="Turn Identifiers" type="Control" parent="."]
 layout_mode = 3
@@ -650,6 +653,8 @@ load_on = 1
 
 [node name="AkListener2D" type="AkListener2D" parent="."]
 
+[connection signal="mouse_entered" from="UI/Pass Button" to="UI/Pass Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Pass Button" to="UI/Pass Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/Pass Button" to="Player" method="_on_pass_button_pressed"]
 [connection signal="pressed" from="Pause Button" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="WinScreen/Button" to="." method="_on_button_pressed"]
