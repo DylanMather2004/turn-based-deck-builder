@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://djxutphtxguqu"]
+[gd_scene load_steps=35 format=3 uid="uid://djxutphtxguqu"]
 
 [ext_resource type="Texture2D" uid="uid://crnt2cbd5ugs4" path="res://Sprites/Fight Button.png" id="1_bldvy"]
 [ext_resource type="Script" path="res://Scenes/MainMenuManager.gd" id="1_dv1vn"]
@@ -8,6 +8,7 @@
 [ext_resource type="WwiseEvent" uid="uid://ci44jqc350deh" path="res://Wwise/resources/Event/{F8C8C01E-A828-41EF-B44E-377E88BCFDA6}.tres" id="3_e4rq7"]
 [ext_resource type="Texture2D" uid="uid://bfxf8hf33h5xk" path="res://Sprites/Deck Button.png" id="3_xxews"]
 [ext_resource type="Texture2D" uid="uid://bn403qk0tf7qe" path="res://Sprites/Deck Button-Hovering.png" id="4_tblqs"]
+[ext_resource type="WwiseRTPC" uid="uid://88bb55ndampu" path="res://Wwise/resources/Game Parameter/{4FD7F60C-10A7-4A9F-B832-ADF4E4BF77E1}.tres" id="5_nowcf"]
 [ext_resource type="Texture2D" uid="uid://b40n4lbsqkhqr" path="res://Sprites/Back-Button.png" id="5_pqi47"]
 [ext_resource type="PackedScene" uid="uid://kyiycgefeqw6" path="res://Prefabs/UI Prefabs/character_select_button.tscn" id="7_fbbau"]
 [ext_resource type="Script" path="res://Scenes/enemy_select_menu.gd" id="7_fi60y"]
@@ -20,11 +21,11 @@
 [ext_resource type="Texture2D" uid="uid://yk0swesin31y" path="res://Sprites/Quit.png" id="9_qcfsh"]
 [ext_resource type="Resource" uid="uid://x6aeaa7yrqw7" path="res://Characters/EggMage.tres" id="11_btj0c"]
 [ext_resource type="Texture2D" uid="uid://why4j78o0ygw" path="res://Sprites/white-square-32x32.png" id="12_abw1p"]
+[ext_resource type="Script" path="res://Scenes/TitleAnimationStarter.gd" id="13_n52ai"]
 [ext_resource type="SpriteFrames" uid="uid://bpbgijwrwa1iq" path="res://Sprites/Character Sprites/Lil Mole.tres" id="13_q5nw8"]
 [ext_resource type="Script" path="res://Scenes/sprite_funny.gd" id="14_6gr6b"]
 [ext_resource type="Texture2D" uid="uid://d181tckqwqt4d" path="res://Sprites/Icons/Health Icon.png" id="14_dwyu2"]
 [ext_resource type="Texture2D" uid="uid://blaavtlc76mnc" path="res://Sprites/Icons/AP_Icon.png" id="15_ftamg"]
-[ext_resource type="Texture2D" uid="uid://c7c8l3svxpswq" path="res://Absolutely Mortified Danton.png" id="16_8gu8a"]
 [ext_resource type="Shader" path="res://Shaders/scrollBG.gdshader" id="19_mqyjr"]
 [ext_resource type="Texture2D" uid="uid://bluuwcnjknyl8" path="res://Sprites/Background Ballas.png" id="20_vq222"]
 [ext_resource type="WwiseBank" uid="uid://cslhmf20pf65p" path="res://Wwise/resources/SoundBank/{943A638A-6E86-455C-89F3-000BD676973B}.tres" id="21_gs4jw"]
@@ -33,6 +34,69 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yaa46"]
 shader = ExtResource("19_mqyjr")
 shader_parameter/scroll_speed = 0.1
+
+[sub_resource type="Animation" id="Animation_jbsx0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.385773]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.904)]
+}
+
+[sub_resource type="Animation" id="Animation_kjrhe"]
+resource_name = "TitleText"
+length = 3.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.475, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.385773, 0.224567, -0.385773]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 0.904), Vector2(1.2, 1.085), Vector2(1, 0.904)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iaw31"]
+_data = {
+"RESET": SubResource("Animation_jbsx0"),
+"TitleText": SubResource("Animation_kjrhe")
+}
 
 [node name="MainMenu" type="Node2D" node_paths=PackedStringArray("title_menu", "game_mode_screen", "enemy_select_menu", "settings_menu")]
 position = Vector2(-1, 0)
@@ -45,6 +109,7 @@ starter_cards = Array[String](["res://Cards/Attack Cards/MoleMallet.tres", "res:
 music_event = ExtResource("2_15tm8")
 music_stop = ExtResource("3_e4rq7")
 combat_volume = ExtResource("3_5vsrh")
+master_volume = ExtResource("5_nowcf")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.70333, 0.292784, 9.62615e-08, 1)
@@ -115,15 +180,21 @@ texture = ExtResource("9_qcfsh")
 
 [node name="BallaBattleText" type="Sprite2D" parent="TitleMenu"]
 position = Vector2(279, 80)
-scale = Vector2(1.25167, 1.13167)
+rotation = -0.385773
+scale = Vector2(1, 0.904)
 texture = ExtResource("28_yivo6")
 
-[node name="BallaBattleText2" type="Sprite2D" parent="TitleMenu"]
+[node name="BallaBattleText2" type="Sprite2D" parent="TitleMenu/BallaBattleText"]
 modulate = Color(0, 0, 0, 0.533333)
 z_index = -1
-position = Vector2(287, 83)
-scale = Vector2(1.25167, 1.13167)
+position = Vector2(6.39145, 2.65095)
 texture = ExtResource("28_yivo6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TitleMenu/BallaBattleText"]
+libraries = {
+"": SubResource("AnimationLibrary_iaw31")
+}
+script = ExtResource("13_n52ai")
 
 [node name="Gameplay Select Screen" type="Control" parent="."]
 visible = false
@@ -271,25 +342,29 @@ anchors_preset = 0
 offset_right = 573.0
 offset_bottom = 325.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Settings Menu"]
-position = Vector2(453, 206)
-scale = Vector2(0.270313, 0.217578)
-texture = ExtResource("16_8gu8a")
-
 [node name="RichTextLabel" type="RichTextLabel" parent="Settings Menu"]
 layout_mode = 0
-offset_left = 39.0
-offset_top = 135.0
-offset_right = 199.0
-offset_bottom = 257.0
+offset_left = 26.0
+offset_top = 54.0
+offset_right = 285.0
+offset_bottom = 176.0
 theme_override_font_sizes/normal_font_size = 28
-text = "Not a chance mate"
+text = "Master Volume"
 
 [node name="SettingsBackButton" type="TextureButton" parent="Settings Menu"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("5_pqi47")
+script = ExtResource("8_xbm44")
+
+[node name="HSlider" type="HSlider" parent="Settings Menu"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 89.0
+offset_right = 246.0
+offset_bottom = 105.0
+value = 100.0
 
 [node name="AkBank" type="AkBank" parent="."]
 bank = ExtResource("21_gs4jw")
@@ -320,4 +395,7 @@ position = Vector2(1, 0)
 [connection signal="pressed" from="EnemySelectMenu/EnemyMenu-BackButton" to="." method="_on_enemy_menu_back_button_pressed"]
 [connection signal="mouse_entered" from="EnemySelectMenu/Enemy Panel/Spritebox" to="EnemySelectMenu/Enemy Panel/AnimatedSprite2D" method="_on_spritebox_mouse_entered"]
 [connection signal="mouse_exited" from="EnemySelectMenu/Enemy Panel/Spritebox" to="EnemySelectMenu/Enemy Panel/AnimatedSprite2D" method="_on_spritebox_mouse_exited"]
+[connection signal="mouse_entered" from="Settings Menu/SettingsBackButton" to="Settings Menu/SettingsBackButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Settings Menu/SettingsBackButton" to="Settings Menu/SettingsBackButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="Settings Menu/SettingsBackButton" to="." method="_on_settings_back_button_pressed"]
+[connection signal="value_changed" from="Settings Menu/HSlider" to="." method="_on_h_slider_value_changed"]

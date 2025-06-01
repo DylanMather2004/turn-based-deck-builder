@@ -13,6 +13,7 @@ extends Node2D
 @export var music_event:WwiseEvent
 @export var music_stop:WwiseEvent
 @export var combat_volume:WwiseRTPC
+@export var master_volume:WwiseRTPC
 
 var save_manager=SaveManager.new()
 func _ready() -> void:
@@ -55,3 +56,8 @@ func _on_settings_button_pressed() -> void:
 func _on_settings_back_button_pressed() -> void:
 	settings_menu.hide()
 	title_menu.show()
+
+
+func _on_h_slider_value_changed(value: float) -> void:#
+	print(value)
+	master_volume.set_value(self,value)

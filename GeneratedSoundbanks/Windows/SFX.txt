@@ -8,6 +8,7 @@ Event	ID	Name			Wwise Object Path	Notes
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	744091534	Combat_Volume			\Default Work Unit\Combat_Volume	
+	4179668880	Master_Volume			\Default Work Unit\Master_Volume	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	115341217	Card flick 2	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\23\{230DDE2C-6092-F0A9-B310-78C6F123A852}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Card flick\Card flick 2		8312

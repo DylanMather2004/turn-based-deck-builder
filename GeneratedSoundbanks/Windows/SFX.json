@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{943A638A-6E86-455C-89F3-000BD676973B}",
     "Language": "SFX",
-    "Hash": "{0420369C-F5F4-89D3-5097-220C7145DE18}",
+    "Hash": "{7B2D41B5-1133-1009-14D9-68442A8EA111}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\SFX",
     "ShortName": "SFX",
     "Path": "SFX.bnk",
@@ -274,10 +274,16 @@
       "Name": "Combat_Volume",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Combat_Volume",
       "GUID": "{82E3C3AE-56DA-41DF-963C-1A1DBA83AAE8}"
+     },
+     {
+      "Id": "4179668880",
+      "Name": "Master_Volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Master_Volume",
+      "GUID": "{4FD7F60C-10A7-4A9F-B832-ADF4E4BF77E1}"
      }
     ]
    }
   ],
-  "FileHash": "{1EFF3AD0-2C24-D0F6-64F9-F0F79F7A205F}"
+  "FileHash": "{9AC444A2-4239-2601-3C32-9E8A60132B14}"
  }
 }

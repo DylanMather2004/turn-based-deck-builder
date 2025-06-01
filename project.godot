@@ -30,6 +30,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Turn Based Deck Builder"
 
+[gui]
+
+theme/custom_font="res://Fonts/Jersey10-Regular.ttf"
+
 [input]
 
 use_card={

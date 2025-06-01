@@ -1,0 +1,7 @@
+[gd_resource type="WwiseRTPC" format=3 uid="uid://88bb55ndampu"]
+
+[resource]
+name = "Master_Volume"
+id = 4179668880
+guid = "{4FD7F60C-10A7-4A9F-B832-ADF4E4BF77E1}"
+dummy = true
