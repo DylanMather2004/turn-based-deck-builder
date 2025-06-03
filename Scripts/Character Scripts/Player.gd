@@ -12,10 +12,10 @@ func deck_init():
 	if PlayerData.deck!= null && !PlayerData.deck.is_empty():
 		for i in range(PlayerData.deck.size()):
 			deck.append(PlayerData.deck[i])
-		print(deck)
+		
 	else:
 		super.deck_init()
-		print("hello!")
+		
 	
 func deck_refresh():
 	if PlayerData.deck!=null&&!PlayerData.deck.is_empty():
@@ -38,4 +38,3 @@ func _input(event: InputEvent) -> void:
 
 func die():
 	game_manager.lose()
-	

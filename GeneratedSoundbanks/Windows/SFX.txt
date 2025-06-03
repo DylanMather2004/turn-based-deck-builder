@@ -2,8 +2,12 @@ Event	ID	Name			Wwise Object Path	Notes
 	85545103	Card_Place			\Default Work Unit\Card_Place	
 	202194903	Music_Play			\Default Work Unit\Music_Play	
 	756815689	You_Win			\Default Work Unit\You_Win	
+	1161967626	shield			\Default Work Unit\shield	
+	1467164614	poisoned			\Default Work Unit\poisoned	
 	2017586002	You_Lose			\Default Work Unit\You_Lose	
+	3193947170	Hurt			\Default Work Unit\Hurt	
 	3227181061	Music_Stop			\Default Work Unit\Music_Stop	
+	3448274447	Heal			\Default Work Unit\Heal	
 	4089622659	Card_Flick			\Default Work Unit\Card_Flick	
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
@@ -11,21 +15,34 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	4179668880	Master_Volume			\Default Work Unit\Master_Volume	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	111912375	hit-with-frying-pan-39340	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\95\{95A15904-7F3F-3230-EDCE-6799129A1974}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Player Hurt\hit-with-frying-pan-39340		69948
 	115341217	Card flick 2	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\23\{230DDE2C-6092-F0A9-B310-78C6F123A852}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Card flick\Card flick 2		8312
+	131451398	371094__mccormick_iain__glass-break-1	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\E6\{E678F1CC-8EC9-15F0-80C6-041EAE485BD9}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Player Hurt\371094__mccormick_iain__glass-break-1		79474
+	180053699	Punch (2)	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\F8\{F807E7BE-8319-489A-0C2D-07237A799FF5}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Player Hurt\Punch (2)		17174
+	240861152	Punch (1)	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\63\{63751C75-6357-756E-91D6-7FB692322E61}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Player Hurt\Punch (1)		16404
 	295674122	403060__valeriebbb96__boooh	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\02\{02C06F2B-C7FB-CAC9-3653-14F19F095097}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\403060__valeriebbb96__boooh		353544
 	317040721	4_Wah Bass	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\35\{35A64BC1-AF47-089E-EA3D-2A65FF987188}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\4_Wah Bass		10281568
 	333799316	8_Kicker	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\AD\{ADF6E3B3-29F0-4A00-0EC2-AEA3CE3AC679}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\8_Kicker		10281568
 	340577453	Card flick 3	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\09\{091AA59A-19AB-DAF5-D42A-545F8DC9E56D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Card flick\Card flick 3		10210
+	344325739	Punch (5)	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\76\{7650E1FE-FB21-2982-3335-3F05EF470FFC}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Player Hurt\Punch (5)		21266
 	391615625	Card flick	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\6F\{6F61A75F-1475-0204-9FD5-E893BE6654E1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Card flick\Card flick		8314
+	438047599	Punch (3)	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\25\{2526E1E2-328B-8C14-7F2B-3FF7963BFB20}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Player Hurt\Punch (3)		21650
 	459459891	333405__jayfrosting__cheer-1-short	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\34\{3463507C-281F-3B07-6FBB-3164F590643A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\333405__jayfrosting__cheer-1-short		442564
+	485834391	Punch (6)	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\E6\{E6A1D61F-5080-B637-F945-59CF0518E300}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Player Hurt\Punch (6)		17252
 	518535275	2_Drums Kit1	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\5D\{5DEB9CF0-20E4-5CF9-27EE-DD26A83C3051}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\2_Drums Kit1		10281568
+	547372200	Poison 1	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\67\{67015807-C226-C760-2B51-9F599FD66A64}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Poison\Poison 1		83328
 	556946456	card place 3	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\4B\{4B3D62CF-33EC-EE03-F60E-FA50358B6BDC}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Card place\card place 3		46516
 	565218300	5_Touhou	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\AC\{AC40ECF3-6852-FD08-BE70-F9E7DF1DD7A4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\5_Touhou		10281568
 	576467095	card place 2	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\90\{90B383A6-CD0F-E994-140C-97FF521BFDEE}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Card place\card place 2		44196
+	586934706	Poison 2 	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\69\{69F97AE6-62CC-B285-D17A-7A706A21B7FD}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Poison\Poison 2 		100316
 	739747137	7_SharpBass1	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\F9\{F9C42328-37BA-EA46-7447-E40978A8AD24}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\7_SharpBass1		10281568
+	754657963	Poison 3	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\1B\{1B498B88-BF69-FC03-99C1-01F90F4CEB48}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Poison\Poison 3		76532
 	810268825	6_Touhou	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\92\{92191AB1-4546-141D-1A59-63FA31409A4E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\6_Touhou		10281568
 	857876676	card place 1	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\46\{46E00DB2-6D55-047A-BB5B-C060229574C6}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Card place\card place 1		37232
+	906747266	Slurp	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\F5\{F52B64E0-4712-F850-3281-8DC9E003A63E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Slurp		86876
 	917897658	1_Bass 3 _analog_	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\A2\{A2D719CF-2CE4-AAD1-EB71-236C50D3BF69}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\1_Bass 3 _analog_		10281568
+	937920681	Punch (4)	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\8D\{8D37A3F9-2DE6-2060-A55A-BD700943A59A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Player Hurt\Punch (4)		20570
 	971030903	3_synth_bass_4	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\EC\{EC36D436-3ACE-3926-9383-0AA1865C03AB}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\3_synth_bass_4		10281568
 	972111337	9_Bass 1	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\AD\{ADF6E3B3-29F0-4A00-0EC2-AEA3CE3AC679}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\9_Bass 1		10281568
+	989754609	Shield Break	C:\Users\mathe\Documents\WwiseProjects\Turn-Based-Deckbuilder-Audio\.cache\48\{4811E42B-7082-8470-9487-CE87D2661D10}.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Shield Break		62136
 

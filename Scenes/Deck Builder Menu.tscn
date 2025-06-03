@@ -28,7 +28,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_yoadh")
 
-[node name="Control" type="Control" parent="." node_paths=PackedStringArray("attack_card_menu", "heal_card_menu", "shield_card_menu", "poison_card_menu", "deck_menu", "deck_size_text", "sprite", "name_Text", "value_text", "ap_cost_text")]
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("attack_card_menu", "heal_card_menu", "shield_card_menu", "poison_card_menu", "deck_menu", "deck_size_text", "deck_status_text", "sprite", "name_Text", "value_text", "ap_cost_text")]
 layout_mode = 3
 anchors_preset = 0
 theme = SubResource("Theme_8jqhw")
@@ -41,6 +41,7 @@ deck_menu = NodePath("ScrollContainer/HBoxContainer")
 menu_button_prefab = ExtResource("3_nxo8m")
 deck_button_prefab = ExtResource("8_vufdo")
 deck_size_text = NodePath("../DeckSizeIndicator")
+deck_status_text = NodePath("../RichTextLabel")
 sprite = NodePath("../Sprite2D")
 name_Text = NodePath("../Sprite2D/RichTextLabel")
 value_text = NodePath("../Sprite2D/ValueText")
@@ -163,6 +164,13 @@ offset_top = 184.0
 offset_right = 446.0
 offset_bottom = 216.0
 text = "20/20"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 7.0
+offset_top = 201.0
+offset_right = 167.0
+offset_bottom = 233.0
+theme_override_font_sizes/normal_font_size = 21
 
 [connection signal="mouse_entered" from="Save Button" to="Save Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Save Button" to="Save Button" method="_on_mouse_exited"]

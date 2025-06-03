@@ -15,8 +15,12 @@ namespace AK
     {
         static const AkUniqueID CARD_FLICK = 4089622659U;
         static const AkUniqueID CARD_PLACE = 85545103U;
+        static const AkUniqueID HEAL = 3448274447U;
+        static const AkUniqueID HURT = 3193947170U;
         static const AkUniqueID MUSIC_PLAY = 202194903U;
         static const AkUniqueID MUSIC_STOP = 3227181061U;
+        static const AkUniqueID POISONED = 1467164614U;
+        static const AkUniqueID SHIELD = 1161967626U;
         static const AkUniqueID YOU_LOSE = 2017586002U;
         static const AkUniqueID YOU_WIN = 756815689U;
     } // namespace EVENTS

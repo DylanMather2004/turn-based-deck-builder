@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://djxutphtxguqu"]
+[gd_scene load_steps=39 format=3 uid="uid://djxutphtxguqu"]
 
 [ext_resource type="Texture2D" uid="uid://crnt2cbd5ugs4" path="res://Sprites/Fight Button.png" id="1_bldvy"]
 [ext_resource type="Script" path="res://Scenes/MainMenuManager.gd" id="1_dv1vn"]
@@ -25,11 +25,15 @@
 [ext_resource type="SpriteFrames" uid="uid://bpbgijwrwa1iq" path="res://Sprites/Character Sprites/Lil Mole.tres" id="13_q5nw8"]
 [ext_resource type="Script" path="res://Scenes/sprite_funny.gd" id="14_6gr6b"]
 [ext_resource type="Texture2D" uid="uid://d181tckqwqt4d" path="res://Sprites/Icons/Health Icon.png" id="14_dwyu2"]
+[ext_resource type="Texture2D" uid="uid://bcu7awof8ab0g" path="res://Sprites/Credits.png" id="14_og54s"]
 [ext_resource type="Texture2D" uid="uid://blaavtlc76mnc" path="res://Sprites/Icons/AP_Icon.png" id="15_ftamg"]
 [ext_resource type="Shader" path="res://Shaders/scrollBG.gdshader" id="19_mqyjr"]
 [ext_resource type="Texture2D" uid="uid://bluuwcnjknyl8" path="res://Sprites/Background Ballas.png" id="20_vq222"]
 [ext_resource type="WwiseBank" uid="uid://cslhmf20pf65p" path="res://Wwise/resources/SoundBank/{943A638A-6E86-455C-89F3-000BD676973B}.tres" id="21_gs4jw"]
 [ext_resource type="Texture2D" uid="uid://cd1xp2hgj86h8" path="res://Sprites/Balla Battle text.png" id="28_yivo6"]
+[ext_resource type="Script" path="res://Scripts/Bonus Scripts/CreditsSprite.gd" id="31_hvfd8"]
+[ext_resource type="SpriteFrames" uid="uid://6bo620acgp5j" path="res://Sprites/Character Sprites/Fishy Biz.tres" id="32_eclqp"]
+[ext_resource type="SpriteFrames" uid="uid://denmt5mm7yv0t" path="res://Sprites/BallaGames.tres" id="34_qyufk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yaa46"]
 shader = ExtResource("19_mqyjr")
@@ -98,13 +102,14 @@ _data = {
 "TitleText": SubResource("Animation_kjrhe")
 }
 
-[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("title_menu", "game_mode_screen", "enemy_select_menu", "settings_menu")]
+[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("title_menu", "game_mode_screen", "enemy_select_menu", "settings_menu", "credits_menu")]
 position = Vector2(-1, 0)
 script = ExtResource("1_dv1vn")
 title_menu = NodePath("TitleMenu")
 game_mode_screen = NodePath("Gameplay Select Screen")
 enemy_select_menu = NodePath("EnemySelectMenu")
 settings_menu = NodePath("Settings Menu")
+credits_menu = NodePath("Credits Menu")
 starter_cards = Array[String](["res://Cards/Attack Cards/MoleMallet.tres", "res://Cards/Attack Cards/Punch.tres", "res://Cards/Shield Cards/NuhUh.tres", "res://Cards/Heal Cards/JamJar.tres"])
 music_event = ExtResource("2_15tm8")
 music_stop = ExtResource("3_e4rq7")
@@ -366,12 +371,135 @@ offset_right = 246.0
 offset_bottom = 105.0
 value = 100.0
 
+[node name="Credits Button" type="TextureButton" parent="Settings Menu"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 251.0
+offset_right = 239.0
+offset_bottom = 320.0
+pivot_offset = Vector2(117, 34)
+texture_normal = ExtResource("14_og54s")
+script = ExtResource("8_xbm44")
+
+[node name="Sprite2D" type="Sprite2D" parent="Settings Menu/Credits Button"]
+modulate = Color(0, 0, 0, 0.286275)
+z_index = -1
+position = Vector2(124.991, 38.8573)
+texture = ExtResource("14_og54s")
+
 [node name="AkBank" type="AkBank" parent="."]
 bank = ExtResource("21_gs4jw")
 load_on = 1
 
 [node name="AkListener2D" type="AkListener2D" parent="."]
 position = Vector2(1, 0)
+
+[node name="Credits Menu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits Menu"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 68.0
+offset_right = 212.0
+offset_bottom = 124.0
+theme_override_font_sizes/normal_font_size = 21
+text = "A Game Made by"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Credits Menu"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 90.0
+offset_right = 226.0
+offset_bottom = 146.0
+theme_override_font_sizes/normal_font_size = 42
+text = "DYLAN MATHER"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Credits Menu"]
+position = Vector2(101, 200)
+sprite_frames = ExtResource("32_eclqp")
+script = ExtResource("31_hvfd8")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Credits Menu"]
+position = Vector2(277, 178)
+sprite_frames = ExtResource("34_qyufk")
+script = ExtResource("31_hvfd8")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Credits Menu"]
+layout_mode = 0
+offset_left = 266.0
+offset_top = 88.0
+offset_right = 306.0
+offset_bottom = 128.0
+theme_override_font_sizes/normal_font_size = 28
+text = "A"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Credits Menu"]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 223.0
+offset_right = 357.0
+offset_bottom = 297.0
+theme_override_font_sizes/normal_font_size = 28
+text = "Production"
+
+[node name="Sprite2D" type="Sprite2D" parent="Credits Menu"]
+modulate = Color(0, 0, 0, 0.431373)
+position = Vector2(468, 164)
+scale = Vector2(7.9375, 11.375)
+texture = ExtResource("12_abw1p")
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Credits Menu"]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 12.0
+offset_right = 620.0
+offset_bottom = 68.0
+theme_override_font_sizes/normal_font_size = 42
+text = "CREDITS"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="Credits Menu"]
+layout_mode = 0
+offset_left = 361.0
+offset_top = 62.0
+offset_right = 528.0
+offset_bottom = 118.0
+theme_override_font_sizes/normal_font_size = 21
+text = "Sound Effects"
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="Credits Menu"]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 160.0
+offset_right = 553.0
+offset_bottom = 254.0
+theme_override_font_sizes/normal_font_size = 21
+text = "Plugins
+Wwise Godot Integration - Allesandro Fama"
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="Credits Menu"]
+layout_mode = 0
+offset_left = 361.0
+offset_top = 78.0
+offset_right = 528.0
+offset_bottom = 134.0
+theme_override_font_sizes/normal_font_size = 21
+text = "CGFX
+Team Shanghai Alice"
+
+[node name="BackButton" type="TextureButton" parent="Credits Menu"]
+layout_mode = 0
+offset_left = 521.0
+offset_top = 3.0
+offset_right = 576.0
+offset_bottom = 57.0
+pivot_offset = Vector2(27, 26)
+texture_normal = ExtResource("5_pqi47")
+script = ExtResource("8_xbm44")
 
 [connection signal="mouse_entered" from="TitleMenu/Play Button" to="TitleMenu/Play Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="TitleMenu/Play Button" to="TitleMenu/Play Button" method="_on_mouse_exited"]
@@ -399,3 +527,9 @@ position = Vector2(1, 0)
 [connection signal="mouse_exited" from="Settings Menu/SettingsBackButton" to="Settings Menu/SettingsBackButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="Settings Menu/SettingsBackButton" to="." method="_on_settings_back_button_pressed"]
 [connection signal="value_changed" from="Settings Menu/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="mouse_entered" from="Settings Menu/Credits Button" to="Settings Menu/Credits Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Settings Menu/Credits Button" to="Settings Menu/Credits Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Settings Menu/Credits Button" to="." method="_on_credits_button_pressed"]
+[connection signal="mouse_entered" from="Credits Menu/BackButton" to="Credits Menu/BackButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Credits Menu/BackButton" to="Credits Menu/BackButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Credits Menu/BackButton" to="." method="_on_back_button_pressed"]

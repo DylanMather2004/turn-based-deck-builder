@@ -15,6 +15,12 @@ var character_resource:CharacterTemplate
 @export var hand_slot:Node2D
 @export var shield_icon_pref:PackedScene
 @export var poison_icon_ref:PackedScene
+@export var camera_ref:Camera2D
+@export_category("Audio")
+@export var hurt_event:WwiseEvent
+@export var poison_event:WwiseEvent
+@export var heal_event:WwiseEvent
+@export var shield_event:WwiseEvent
 var max_health:int
 var health:int
 var max_ap:int
@@ -79,16 +85,22 @@ func draw_card():
 			deck_refresh()
 			
 	else:
-		print("Deck Full!")
+		print("Hand Full!")
 func place_card(card:Node2D):
 	get_tree().get_root().call_deferred("add_child",card)
 func damage(change):
+	camera_ref.start_shake(change)
 	if overshield == 0:
 		health-=change
+		
 		health = clamp(health,0,max_health)
 		healthbar.value=health
 		health_text.text = "HP: "+str(health)
+		
+		print("hurt")
 		effect_animator.play("hit")
+		
+		hurt_event.post(self)
 		if health ==0:
 			die()
 	else:
@@ -96,12 +108,14 @@ func damage(change):
 		shield_icons[shield_icons.size()-1].queue_free()
 		shield_icons.erase(shield_icons[shield_icons.size()-1])
 		effect_animator.play("block")
+		shield_event.post(self)
 func poison_damage():
 	health -=poison_stacks*3
 	health=clamp(health,0,max_health)
 	health_text.text="HP:"+str(health)
 	healthbar.value=health
 	effect_animator.play("poison")
+	poison_event.post(self)
 	if health==0:
 		die()
 func heal(heal):
@@ -111,6 +125,7 @@ func heal(heal):
 	healthbar.value=health
 	health_text.text="HP: "+ str(health)
 	effect_animator.play("heal")
+	heal_event.post(self)
 	
 func die():
 	pass 
@@ -164,8 +179,10 @@ func grant_overshield(add_overshield:int):
 			shield_icons.append(shield_icon)
 			shield_bar.add_child(shield_icon)
 	effect_animator.play("block")
+	shield_event.post(self)
 	
 func poison(ticks:int):
+	poison_event.post(self)
 	poison_stacks+=1 
 	poison_ticks=ticks
 	poison_particles.emitting=true

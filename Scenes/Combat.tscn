@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cpmb3mos3pqsu"]
+[gd_scene load_steps=46 format=3 uid="uid://cpmb3mos3pqsu"]
 
 [ext_resource type="PackedScene" uid="uid://sw0v4ybdaltf" path="res://Prefabs/Player.tscn" id="1_4hjge"]
 [ext_resource type="Script" path="res://Scenes/TurnManager.gd" id="1_m5pmw"]
@@ -16,6 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://drjysvvp5rtyp" path="res://Prefabs/Enemy.tscn" id="8_0cshs"]
 [ext_resource type="PackedScene" uid="uid://dr0dmmsk455ys" path="res://Prefabs/EnemyCard.tscn" id="10_64u77"]
 [ext_resource type="PackedScene" uid="uid://x8j80vn1lni5" path="res://Prefabs/UI Prefabs/poison_icon.tscn" id="10_b4i26"]
+[ext_resource type="WwiseEvent" uid="uid://bpitruoyo7vc1" path="res://Wwise/resources/Event/{4EBC317A-1861-474D-AA2A-E4735508992A}.tres" id="11_6u7u3"]
+[ext_resource type="WwiseEvent" uid="uid://cd4jf1jq2bfup" path="res://Wwise/resources/Event/{0664143C-7201-4F67-9AC8-B526DA812697}.tres" id="12_buoio"]
+[ext_resource type="WwiseEvent" uid="uid://cvnqvdrm0ffa8" path="res://Wwise/resources/Event/{BB1FB33A-A895-467F-9161-2705BA126676}.tres" id="13_neavd"]
+[ext_resource type="WwiseEvent" uid="uid://cxn570ifn2kv5" path="res://Wwise/resources/Event/{B6729D51-775B-4E36-A570-362282B55A18}.tres" id="14_byjfc"]
 [ext_resource type="Texture2D" uid="uid://dmj5plntxf6hw" path="res://Sprites/You Win!.png" id="14_jxxp3"]
 [ext_resource type="Texture2D" uid="uid://dut2k786okmvm" path="res://Sprites/Background win.png" id="14_vb28y"]
 [ext_resource type="Texture2D" uid="uid://ch163j1t6knj7" path="res://Sprites/New Card.png" id="16_cf13v"]
@@ -23,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://dkijq5og6lr87" path="res://Sprites/You Lose!.png" id="17_b0wfv"]
 [ext_resource type="Script" path="res://Scripts/UI Script/main_menu_button.gd" id="17_x380m"]
 [ext_resource type="WwiseBank" uid="uid://cslhmf20pf65p" path="res://Wwise/resources/SoundBank/{943A638A-6E86-455C-89F3-000BD676973B}.tres" id="19_7aoc2"]
+[ext_resource type="Script" path="res://Scripts/Camera.gd" id="25_uoiwk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fd5l0"]
 shader = ExtResource("2_qd867")
@@ -224,7 +229,7 @@ offset_right = 576.0
 offset_bottom = 324.0
 texture = ExtResource("3_fm7kl")
 
-[node name="Player" parent="." node_paths=PackedStringArray("game_manager", "poison_particles", "healthbar", "health_text", "ap_bar", "ap_text", "turn_animator", "hand_slot", "shield_bar", "poison_bar") groups=["character"] instance=ExtResource("1_4hjge")]
+[node name="Player" parent="." node_paths=PackedStringArray("game_manager", "poison_particles", "healthbar", "health_text", "ap_bar", "ap_text", "turn_animator", "hand_slot", "camera_ref", "shield_bar", "poison_bar") groups=["character"] instance=ExtResource("1_4hjge")]
 position = Vector2(79, 189)
 game_manager = NodePath("..")
 player_character = ExtResource("4_ih84k")
@@ -237,6 +242,11 @@ turn_animator = NodePath("../Turn Identifiers/Turn Start_End Animator")
 hand_slot = NodePath("../PlayerHand")
 shield_icon_pref = ExtResource("4_dgsoa")
 poison_icon_ref = ExtResource("10_b4i26")
+camera_ref = NodePath("../Camera2D")
+hurt_event = ExtResource("11_6u7u3")
+poison_event = ExtResource("12_buoio")
+heal_event = ExtResource("13_neavd")
+shield_event = ExtResource("14_byjfc")
 shield_bar = NodePath("../UI/P1 UI/ShieldBar")
 poison_bar = NodePath("../UI/P1 UI/PoisonBar")
 
@@ -248,7 +258,7 @@ process_material = SubResource("ParticleProcessMaterial_0raiy")
 texture = ExtResource("4_3ggen")
 lifetime = 1.5
 
-[node name="Player2" parent="." node_paths=PackedStringArray("card_display_point", "game_manager", "poison_particles", "healthbar", "health_text", "ap_bar", "ap_text", "turn_animator", "hand_slot", "shield_bar", "poison_bar") groups=["character"] instance=ExtResource("8_0cshs")]
+[node name="Player2" parent="." node_paths=PackedStringArray("card_display_point", "game_manager", "poison_particles", "healthbar", "health_text", "ap_bar", "ap_text", "turn_animator", "hand_slot", "camera_ref", "shield_bar", "poison_bar") groups=["character"] instance=ExtResource("8_0cshs")]
 position = Vector2(501, 181)
 card_display_point = NodePath("Node2D")
 game_manager = NodePath("..")
@@ -262,6 +272,11 @@ turn_animator = NodePath("../Turn Identifiers/Turn Start_End Animator")
 hand_slot = NodePath("../EnemyHand")
 shield_icon_pref = ExtResource("4_dgsoa")
 poison_icon_ref = ExtResource("10_b4i26")
+camera_ref = NodePath("../Camera2D")
+hurt_event = ExtResource("11_6u7u3")
+poison_event = ExtResource("12_buoio")
+heal_event = ExtResource("13_neavd")
+shield_event = ExtResource("14_byjfc")
 shield_bar = NodePath("../UI/P2 UI/ShieldBar")
 poison_bar = NodePath("../UI/P2 UI/PoisonBar2")
 
@@ -652,6 +667,10 @@ bank = ExtResource("19_7aoc2")
 load_on = 1
 
 [node name="AkListener2D" type="AkListener2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(288, 162)
+script = ExtResource("25_uoiwk")
 
 [connection signal="mouse_entered" from="UI/Pass Button" to="UI/Pass Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/Pass Button" to="UI/Pass Button" method="_on_mouse_exited"]

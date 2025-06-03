@@ -31,5 +31,5 @@ func load_owned_cards(owned_cards:Array, path:String):
 		save_owned_cards(owned_cards,path)
 		owned = owned_cards
 		
-	print(owned)
+	print("Player's Owned Cards: "+str(owned))
 	return owned	

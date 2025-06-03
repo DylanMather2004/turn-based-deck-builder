@@ -10,11 +10,19 @@
     "Type": "User",
     "GUID": "{943A638A-6E86-455C-89F3-000BD676973B}",
     "Language": "SFX",
-    "Hash": "{7B2D41B5-1133-1009-14D9-68442A8EA111}",
+    "Hash": "{C1955FAF-4ABF-DA22-C45E-4A37FA29826B}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\SFX",
     "ShortName": "SFX",
     "Path": "SFX.bnk",
     "Media": [
+     {
+      "Id": "111912375",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "hit-with-frying-pan-39340.wav",
+      "CachePath": "95/{95A15904-7F3F-3230-EDCE-6799129A1974}.wem"
+     },
      {
       "Id": "115341217",
       "Language": "SFX",
@@ -22,6 +30,30 @@
       "Location": "Memory",
       "ShortName": "Card flick 2.wav",
       "CachePath": "23/{230DDE2C-6092-F0A9-B310-78C6F123A852}.wem"
+     },
+     {
+      "Id": "131451398",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "371094__mccormick_iain__glass-break-1.wav",
+      "CachePath": "E6/{E678F1CC-8EC9-15F0-80C6-041EAE485BD9}.wem"
+     },
+     {
+      "Id": "180053699",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Punch (2).wav",
+      "CachePath": "F8/{F807E7BE-8319-489A-0C2D-07237A799FF5}.wem"
+     },
+     {
+      "Id": "240861152",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Punch (1).wav",
+      "CachePath": "63/{63751C75-6357-756E-91D6-7FB692322E61}.wem"
      },
      {
       "Id": "295674122",
@@ -56,12 +88,28 @@
       "CachePath": "09/{091AA59A-19AB-DAF5-D42A-545F8DC9E56D}.wem"
      },
      {
+      "Id": "344325739",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Punch (5).wav",
+      "CachePath": "76/{7650E1FE-FB21-2982-3335-3F05EF470FFC}.wem"
+     },
+     {
       "Id": "391615625",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Card flick.wav",
       "CachePath": "6F/{6F61A75F-1475-0204-9FD5-E893BE6654E1}.wem"
+     },
+     {
+      "Id": "438047599",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Punch (3).wav",
+      "CachePath": "25/{2526E1E2-328B-8C14-7F2B-3FF7963BFB20}.wem"
      },
      {
       "Id": "459459891",
@@ -72,12 +120,28 @@
       "CachePath": "34/{3463507C-281F-3B07-6FBB-3164F590643A}.wem"
      },
      {
+      "Id": "485834391",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Punch (6).wav",
+      "CachePath": "E6/{E6A1D61F-5080-B637-F945-59CF0518E300}.wem"
+     },
+     {
       "Id": "518535275",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "2_Drums Kit1.wav",
       "CachePath": "5D/{5DEB9CF0-20E4-5CF9-27EE-DD26A83C3051}.wem"
+     },
+     {
+      "Id": "547372200",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Poison 1.wav",
+      "CachePath": "67/{67015807-C226-C760-2B51-9F599FD66A64}.wem"
      },
      {
       "Id": "556946456",
@@ -104,12 +168,28 @@
       "CachePath": "90/{90B383A6-CD0F-E994-140C-97FF521BFDEE}.wem"
      },
      {
+      "Id": "586934706",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Poison 2 .wav",
+      "CachePath": "69/{69F97AE6-62CC-B285-D17A-7A706A21B7FD}.wem"
+     },
+     {
       "Id": "739747137",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "7_SharpBass1.wav",
       "CachePath": "F9/{F9C42328-37BA-EA46-7447-E40978A8AD24}.wem"
+     },
+     {
+      "Id": "754657963",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Poison 3.wav",
+      "CachePath": "1B/{1B498B88-BF69-FC03-99C1-01F90F4CEB48}.wem"
      },
      {
       "Id": "810268825",
@@ -128,12 +208,28 @@
       "CachePath": "46/{46E00DB2-6D55-047A-BB5B-C060229574C6}.wem"
      },
      {
+      "Id": "906747266",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Slurp.wav",
+      "CachePath": "F5/{F52B64E0-4712-F850-3281-8DC9E003A63E}.wem"
+     },
+     {
       "Id": "917897658",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "1_Bass 3 _analog_.wav",
       "CachePath": "A2/{A2D719CF-2CE4-AAD1-EB71-236C50D3BF69}.wem"
+     },
+     {
+      "Id": "937920681",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Punch (4).wav",
+      "CachePath": "8D/{8D37A3F9-2DE6-2060-A55A-BD700943A59A}.wem"
      },
      {
       "Id": "971030903",
@@ -150,6 +246,14 @@
       "Location": "Memory",
       "ShortName": "9_Bass 1.wav",
       "CachePath": "AD/{ADF6E3B3-29F0-4A00-0EC2-AEA3CE3AC679}.wem"
+     },
+     {
+      "Id": "989754609",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Shield Break.wav",
+      "CachePath": "48/{4811E42B-7082-8470-9487-CE87D2661D10}.wem"
      }
     ],
     "Events": [
@@ -190,6 +294,55 @@
        },
        {
         "Id": "857876676"
+       }
+      ]
+     },
+     {
+      "Id": "3448274447",
+      "Name": "Heal",
+      "ObjectPath": "\\Events\\Default Work Unit\\Heal",
+      "GUID": "{BB1FB33A-A895-467F-9161-2705BA126676}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.87655544",
+      "DurationMax": "1.1043906",
+      "MediaRefs": [
+       {
+        "Id": "906747266"
+       }
+      ]
+     },
+     {
+      "Id": "3193947170",
+      "Name": "Hurt",
+      "ObjectPath": "\\Events\\Default Work Unit\\Hurt",
+      "GUID": "{4EBC317A-1861-474D-AA2A-E4735508992A}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.3294507",
+      "DurationMax": "2.0204315",
+      "MediaRefs": [
+       {
+        "Id": "111912375"
+       },
+       {
+        "Id": "131451398"
+       },
+       {
+        "Id": "180053699"
+       },
+       {
+        "Id": "240861152"
+       },
+       {
+        "Id": "344325739"
+       },
+       {
+        "Id": "438047599"
+       },
+       {
+        "Id": "485834391"
+       },
+       {
+        "Id": "937920681"
        }
       ]
      },
@@ -240,6 +393,40 @@
       "DurationMax": "0"
      },
      {
+      "Id": "1467164614",
+      "Name": "poisoned",
+      "ObjectPath": "\\Events\\Default Work Unit\\poisoned",
+      "GUID": "{0664143C-7201-4F67-9AC8-B526DA812697}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.81802434",
+      "DurationMax": "1.2038591",
+      "MediaRefs": [
+       {
+        "Id": "547372200"
+       },
+       {
+        "Id": "586934706"
+       },
+       {
+        "Id": "754657963"
+       }
+      ]
+     },
+     {
+      "Id": "1161967626",
+      "Name": "shield",
+      "ObjectPath": "\\Events\\Default Work Unit\\shield",
+      "GUID": "{B6729D51-775B-4E36-A570-362282B55A18}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.62667954",
+      "DurationMax": "0.78956676",
+      "MediaRefs": [
+       {
+        "Id": "989754609"
+       }
+      ]
+     },
+     {
       "Id": "2017586002",
       "Name": "You_Lose",
       "ObjectPath": "\\Events\\Default Work Unit\\You_Lose",
@@ -284,6 +471,6 @@
     ]
    }
   ],
-  "FileHash": "{9AC444A2-4239-2601-3C32-9E8A60132B14}"
+  "FileHash": "{D77B4CCF-BBCE-0598-70A1-EA9A2C9902D6}"
  }
 }

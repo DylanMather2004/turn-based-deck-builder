@@ -5,6 +5,7 @@ extends Node2D
 @export var deck_builder_scene = "res://Scenes/Deck Builder Menu.tscn"
 @export var enemy_select_menu:Control
 @export var settings_menu:Control
+@export var credits_menu:Control 
 
 @export_category("Player Data")
 @export var starter_cards:Array[String]
@@ -59,5 +60,15 @@ func _on_settings_back_button_pressed() -> void:
 
 
 func _on_h_slider_value_changed(value: float) -> void:#
-	print(value)
-	master_volume.set_value(self,value)
+	master_volume.set_global_value(value)
+
+
+func _on_credits_button_pressed() -> void:
+	settings_menu.hide()
+	credits_menu.show()
+	
+
+
+func _on_back_button_pressed() -> void:
+	credits_menu.hide()
+	title_menu.show()

@@ -56,7 +56,6 @@ func _try_use():
 		use_failed()
 		
 func _select_target():
-	print(get_tree())
 	var players = get_tree().get_nodes_in_group("character")
 	var target:Node2D
 	for i in range(players.size()):

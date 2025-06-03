@@ -1,0 +1,8 @@
+[gd_resource type="WwiseEvent" format=3 uid="uid://bpitruoyo7vc1"]
+
+[resource]
+is_in_user_defined_sound_bank = true
+name = "Hurt"
+id = 3193947170
+guid = "{4EBC317A-1861-474D-AA2A-E4735508992A}"
+dummy = true

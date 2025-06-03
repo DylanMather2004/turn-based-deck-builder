@@ -14,6 +14,7 @@ var deck_buttons=[]
 @export var menu_button_prefab:PackedScene
 @export var deck_button_prefab:PackedScene
 @export var deck_size_text:RichTextLabel
+@export var deck_status_text:RichTextLabel
 @export_category("Card Display")
 @export var sprite:Sprite2D
 @export var name_Text:Label
@@ -43,12 +44,15 @@ func _ready() -> void:
 			Card.CARD_TYPE.POISON:
 				poison_card_menu.call_deferred("add_card",new_button)
 	load_deck()
+	if deck==null:
+		deck=[]
 	update_deck_size_text()
 				
 func add_card_to_deck(card:Card):
-	deck.append(card.resource_path)
-	add_deck_button(card)
-	update_deck_size_text()
+	if deck.size()!=max_deck_size:
+		deck.append(card.resource_path)
+		add_deck_button(card)
+		update_deck_size_text()
 	
 func remove_card_from_deck(cardbutton:TextureButton):
 	deck.erase(cardbutton.card.resource_path)
@@ -56,9 +60,10 @@ func remove_card_from_deck(cardbutton:TextureButton):
 	cardbutton.queue_free()
 	update_deck_size_text()
 func save_deck():
-	var file = FileAccess.open(save_path,FileAccess.WRITE)
-	file.store_var(deck)
-	file.close()
+	if deck.size()==max_deck_size:
+		var file = FileAccess.open(save_path,FileAccess.WRITE)
+		file.store_var(deck)
+		file.close()
 func load_deck():
 	clear_deck()
 	if FileAccess.file_exists(save_path):
@@ -68,8 +73,9 @@ func load_deck():
 			
 		for i in range(deck.size()):
 			add_deck_button(load(deck[i]))
+		deck_status_text.text="Deck Loaded!"
 	else:
-		print("No File to Load")
+		deck_status_text.text="No saved deck!"
 func clear_deck():
 	while deck_buttons.size()>0:
 		remove_card_from_deck(deck_buttons[0])
@@ -83,20 +89,27 @@ func add_deck_button(card:Card):
 	new_button.card = card
 	deck_menu.add_child(new_button)
 	deck_buttons.append(new_button)
-	print(card.resource_path)
+	
 
 
 func _on_save_button_pressed() -> void:
-	save_manager._save_deck(deck,save_path)
+	if deck.size()==max_deck_size:
+		save_manager._save_deck(deck,save_path)
+		deck_status_text.text = "Deck Saved!"
+	else: 
+		deck_status_text.text= "Deck Too Small!"
 
 
 func _on_load_button_pressed() -> void:
 	clear_deck()
 	deck = save_manager._load_deck(save_path)
-	for i in range(deck.size()):
-		if is_instance_valid(deck[i]):
-			add_deck_button(deck[i])
-
+	if deck!=null:
+		for i in range(deck.size()):
+			if is_instance_valid(deck[i]):
+				add_deck_button(deck[i])
+		deck_status_text.text="Deck Loaded"
+	else:
+		deck_status_text.text="No Deck to Load"
 
 func _on_texture_button_pressed() -> void:
 	print("press")

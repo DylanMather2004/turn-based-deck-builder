@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://denmt5mm7yv0t"]
+
+[ext_resource type="Texture2D" uid="uid://cvtryuf0m3gql" path="res://Sprites/Balla Games Loggo.png" id="1_kwti4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r2y0"]
+atlas = ExtResource("1_kwti4")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yagio"]
+atlas = ExtResource("1_kwti4")
+region = Rect2(128, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r2y0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yagio")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
