@@ -645,14 +645,6 @@ offset_right = 366.0
 offset_bottom = 126.0
 text = "Unpause"
 
-[node name="Settings Button" type="Button" parent="Pause Menu"]
-layout_mode = 0
-offset_left = 219.0
-offset_top = 149.0
-offset_right = 366.0
-offset_bottom = 197.0
-text = "Settings"
-
 [node name="Quit Button" type="Button" parent="Pause Menu"]
 layout_mode = 0
 offset_left = 219.0
