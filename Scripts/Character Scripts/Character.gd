@@ -76,7 +76,7 @@ func draw_card():
 		new_card_node.card_to_load = card_to_draw
 		new_card_node.initialize()
 		new_card_node.owner_character = self
-		deck.remove_at(card_ID)
+		#deck.remove_at(card_ID)
 		hand.append(new_card_node)
 		place_card(new_card_node)
 		print(deck)
@@ -110,7 +110,7 @@ func damage(change):
 		effect_animator.play("block")
 		shield_event.post(self)
 func poison_damage():
-	health -=poison_stacks*3
+	health -=poison_stacks*2
 	health=clamp(health,0,max_health)
 	health_text.text="HP:"+str(health)
 	healthbar.value=health

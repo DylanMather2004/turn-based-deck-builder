@@ -41,19 +41,30 @@ func _effect(target:Character):
 				return
 		Card.CARD_TYPE.POISON:
 			target.poison(value)
-		Card.CARD_TYPE.CHARGE:
-			pass #Replace with Charge Logic 
-	owner_character.deduct_ap(ap)
+		Card.CARD_TYPE.SACRIFICE:
+			owner_character.health-=ap
+			owner_character.health = clamp(owner_character.health,0,owner_character.max_health)
+			if owner_character.health ==0:
+				owner_character.die()
+			owner_character.healthbar.value=owner_character.health
+			owner_character.health_text.text="HP: "+ str(owner_character.health)
+			
+		Card.CARD_TYPE.BURN:
+			pass 
+			
+	if card_type!=Card.CARD_TYPE.SACRIFICE:
+		owner_character.deduct_ap(ap)
 	
 	card_animator.play("Used")
 	card_audio.post(self)
 	
 	
 func _try_use():
-	if get_tree()!=null&& ap<=owner_character.ap:
+	if get_tree()!=null&& ((card_type != Card.CARD_TYPE.SACRIFICE&&ap <=owner_character.ap) or (card_type==Card.CARD_TYPE.SACRIFICE and ap<owner_character.health)):
 		_select_target()
 	else:
 		use_failed()
+		print("can't use")
 		
 func _select_target():
 	var players = get_tree().get_nodes_in_group("character")
@@ -71,4 +82,9 @@ func use_failed():
 
 func card_delete():
 	owner_character.hand.erase(self)
+	if card_type==Card.CARD_TYPE.SACRIFICE:
+		for i in range(value):
+			owner_character.draw_card()
+			owner_character.card_sort()
 	queue_free()
+	

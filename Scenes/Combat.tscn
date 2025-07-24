@@ -11,9 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://u03e27dsjjdk" path="res://Sprites/Poison Bubble.png" id="4_3ggen"]
 [ext_resource type="WwiseEvent" uid="uid://bytmhvx43wdx3" path="res://Wwise/resources/Event/{158DB580-0724-4693-9352-78E59FD12F82}.tres" id="4_68l74"]
 [ext_resource type="PackedScene" uid="uid://cekrh8gtkff6x" path="res://Prefabs/UI Prefabs/shield_icon.tscn" id="4_dgsoa"]
-[ext_resource type="Resource" uid="uid://blyrptpbsnniw" path="res://Characters/Mole.tres" id="4_ih84k"]
 [ext_resource type="Texture2D" uid="uid://dojst8fq4p63p" path="res://Sprites/Pass Button.png" id="7_3l3jv"]
 [ext_resource type="PackedScene" uid="uid://drjysvvp5rtyp" path="res://Prefabs/Enemy.tscn" id="8_0cshs"]
+[ext_resource type="Resource" uid="uid://cww52qnsl656k" path="res://Characters/Balla.tres" id="8_hau4d"]
 [ext_resource type="PackedScene" uid="uid://dr0dmmsk455ys" path="res://Prefabs/EnemyCard.tscn" id="10_64u77"]
 [ext_resource type="PackedScene" uid="uid://x8j80vn1lni5" path="res://Prefabs/UI Prefabs/poison_icon.tscn" id="10_b4i26"]
 [ext_resource type="WwiseEvent" uid="uid://bpitruoyo7vc1" path="res://Wwise/resources/Event/{4EBC317A-1861-474D-AA2A-E4735508992A}.tres" id="11_6u7u3"]
@@ -232,7 +232,7 @@ texture = ExtResource("3_fm7kl")
 [node name="Player" parent="." node_paths=PackedStringArray("game_manager", "poison_particles", "healthbar", "health_text", "ap_bar", "ap_text", "turn_animator", "hand_slot", "camera_ref", "shield_bar", "poison_bar") groups=["character"] instance=ExtResource("1_4hjge")]
 position = Vector2(79, 189)
 game_manager = NodePath("..")
-player_character = ExtResource("4_ih84k")
+player_character = ExtResource("8_hau4d")
 poison_particles = NodePath("Poison_Particles")
 healthbar = NodePath("../UI/P1 UI/P1 Healthbar")
 health_text = NodePath("../UI/P1 UI/HealthText")

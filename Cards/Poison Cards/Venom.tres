@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://byh8cpw3lrkha"]
+
+[ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="1_vwn5j"]
+[ext_resource type="Texture2D" uid="uid://c8lok0vs3d82d" path="res://Sprites/Card Sprites/Poison Cards/Venom.png" id="1_ym20c"]
+
+[resource]
+script = ExtResource("1_vwn5j")
+card_name = "Venom"
+card_art = ExtResource("1_ym20c")
+card_type = 3
+value = 3
+ap_cost = 9

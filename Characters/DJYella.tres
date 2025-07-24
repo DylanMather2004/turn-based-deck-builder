@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CharacterTemplate" load_steps=9 format=3 uid="uid://d0nm1v1tjnk0g"]
+
+[ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="1_lxfnf"]
+[ext_resource type="Resource" uid="uid://dn3vnhyw5w8d" path="res://Cards/Attack Cards/Mic Drop.tres" id="2_1ddwb"]
+[ext_resource type="Script" path="res://Characters/CharacterTemplate.gd" id="2_f7rks"]
+[ext_resource type="Resource" uid="uid://dmew04s88p77o" path="res://Cards/Sacrifice Cards/Dark Hymn.tres" id="3_2ln5r"]
+[ext_resource type="Resource" uid="uid://c7odwrv5pjg06" path="res://Cards/Heal Cards/Juicy.tres" id="4_j8wx2"]
+[ext_resource type="SpriteFrames" uid="uid://bn26fsq2pvqc2" path="res://Sprites/Character Sprites/DJ Yella.tres" id="4_wmuqv"]
+[ext_resource type="Resource" uid="uid://byh8cpw3lrkha" path="res://Cards/Poison Cards/Venom.tres" id="5_no7si"]
+[ext_resource type="Texture2D" uid="uid://b0ookk1gg1mg4" path="res://Sprites/Icons/DJ_Yella_Icon.png" id="6_nwbgh"]
+
+[resource]
+script = ExtResource("2_f7rks")
+character_name = "DJ Yella"
+sprite_sheet = ExtResource("4_wmuqv")
+icon = ExtResource("6_nwbgh")
+health = 130
+ap = 30
+deck = Array[ExtResource("1_lxfnf")]([ExtResource("2_1ddwb"), ExtResource("2_1ddwb"), ExtResource("3_2ln5r"), ExtResource("4_j8wx2"), ExtResource("5_no7si"), ExtResource("5_no7si")])
+reward_cards = Array[ExtResource("1_lxfnf")]([ExtResource("3_2ln5r"), ExtResource("2_1ddwb"), ExtResource("5_no7si")])
