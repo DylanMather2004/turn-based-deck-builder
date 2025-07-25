@@ -41,6 +41,8 @@ var poison_icons=[]
 #poison variables
 var poison_stacks:int = 0
 var poison_ticks:int = 0
+#burn variables
+var burn_stacks:=0 
 
 func _ready() -> void:
 	character_loader()
@@ -88,6 +90,9 @@ func draw_card():
 		print("Hand Full!")
 func place_card(card:Node2D):
 	get_tree().get_root().call_deferred("add_child",card)
+	
+func burn(stacks:int):
+	burn_stacks=stacks
 func damage(change):
 	camera_ref.start_shake(change)
 	if overshield == 0:
