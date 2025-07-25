@@ -17,7 +17,6 @@
 [ext_resource type="Script" path="res://Characters/CharacterTemplate.gd" id="8_imjai"]
 [ext_resource type="Resource" uid="uid://bu7u8pkobijiy" path="res://Characters/Bomba.tres" id="8_r5t2j"]
 [ext_resource type="Script" path="res://Scripts/UI Script/main_menu_button.gd" id="8_xbm44"]
-[ext_resource type="Resource" uid="uid://cww52qnsl656k" path="res://Characters/Balla.tres" id="9_komr2"]
 [ext_resource type="Texture2D" uid="uid://yk0swesin31y" path="res://Sprites/Quit.png" id="9_qcfsh"]
 [ext_resource type="Resource" uid="uid://x6aeaa7yrqw7" path="res://Characters/EggMage.tres" id="11_btj0c"]
 [ext_resource type="Texture2D" uid="uid://why4j78o0ygw" path="res://Sprites/white-square-32x32.png" id="12_abw1p"]
@@ -30,6 +29,7 @@
 [ext_resource type="Shader" path="res://Shaders/scrollBG.gdshader" id="19_mqyjr"]
 [ext_resource type="Texture2D" uid="uid://bluuwcnjknyl8" path="res://Sprites/Background Ballas.png" id="20_vq222"]
 [ext_resource type="WwiseBank" uid="uid://cslhmf20pf65p" path="res://Wwise/resources/SoundBank/{943A638A-6E86-455C-89F3-000BD676973B}.tres" id="21_gs4jw"]
+[ext_resource type="Resource" uid="uid://blyrptpbsnniw" path="res://Characters/Mole.tres" id="21_njttn"]
 [ext_resource type="Resource" uid="uid://d0nm1v1tjnk0g" path="res://Characters/DJYella.tres" id="24_4m66r"]
 [ext_resource type="Texture2D" uid="uid://cd1xp2hgj86h8" path="res://Sprites/Balla Battle text.png" id="28_yivo6"]
 [ext_resource type="Script" path="res://Scripts/Bonus Scripts/CreditsSprite.gd" id="31_hvfd8"]
@@ -111,7 +111,7 @@ game_mode_screen = NodePath("Gameplay Select Screen")
 enemy_select_menu = NodePath("EnemySelectMenu")
 settings_menu = NodePath("Settings Menu")
 credits_menu = NodePath("Credits Menu")
-starter_cards = Array[String](["res://Cards/Attack Cards/MoleMallet.tres", "res://Cards/Attack Cards/Punch.tres", "res://Cards/Shield Cards/NuhUh.tres", "res://Cards/Heal Cards/JamJar.tres"])
+starter_cards = Array[String](["res://Cards/Attack Cards/Dodgeball.tres", "res://Cards/Attack Cards/Punch.tres", "res://Cards/Shield Cards/NuhUh.tres", "res://Cards/Heal Cards/Juicy.tres"])
 music_event = ExtResource("2_15tm8")
 music_stop = ExtResource("3_e4rq7")
 combat_volume = ExtResource("3_5vsrh")
@@ -250,7 +250,7 @@ offset_top = 30.0
 offset_right = 307.0
 offset_bottom = 353.0
 script = ExtResource("7_fi60y")
-enemies = Array[ExtResource("8_imjai")]([ExtResource("9_komr2"), ExtResource("8_r5t2j"), ExtResource("11_btj0c"), ExtResource("24_4m66r")])
+enemies = Array[ExtResource("8_imjai")]([ExtResource("21_njttn"), ExtResource("8_r5t2j"), ExtResource("11_btj0c"), ExtResource("24_4m66r")])
 button_prefab = ExtResource("7_fbbau")
 menu_panel = NodePath("VBoxContainer")
 sprite = NodePath("Enemy Panel/AnimatedSprite2D")
