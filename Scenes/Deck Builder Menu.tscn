@@ -28,17 +28,18 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_yoadh")
 
-[node name="Control" type="Control" parent="." node_paths=PackedStringArray("attack_card_menu", "heal_card_menu", "shield_card_menu", "poison_card_menu", "sacrifice_card_menu", "deck_menu", "deck_size_text", "deck_status_text", "sprite", "name_Text", "value_text", "ap_cost_text")]
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("attack_card_menu", "heal_card_menu", "shield_card_menu", "poison_card_menu", "sacrifice_card_menu", "burn_card_menu", "deck_menu", "deck_size_text", "deck_status_text", "sprite", "name_Text", "value_text", "ap_cost_text")]
 layout_mode = 3
 anchors_preset = 0
 theme = SubResource("Theme_8jqhw")
 script = ExtResource("1_erhco")
 max_deck_size = 6
-attack_card_menu = NodePath("../TabContainer/Attack Cards")
-heal_card_menu = NodePath("../TabContainer/Heal Cards")
-shield_card_menu = NodePath("../TabContainer/Shield Cards")
-poison_card_menu = NodePath("../TabContainer/Poison Cards")
-sacrifice_card_menu = NodePath("../TabContainer/Sacrifice Cards")
+attack_card_menu = NodePath("../TabContainer/Attack")
+heal_card_menu = NodePath("../TabContainer/Heal")
+shield_card_menu = NodePath("../TabContainer/Shield")
+poison_card_menu = NodePath("../TabContainer/Poison")
+sacrifice_card_menu = NodePath("../TabContainer/Sacrifice")
+burn_card_menu = NodePath("../TabContainer/Burn")
 deck_menu = NodePath("ScrollContainer/HBoxContainer")
 menu_button_prefab = ExtResource("3_nxo8m")
 deck_button_prefab = ExtResource("8_vufdo")
@@ -68,14 +69,14 @@ offset_bottom = 208.0
 scale = Vector2(0.65, 0.65)
 current_tab = 0
 
-[node name="Attack Cards" type="VBoxContainer" parent="TabContainer"]
+[node name="Attack" type="VBoxContainer" parent="TabContainer"]
 custom_minimum_size = Vector2(327, 98)
 layout_mode = 2
 script = ExtResource("9_n8b1u")
 max_cards_per_row = 5
 metadata/_tab_index = 0
 
-[node name="Heal Cards" type="VBoxContainer" parent="TabContainer"]
+[node name="Heal" type="VBoxContainer" parent="TabContainer"]
 visible = false
 custom_minimum_size = Vector2(327, 98)
 layout_mode = 2
@@ -83,7 +84,7 @@ script = ExtResource("9_n8b1u")
 max_cards_per_row = 5
 metadata/_tab_index = 1
 
-[node name="Shield Cards" type="VBoxContainer" parent="TabContainer"]
+[node name="Shield" type="VBoxContainer" parent="TabContainer"]
 visible = false
 custom_minimum_size = Vector2(327, 98)
 layout_mode = 2
@@ -91,7 +92,7 @@ script = ExtResource("9_n8b1u")
 max_cards_per_row = 5
 metadata/_tab_index = 2
 
-[node name="Poison Cards" type="VBoxContainer" parent="TabContainer"]
+[node name="Poison" type="VBoxContainer" parent="TabContainer"]
 visible = false
 custom_minimum_size = Vector2(327, 98)
 layout_mode = 2
@@ -99,13 +100,21 @@ script = ExtResource("9_n8b1u")
 max_cards_per_row = 5
 metadata/_tab_index = 3
 
-[node name="Sacrifice Cards" type="VBoxContainer" parent="TabContainer"]
+[node name="Sacrifice" type="VBoxContainer" parent="TabContainer"]
 visible = false
 custom_minimum_size = Vector2(327, 98)
 layout_mode = 2
 script = ExtResource("9_n8b1u")
 max_cards_per_row = 5
 metadata/_tab_index = 4
+
+[node name="Burn" type="VBoxContainer" parent="TabContainer"]
+visible = false
+custom_minimum_size = Vector2(327, 98)
+layout_mode = 2
+script = ExtResource("9_n8b1u")
+max_cards_per_row = 5
+metadata/_tab_index = 5
 
 [node name="Save Button" type="TextureButton" parent="."]
 offset_left = 476.0

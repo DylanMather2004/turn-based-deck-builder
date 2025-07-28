@@ -92,7 +92,7 @@ func place_card(card:Node2D):
 	get_tree().get_root().call_deferred("add_child",card)
 	
 func burn(stacks:int):
-	burn_stacks=stacks
+	burn_stacks+=stacks
 func damage(change):
 	camera_ref.start_shake(change)
 	if overshield == 0:

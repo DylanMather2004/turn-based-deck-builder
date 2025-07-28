@@ -11,6 +11,7 @@ var deck_buttons=[]
 @export var shield_card_menu:VBoxContainer
 @export var poison_card_menu:VBoxContainer
 @export var sacrifice_card_menu:VBoxContainer
+@export var burn_card_menu:VBoxContainer
 @export var deck_menu:HBoxContainer
 @export var menu_button_prefab:PackedScene
 @export var deck_button_prefab:PackedScene
@@ -46,6 +47,8 @@ func _ready() -> void:
 				poison_card_menu.call_deferred("add_card",new_button)
 			Card.CARD_TYPE.SACRIFICE:
 				sacrifice_card_menu.call_deferred("add_card",new_button)
+			Card.CARD_TYPE.BURN:
+				burn_card_menu.call_deferred("add_child",new_button)
 	load_deck()
 	if deck==null:
 		deck=[]

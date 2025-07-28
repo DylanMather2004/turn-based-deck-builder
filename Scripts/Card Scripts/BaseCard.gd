@@ -53,7 +53,7 @@ func _effect(target:Character):
 			owner_character.health_text.text="HP: "+ str(owner_character.health)
 			
 		Card.CARD_TYPE.BURN:
-			pass 
+			target.burn(value)
 			
 	if card_type!=Card.CARD_TYPE.SACRIFICE:
 		owner_character.deduct_ap(ap)
