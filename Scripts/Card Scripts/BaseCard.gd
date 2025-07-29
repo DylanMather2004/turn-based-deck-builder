@@ -26,6 +26,7 @@ func initialize():
 ##_effect will select the appropriate effect for each card type, and carry them out using [member Card.Value]
 func _effect(target:Character):
 	if burn_check()==true:
+		owner_character.deduct_ap(ap)
 		card_delete()
 		return
 	match  card_type:
@@ -94,7 +95,7 @@ func burn_check() -> bool:
 	if owner_character.burn_stacks>0:
 		var rng = RandomNumberGenerator.new()
 		if rng.randi_range(1,10) <=3:
-			owner_character.burn_stacks-=1
+			owner_character.clear_burn()
 			return true
 	return false 
 		

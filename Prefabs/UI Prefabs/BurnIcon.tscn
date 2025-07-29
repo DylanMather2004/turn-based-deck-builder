@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7lvwuxkgnooy"]
+
+[ext_resource type="Texture2D" uid="uid://cei03rfcbpm8o" path="res://Sprites/Icons/Burn Icon.png" id="1_3a7ug"]
+
+[node name="BurnIcon" type="TextureRect"]
+scale = Vector2(3, 3)
+texture = ExtResource("1_3a7ug")
+stretch_mode = 2

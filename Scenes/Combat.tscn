@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cpmb3mos3pqsu"]
+[gd_scene load_steps=47 format=3 uid="uid://cpmb3mos3pqsu"]
 
 [ext_resource type="PackedScene" uid="uid://sw0v4ybdaltf" path="res://Prefabs/Player.tscn" id="1_4hjge"]
 [ext_resource type="Script" path="res://Scenes/TurnManager.gd" id="1_m5pmw"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dr0dmmsk455ys" path="res://Prefabs/EnemyCard.tscn" id="10_64u77"]
 [ext_resource type="PackedScene" uid="uid://x8j80vn1lni5" path="res://Prefabs/UI Prefabs/poison_icon.tscn" id="10_b4i26"]
 [ext_resource type="WwiseEvent" uid="uid://bpitruoyo7vc1" path="res://Wwise/resources/Event/{4EBC317A-1861-474D-AA2A-E4735508992A}.tres" id="11_6u7u3"]
+[ext_resource type="PackedScene" uid="uid://b7lvwuxkgnooy" path="res://Prefabs/UI Prefabs/BurnIcon.tscn" id="11_uc5ch"]
 [ext_resource type="WwiseEvent" uid="uid://cd4jf1jq2bfup" path="res://Wwise/resources/Event/{0664143C-7201-4F67-9AC8-B526DA812697}.tres" id="12_buoio"]
 [ext_resource type="WwiseEvent" uid="uid://cvnqvdrm0ffa8" path="res://Wwise/resources/Event/{BB1FB33A-A895-467F-9161-2705BA126676}.tres" id="13_neavd"]
 [ext_resource type="WwiseEvent" uid="uid://cxn570ifn2kv5" path="res://Wwise/resources/Event/{B6729D51-775B-4E36-A570-362282B55A18}.tres" id="14_byjfc"]
@@ -229,7 +230,7 @@ offset_right = 576.0
 offset_bottom = 324.0
 texture = ExtResource("3_fm7kl")
 
-[node name="Player" parent="." node_paths=PackedStringArray("game_manager", "poison_particles", "healthbar", "health_text", "ap_bar", "ap_text", "turn_animator", "hand_slot", "camera_ref", "shield_bar", "poison_bar") groups=["character"] instance=ExtResource("1_4hjge")]
+[node name="Player" parent="." node_paths=PackedStringArray("game_manager", "poison_particles", "healthbar", "health_text", "ap_bar", "ap_text", "turn_animator", "hand_slot", "camera_ref", "shield_bar", "poison_bar", "burn_bar") groups=["character"] instance=ExtResource("1_4hjge")]
 position = Vector2(79, 189)
 game_manager = NodePath("..")
 player_character = ExtResource("8_hau4d")
@@ -242,6 +243,7 @@ turn_animator = NodePath("../Turn Identifiers/Turn Start_End Animator")
 hand_slot = NodePath("../PlayerHand")
 shield_icon_pref = ExtResource("4_dgsoa")
 poison_icon_ref = ExtResource("10_b4i26")
+burn_icon_ref = ExtResource("11_uc5ch")
 camera_ref = NodePath("../Camera2D")
 hurt_event = ExtResource("11_6u7u3")
 poison_event = ExtResource("12_buoio")
@@ -249,6 +251,7 @@ heal_event = ExtResource("13_neavd")
 shield_event = ExtResource("14_byjfc")
 shield_bar = NodePath("../UI/P1 UI/ShieldBar")
 poison_bar = NodePath("../UI/P1 UI/PoisonBar")
+burn_bar = NodePath("../UI/P1 UI/BurnBar")
 
 [node name="Poison_Particles" type="GPUParticles2D" parent="Player"]
 position = Vector2(0, 13)
@@ -258,7 +261,7 @@ process_material = SubResource("ParticleProcessMaterial_0raiy")
 texture = ExtResource("4_3ggen")
 lifetime = 1.5
 
-[node name="Player2" parent="." node_paths=PackedStringArray("card_display_point", "game_manager", "poison_particles", "healthbar", "health_text", "ap_bar", "ap_text", "turn_animator", "hand_slot", "camera_ref", "shield_bar", "poison_bar") groups=["character"] instance=ExtResource("8_0cshs")]
+[node name="Player2" parent="." node_paths=PackedStringArray("card_display_point", "game_manager", "poison_particles", "healthbar", "health_text", "ap_bar", "ap_text", "turn_animator", "hand_slot", "camera_ref", "shield_bar", "poison_bar", "burn_bar") groups=["character"] instance=ExtResource("8_0cshs")]
 position = Vector2(501, 181)
 card_display_point = NodePath("Node2D")
 game_manager = NodePath("..")
@@ -272,6 +275,7 @@ turn_animator = NodePath("../Turn Identifiers/Turn Start_End Animator")
 hand_slot = NodePath("../EnemyHand")
 shield_icon_pref = ExtResource("4_dgsoa")
 poison_icon_ref = ExtResource("10_b4i26")
+burn_icon_ref = ExtResource("11_uc5ch")
 camera_ref = NodePath("../Camera2D")
 hurt_event = ExtResource("11_6u7u3")
 poison_event = ExtResource("12_buoio")
@@ -279,6 +283,7 @@ heal_event = ExtResource("13_neavd")
 shield_event = ExtResource("14_byjfc")
 shield_bar = NodePath("../UI/P2 UI/ShieldBar")
 poison_bar = NodePath("../UI/P2 UI/PoisonBar2")
+burn_bar = NodePath("../UI/P2 UI/BurnBar")
 
 [node name="Node2D" type="Node2D" parent="Player2"]
 position = Vector2(-202, -19)
@@ -415,6 +420,13 @@ offset_right = 238.0
 offset_bottom = 98.0
 scale = Vector2(0.5, 0.5)
 
+[node name="BurnBar" type="HBoxContainer" parent="UI/P1 UI"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 84.0
+offset_right = 238.0
+offset_bottom = 110.0
+
 [node name="P2 UI" type="Control" parent="UI"]
 anchors_preset = 0
 offset_right = 40.0
@@ -475,6 +487,14 @@ offset_top = 72.0
 offset_right = 536.0
 offset_bottom = 98.0
 scale = Vector2(0.5, 0.5)
+alignment = 2
+
+[node name="BurnBar" type="HBoxContainer" parent="UI/P2 UI"]
+layout_mode = 0
+offset_left = 325.0
+offset_top = 84.0
+offset_right = 464.0
+offset_bottom = 110.0
 alignment = 2
 
 [node name="Pass Button" type="TextureButton" parent="UI"]
