@@ -33,6 +33,9 @@ project/assembly_name="Turn Based Deck Builder"
 [gui]
 
 theme/custom_font="res://Fonts/Jersey10-Regular.ttf"
+theme/default_font_subpixel_positioning=3
+theme/default_font_multichannel_signed_distance_field=true
+theme/default_font_generate_mipmaps=true
 
 [input]
 

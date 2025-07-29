@@ -98,18 +98,21 @@ card_audio = ExtResource("3_ssd6q")
 texture = ExtResource("3_hwm8h")
 
 [node name="ValueText" type="RichTextLabel" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
 offset_left = -10.0
 offset_top = 8.0
 offset_right = 30.0
 offset_bottom = 48.0
 
 [node name="APText" type="RichTextLabel" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
 offset_left = -10.0
 offset_top = 26.0
 offset_right = 30.0
 offset_bottom = 66.0
 
 [node name="NameText" type="Label" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
 offset_left = -31.0
 offset_top = -3.0
 offset_right = 28.0

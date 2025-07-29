@@ -120,18 +120,21 @@ position = Vector2(1, 0)
 texture = ExtResource("3_j4m3a")
 
 [node name="ValueText" type="RichTextLabel" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
 offset_left = -10.0
 offset_top = 8.0
 offset_right = 30.0
 offset_bottom = 48.0
 
 [node name="APText" type="RichTextLabel" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
 offset_left = -10.0
 offset_top = 26.0
 offset_right = 30.0
 offset_bottom = 66.0
 
 [node name="NameText" type="Label" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
 offset_left = -31.0
 offset_top = -3.0
 offset_right = 28.0
