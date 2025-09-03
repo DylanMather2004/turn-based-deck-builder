@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://djxutphtxguqu"]
+[gd_scene load_steps=44 format=3 uid="uid://djxutphtxguqu"]
 
 [ext_resource type="Texture2D" uid="uid://crnt2cbd5ugs4" path="res://Sprites/Fight Button.png" id="1_bldvy"]
 [ext_resource type="Script" path="res://Scenes/MainMenuManager.gd" id="1_dv1vn"]
@@ -23,9 +23,13 @@
 [ext_resource type="Script" path="res://Scenes/TitleAnimationStarter.gd" id="13_n52ai"]
 [ext_resource type="SpriteFrames" uid="uid://bpbgijwrwa1iq" path="res://Sprites/Character Sprites/Lil Mole.tres" id="13_q5nw8"]
 [ext_resource type="Script" path="res://Scenes/sprite_funny.gd" id="14_6gr6b"]
+[ext_resource type="SpriteFrames" uid="uid://bn26fsq2pvqc2" path="res://Sprites/Character Sprites/DJ Yella.tres" id="14_7765v"]
 [ext_resource type="Texture2D" uid="uid://d181tckqwqt4d" path="res://Sprites/Icons/Health Icon.png" id="14_dwyu2"]
 [ext_resource type="Texture2D" uid="uid://bcu7awof8ab0g" path="res://Sprites/Credits.png" id="14_og54s"]
 [ext_resource type="Texture2D" uid="uid://blaavtlc76mnc" path="res://Sprites/Icons/AP_Icon.png" id="15_ftamg"]
+[ext_resource type="SpriteFrames" uid="uid://b8mnwaw3agreq" path="res://Sprites/Character Sprites/Balla.tres" id="15_y375d"]
+[ext_resource type="SpriteFrames" uid="uid://pbhenodpdhar" path="res://Sprites/Character Sprites/Egg_Mage.tres" id="16_vji77"]
+[ext_resource type="SpriteFrames" uid="uid://dngx2b23pf4j5" path="res://Sprites/Character Sprites/Bomba.tres" id="17_af6em"]
 [ext_resource type="Shader" path="res://Shaders/scrollBG.gdshader" id="19_mqyjr"]
 [ext_resource type="Texture2D" uid="uid://bluuwcnjknyl8" path="res://Sprites/Background Ballas.png" id="20_vq222"]
 [ext_resource type="WwiseBank" uid="uid://cslhmf20pf65p" path="res://Wwise/resources/SoundBank/{943A638A-6E86-455C-89F3-000BD676973B}.tres" id="21_gs4jw"]
@@ -201,6 +205,60 @@ libraries = {
 "": SubResource("AnimationLibrary_iaw31")
 }
 script = ExtResource("13_n52ai")
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="TitleMenu"]
+modulate = Color(0, 0, 0, 0.541176)
+position = Vector2(538, 234)
+scale = Vector2(2.35994, 2.3533)
+sprite_frames = ExtResource("14_7765v")
+script = ExtResource("31_hvfd8")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="TitleMenu"]
+position = Vector2(549, 238)
+scale = Vector2(2.35994, 2.3533)
+sprite_frames = ExtResource("14_7765v")
+script = ExtResource("31_hvfd8")
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="TitleMenu"]
+modulate = Color(0, 0, 0, 0.439216)
+position = Vector2(493, 287)
+scale = Vector2(2.35994, 2.3533)
+sprite_frames = ExtResource("15_y375d")
+script = ExtResource("31_hvfd8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TitleMenu"]
+position = Vector2(505, 286)
+scale = Vector2(2.35994, 2.3533)
+sprite_frames = ExtResource("15_y375d")
+script = ExtResource("31_hvfd8")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="TitleMenu"]
+modulate = Color(0, 0, 0, 0.47451)
+position = Vector2(63, 243)
+rotation = 3.14159
+scale = Vector2(2.36, -2.353)
+sprite_frames = ExtResource("16_vji77")
+script = ExtResource("31_hvfd8")
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="TitleMenu"]
+position = Vector2(53, 239)
+rotation = 3.14159
+scale = Vector2(2.36, -2.353)
+sprite_frames = ExtResource("16_vji77")
+script = ExtResource("31_hvfd8")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="TitleMenu"]
+modulate = Color(0, 0, 0, 0.486275)
+position = Vector2(142, 295)
+scale = Vector2(-1.99713, 1.9912)
+sprite_frames = ExtResource("17_af6em")
+script = ExtResource("31_hvfd8")
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="TitleMenu"]
+position = Vector2(134, 293)
+scale = Vector2(-1.99713, 1.9912)
+sprite_frames = ExtResource("17_af6em")
+script = ExtResource("31_hvfd8")
 
 [node name="Gameplay Select Screen" type="Control" parent="."]
 visible = false
