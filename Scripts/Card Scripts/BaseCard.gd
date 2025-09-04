@@ -25,7 +25,7 @@ func initialize():
 
 ##_effect will select the appropriate effect for each card type, and carry them out using [member Card.Value]
 func _effect(target:Character):
-	if burn_check()==true:
+	if burn_check()==true&&!(card_type==Card.CARD_TYPE.HEAL&&owner_character.health==owner_character.max_health):
 		owner_character.deduct_ap(ap)
 		card_delete()
 		return
