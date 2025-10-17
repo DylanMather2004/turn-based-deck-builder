@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://djxutphtxguqu"]
+[gd_scene load_steps=45 format=3 uid="uid://djxutphtxguqu"]
 
 [ext_resource type="Texture2D" uid="uid://crnt2cbd5ugs4" path="res://Sprites/Fight Button.png" id="1_bldvy"]
 [ext_resource type="Script" path="res://Scenes/MainMenuManager.gd" id="1_dv1vn"]
@@ -36,6 +36,7 @@
 [ext_resource type="Resource" uid="uid://blyrptpbsnniw" path="res://Characters/Mole.tres" id="21_njttn"]
 [ext_resource type="Resource" uid="uid://d0nm1v1tjnk0g" path="res://Characters/DJYella.tres" id="24_4m66r"]
 [ext_resource type="Texture2D" uid="uid://cd1xp2hgj86h8" path="res://Sprites/Balla Battle text.png" id="28_yivo6"]
+[ext_resource type="Resource" uid="uid://tqdpk3crc7be" path="res://Characters/Pinchy.tres" id="30_nd2pq"]
 [ext_resource type="Script" path="res://Scripts/Bonus Scripts/CreditsSprite.gd" id="31_hvfd8"]
 [ext_resource type="SpriteFrames" uid="uid://6bo620acgp5j" path="res://Sprites/Character Sprites/Fishy Biz.tres" id="32_eclqp"]
 [ext_resource type="SpriteFrames" uid="uid://denmt5mm7yv0t" path="res://Sprites/BallaGames.tres" id="34_qyufk"]
@@ -308,7 +309,7 @@ offset_top = 30.0
 offset_right = 307.0
 offset_bottom = 353.0
 script = ExtResource("7_fi60y")
-enemies = Array[ExtResource("8_imjai")]([ExtResource("21_njttn"), ExtResource("8_r5t2j"), ExtResource("11_btj0c"), ExtResource("24_4m66r")])
+enemies = Array[ExtResource("8_imjai")]([ExtResource("21_njttn"), ExtResource("8_r5t2j"), ExtResource("11_btj0c"), ExtResource("24_4m66r"), ExtResource("30_nd2pq")])
 button_prefab = ExtResource("7_fbbau")
 menu_panel = NodePath("VBoxContainer")
 sprite = NodePath("Enemy Panel/AnimatedSprite2D")

@@ -55,6 +55,9 @@ func _effect(target:Character):
 			
 		Card.CARD_TYPE.BURN:
 			target.burn(value)
+		
+		Card.CARD_TYPE.STICKY:
+			target.deduct_ap(value)
 			
 	if card_type!=Card.CARD_TYPE.SACRIFICE:
 		owner_character.deduct_ap(ap)

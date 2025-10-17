@@ -9,7 +9,7 @@ extends Resource
 @export var card_art:Texture2D
 @export_category("Stats")
 
-enum CARD_TYPE {ATTACK,HEAL,OVERSHIELD,POISON,SACRIFICE,BURN}
+enum CARD_TYPE {ATTACK,HEAL,OVERSHIELD,POISON,SACRIFICE,BURN,STICKY}
 ##{card_type} determines the type of card, and the logic that should be used when 
 @export var card_type:CARD_TYPE
 ##[member Card.value] determines the strength of the effect.[br]

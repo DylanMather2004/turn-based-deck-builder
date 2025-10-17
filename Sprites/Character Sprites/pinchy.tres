@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://lu3bo4qpfsfw"]
+
+[ext_resource type="Texture2D" uid="uid://d1gwaxdn1jmah" path="res://Sprites/Character Sprites/Pinchy-Sheet.png" id="1_o7mb7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aabax"]
+atlas = ExtResource("1_o7mb7")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejxs7"]
+atlas = ExtResource("1_o7mb7")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4g61"]
+atlas = ExtResource("1_o7mb7")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmht2"]
+atlas = ExtResource("1_o7mb7")
+region = Rect2(384, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aabax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejxs7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4g61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmht2")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}]

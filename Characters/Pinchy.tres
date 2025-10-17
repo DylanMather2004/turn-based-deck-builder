@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CharacterTemplate" load_steps=9 format=3 uid="uid://tqdpk3crc7be"]
+
+[ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="1_wxq4p"]
+[ext_resource type="Script" path="res://Characters/CharacterTemplate.gd" id="2_cdkrc"]
+[ext_resource type="Resource" uid="uid://dtwexo6ex60ky" path="res://Cards/Sticky Cards/Sticky Gum.tres" id="2_l1yol"]
+[ext_resource type="Resource" uid="uid://dnk3wbyf3vkiy" path="res://Cards/Attack Cards/Pinch.tres" id="3_851ov"]
+[ext_resource type="Resource" uid="uid://ds8271p5cdihl" path="res://Cards/Shield Cards/Bubble Shield.tres" id="4_mg181"]
+[ext_resource type="Resource" uid="uid://qoywkxvppsxg" path="res://Cards/Attack Cards/Punch.tres" id="5_1gi81"]
+[ext_resource type="Texture2D" uid="uid://bnkgwwqmjvknt" path="res://Sprites/Icons/Pinchy-Icon.png" id="6_8kix4"]
+[ext_resource type="SpriteFrames" uid="uid://lu3bo4qpfsfw" path="res://Sprites/Character Sprites/pinchy.tres" id="8_ar7wp"]
+
+[resource]
+script = ExtResource("2_cdkrc")
+character_name = "Pinchy"
+sprite_sheet = ExtResource("8_ar7wp")
+icon = ExtResource("6_8kix4")
+health = 100
+ap = 30
+deck = Array[ExtResource("1_wxq4p")]([ExtResource("2_l1yol"), ExtResource("3_851ov"), ExtResource("4_mg181"), ExtResource("5_1gi81")])
+reward_cards = Array[ExtResource("1_wxq4p")]([ExtResource("2_l1yol"), ExtResource("4_mg181"), ExtResource("3_851ov")])

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dnk3wbyf3vkiy"]
+
+[ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="1_3rrhf"]
+[ext_resource type="Texture2D" uid="uid://dq0urijfuw4t7" path="res://Sprites/Card Sprites/Attack Cards/Pincher.png" id="1_i5atv"]
+
+[resource]
+script = ExtResource("1_3rrhf")
+card_name = "Pinch"
+card_art = ExtResource("1_i5atv")
+card_type = 0
+value = 13
+ap_cost = 6
