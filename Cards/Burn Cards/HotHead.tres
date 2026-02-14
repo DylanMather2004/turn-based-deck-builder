@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://byr8ei4nvs8lj"]
+
+[ext_resource type="Texture2D" uid="uid://dcbyi244lpfr4" path="res://Sprites/Card Sprites/Burn Cards/Hot Head.png" id="1_5sj1e"]
+[ext_resource type="Script" path="res://Scripts/Card Scripts/GenericCard.gd" id="1_lnf07"]
+
+[resource]
+script = ExtResource("1_lnf07")
+card_name = "Hot Head"
+card_art = ExtResource("1_5sj1e")
+card_type = 5
+value = 1
+ap_cost = 10

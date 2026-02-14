@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://djxutphtxguqu"]
+[gd_scene load_steps=45 format=3 uid="uid://djxutphtxguqu"]
 
 [ext_resource type="Texture2D" uid="uid://crnt2cbd5ugs4" path="res://Sprites/Fight Button.png" id="1_bldvy"]
 [ext_resource type="Script" path="res://Scenes/MainMenuManager.gd" id="1_dv1vn"]
@@ -17,20 +17,26 @@
 [ext_resource type="Script" path="res://Characters/CharacterTemplate.gd" id="8_imjai"]
 [ext_resource type="Resource" uid="uid://bu7u8pkobijiy" path="res://Characters/Bomba.tres" id="8_r5t2j"]
 [ext_resource type="Script" path="res://Scripts/UI Script/main_menu_button.gd" id="8_xbm44"]
-[ext_resource type="Resource" uid="uid://cww52qnsl656k" path="res://Characters/Balla.tres" id="9_komr2"]
 [ext_resource type="Texture2D" uid="uid://yk0swesin31y" path="res://Sprites/Quit.png" id="9_qcfsh"]
 [ext_resource type="Resource" uid="uid://x6aeaa7yrqw7" path="res://Characters/EggMage.tres" id="11_btj0c"]
 [ext_resource type="Texture2D" uid="uid://why4j78o0ygw" path="res://Sprites/white-square-32x32.png" id="12_abw1p"]
 [ext_resource type="Script" path="res://Scenes/TitleAnimationStarter.gd" id="13_n52ai"]
 [ext_resource type="SpriteFrames" uid="uid://bpbgijwrwa1iq" path="res://Sprites/Character Sprites/Lil Mole.tres" id="13_q5nw8"]
 [ext_resource type="Script" path="res://Scenes/sprite_funny.gd" id="14_6gr6b"]
+[ext_resource type="SpriteFrames" uid="uid://bn26fsq2pvqc2" path="res://Sprites/Character Sprites/DJ Yella.tres" id="14_7765v"]
 [ext_resource type="Texture2D" uid="uid://d181tckqwqt4d" path="res://Sprites/Icons/Health Icon.png" id="14_dwyu2"]
 [ext_resource type="Texture2D" uid="uid://bcu7awof8ab0g" path="res://Sprites/Credits.png" id="14_og54s"]
 [ext_resource type="Texture2D" uid="uid://blaavtlc76mnc" path="res://Sprites/Icons/AP_Icon.png" id="15_ftamg"]
+[ext_resource type="SpriteFrames" uid="uid://b8mnwaw3agreq" path="res://Sprites/Character Sprites/Balla.tres" id="15_y375d"]
+[ext_resource type="SpriteFrames" uid="uid://pbhenodpdhar" path="res://Sprites/Character Sprites/Egg_Mage.tres" id="16_vji77"]
+[ext_resource type="SpriteFrames" uid="uid://dngx2b23pf4j5" path="res://Sprites/Character Sprites/Bomba.tres" id="17_af6em"]
 [ext_resource type="Shader" path="res://Shaders/scrollBG.gdshader" id="19_mqyjr"]
 [ext_resource type="Texture2D" uid="uid://bluuwcnjknyl8" path="res://Sprites/Background Ballas.png" id="20_vq222"]
 [ext_resource type="WwiseBank" uid="uid://cslhmf20pf65p" path="res://Wwise/resources/SoundBank/{943A638A-6E86-455C-89F3-000BD676973B}.tres" id="21_gs4jw"]
+[ext_resource type="Resource" uid="uid://blyrptpbsnniw" path="res://Characters/Mole.tres" id="21_njttn"]
+[ext_resource type="Resource" uid="uid://d0nm1v1tjnk0g" path="res://Characters/DJYella.tres" id="24_4m66r"]
 [ext_resource type="Texture2D" uid="uid://cd1xp2hgj86h8" path="res://Sprites/Balla Battle text.png" id="28_yivo6"]
+[ext_resource type="Resource" uid="uid://tqdpk3crc7be" path="res://Characters/Pinchy.tres" id="30_nd2pq"]
 [ext_resource type="Script" path="res://Scripts/Bonus Scripts/CreditsSprite.gd" id="31_hvfd8"]
 [ext_resource type="SpriteFrames" uid="uid://6bo620acgp5j" path="res://Sprites/Character Sprites/Fishy Biz.tres" id="32_eclqp"]
 [ext_resource type="SpriteFrames" uid="uid://denmt5mm7yv0t" path="res://Sprites/BallaGames.tres" id="34_qyufk"]
@@ -110,7 +116,7 @@ game_mode_screen = NodePath("Gameplay Select Screen")
 enemy_select_menu = NodePath("EnemySelectMenu")
 settings_menu = NodePath("Settings Menu")
 credits_menu = NodePath("Credits Menu")
-starter_cards = Array[String](["res://Cards/Attack Cards/MoleMallet.tres", "res://Cards/Attack Cards/Punch.tres", "res://Cards/Shield Cards/NuhUh.tres", "res://Cards/Heal Cards/JamJar.tres"])
+starter_cards = Array[String](["res://Cards/Attack Cards/Dodgeball.tres", "res://Cards/Attack Cards/Punch.tres", "res://Cards/Shield Cards/NuhUh.tres", "res://Cards/Heal Cards/Juicy.tres"])
 music_event = ExtResource("2_15tm8")
 music_stop = ExtResource("3_e4rq7")
 combat_volume = ExtResource("3_5vsrh")
@@ -201,6 +207,60 @@ libraries = {
 }
 script = ExtResource("13_n52ai")
 
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="TitleMenu"]
+modulate = Color(0, 0, 0, 0.541176)
+position = Vector2(538, 234)
+scale = Vector2(2.35994, 2.3533)
+sprite_frames = ExtResource("14_7765v")
+script = ExtResource("31_hvfd8")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="TitleMenu"]
+position = Vector2(549, 238)
+scale = Vector2(2.35994, 2.3533)
+sprite_frames = ExtResource("14_7765v")
+script = ExtResource("31_hvfd8")
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="TitleMenu"]
+modulate = Color(0, 0, 0, 0.439216)
+position = Vector2(493, 287)
+scale = Vector2(2.35994, 2.3533)
+sprite_frames = ExtResource("15_y375d")
+script = ExtResource("31_hvfd8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TitleMenu"]
+position = Vector2(505, 286)
+scale = Vector2(2.35994, 2.3533)
+sprite_frames = ExtResource("15_y375d")
+script = ExtResource("31_hvfd8")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="TitleMenu"]
+modulate = Color(0, 0, 0, 0.47451)
+position = Vector2(63, 243)
+rotation = 3.14159
+scale = Vector2(2.36, -2.353)
+sprite_frames = ExtResource("16_vji77")
+script = ExtResource("31_hvfd8")
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="TitleMenu"]
+position = Vector2(53, 239)
+rotation = 3.14159
+scale = Vector2(2.36, -2.353)
+sprite_frames = ExtResource("16_vji77")
+script = ExtResource("31_hvfd8")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="TitleMenu"]
+modulate = Color(0, 0, 0, 0.486275)
+position = Vector2(142, 295)
+scale = Vector2(-1.99713, 1.9912)
+sprite_frames = ExtResource("17_af6em")
+script = ExtResource("31_hvfd8")
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="TitleMenu"]
+position = Vector2(134, 293)
+scale = Vector2(-1.99713, 1.9912)
+sprite_frames = ExtResource("17_af6em")
+script = ExtResource("31_hvfd8")
+
 [node name="Gameplay Select Screen" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -249,7 +309,7 @@ offset_top = 30.0
 offset_right = 307.0
 offset_bottom = 353.0
 script = ExtResource("7_fi60y")
-enemies = Array[ExtResource("8_imjai")]([ExtResource("9_komr2"), ExtResource("8_r5t2j"), ExtResource("11_btj0c")])
+enemies = Array[ExtResource("8_imjai")]([ExtResource("21_njttn"), ExtResource("8_r5t2j"), ExtResource("11_btj0c"), ExtResource("24_4m66r"), ExtResource("30_nd2pq")])
 button_prefab = ExtResource("7_fbbau")
 menu_panel = NodePath("VBoxContainer")
 sprite = NodePath("Enemy Panel/AnimatedSprite2D")

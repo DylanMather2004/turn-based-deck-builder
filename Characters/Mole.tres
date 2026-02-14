@@ -6,14 +6,15 @@
 [ext_resource type="Resource" uid="uid://uetbnpc0ib1v" path="res://Cards/Attack Cards/MoleMallet.tres" id="3_b511i"]
 [ext_resource type="Resource" uid="uid://cj5flo63obkon" path="res://Cards/Attack Cards/DrillHat.tres" id="4_o1orp"]
 [ext_resource type="Resource" uid="uid://yfvq6o6jkgpc" path="res://Cards/Heal Cards/JamJar.tres" id="5_pkvti"]
-[ext_resource type="Resource" uid="uid://mp3anqjhybd5" path="res://Cards/Shield Cards/NuhUh.tres" id="6_qciv8"]
+[ext_resource type="Texture2D" uid="uid://80xpis3r5ac0" path="res://Sprites/Icons/Mole_Icon.png" id="7_vdb3r"]
 [ext_resource type="SpriteFrames" uid="uid://bpbgijwrwa1iq" path="res://Sprites/Character Sprites/Lil Mole.tres" id="8_oe1pt"]
 
 [resource]
 script = ExtResource("2_8b7d8")
 character_name = "Mini Mole"
 sprite_sheet = ExtResource("8_oe1pt")
-health = 100
-ap = 30
-deck = Array[ExtResource("1_8i05m")]([ExtResource("2_s7el5"), ExtResource("2_s7el5"), ExtResource("2_s7el5"), ExtResource("3_b511i"), ExtResource("4_o1orp"), ExtResource("3_b511i"), ExtResource("3_b511i"), ExtResource("5_pkvti"), ExtResource("5_pkvti"), ExtResource("5_pkvti"), ExtResource("5_pkvti"), ExtResource("6_qciv8"), ExtResource("6_qciv8"), ExtResource("6_qciv8")])
-reward_cards = Array[ExtResource("1_8i05m")]([])
+icon = ExtResource("7_vdb3r")
+health = 80
+ap = 25
+deck = Array[ExtResource("1_8i05m")]([ExtResource("2_s7el5"), ExtResource("3_b511i"), ExtResource("4_o1orp"), ExtResource("5_pkvti"), ExtResource("3_b511i")])
+reward_cards = Array[ExtResource("1_8i05m")]([ExtResource("3_b511i"), ExtResource("4_o1orp"), ExtResource("5_pkvti")])

@@ -15,6 +15,7 @@ var character_resource:CharacterTemplate
 @export var hand_slot:Node2D
 @export var shield_icon_pref:PackedScene
 @export var poison_icon_ref:PackedScene
+@export var burn_icon_ref:PackedScene
 @export var camera_ref:Camera2D
 @export_category("Audio")
 @export var hurt_event:WwiseEvent
@@ -36,11 +37,15 @@ var overshield:int = 0
 var max_overshield:int = 3
 @export var shield_bar:HBoxContainer
 @export var poison_bar:HBoxContainer
+@export var burn_bar:HBoxContainer
 var shield_icons=[]
 var poison_icons=[]
+var burn_icons=[]
 #poison variables
 var poison_stacks:int = 0
 var poison_ticks:int = 0
+#burn variables
+var burn_stacks:=0 
 
 func _ready() -> void:
 	character_loader()
@@ -76,7 +81,7 @@ func draw_card():
 		new_card_node.card_to_load = card_to_draw
 		new_card_node.initialize()
 		new_card_node.owner_character = self
-		deck.remove_at(card_ID)
+		#deck.remove_at(card_ID)
 		hand.append(new_card_node)
 		place_card(new_card_node)
 		print(deck)
@@ -88,6 +93,18 @@ func draw_card():
 		print("Hand Full!")
 func place_card(card:Node2D):
 	get_tree().get_root().call_deferred("add_child",card)
+	
+func burn(stacks:int):
+	burn_stacks+=stacks
+	for i in range(stacks):
+		var new_icon = burn_icon_ref.instantiate()
+		burn_bar.add_child(new_icon)
+		burn_icons.append(new_icon)
+func clear_burn():
+	burn_stacks-=1
+	burn_icons[burn_icons.size()-1].queue_free()
+	burn_icons.remove_at(burn_icons.size()-1)
+	
 func damage(change):
 	camera_ref.start_shake(change)
 	if overshield == 0:
@@ -110,7 +127,7 @@ func damage(change):
 		effect_animator.play("block")
 		shield_event.post(self)
 func poison_damage():
-	health -=poison_stacks*3
+	health -=poison_stacks*2
 	health=clamp(health,0,max_health)
 	health_text.text="HP:"+str(health)
 	healthbar.value=health

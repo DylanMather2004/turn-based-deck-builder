@@ -99,21 +99,28 @@ texture = ExtResource("3_hwm8h")
 
 [node name="ValueText" type="RichTextLabel" parent="Sprite2D"]
 offset_left = -10.0
-offset_top = 8.0
+offset_top = 13.0
 offset_right = 30.0
-offset_bottom = 48.0
+offset_bottom = 53.0
+theme_override_constants/outline_size = 14
+text = "10"
 
 [node name="APText" type="RichTextLabel" parent="Sprite2D"]
 offset_left = -10.0
 offset_top = 26.0
 offset_right = 30.0
 offset_bottom = 66.0
+theme_override_constants/outline_size = 15
+text = "20"
 
 [node name="NameText" type="Label" parent="Sprite2D"]
 offset_left = -31.0
 offset_top = -3.0
 offset_right = 28.0
 offset_bottom = 20.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 28
 theme_override_font_sizes/font_size = 12
 text = "Dodgeball"
 horizontal_alignment = 1

@@ -8,5 +8,5 @@ script = ExtResource("1_84cew")
 card_name = "Drill Hat"
 card_art = ExtResource("1_ugt78")
 card_type = 0
-value = 25
-ap_cost = 15
+value = 10
+ap_cost = 5
